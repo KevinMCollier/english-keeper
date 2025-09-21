@@ -27,9 +27,9 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <nav className="hidden md:flex items-center space-x-6 text-off-white">
-          <a href="#FeedbackLoop" className="hover:text-copper-rust transition">
+          <a href="#Services" className="hover:text-copper-rust transition">
             {/* prefer new key, fall back to old if present, then to literal */}
-            {t('feedbackLoop', { defaultValue: t('coachCall', { defaultValue: 'Feedback Loop' }) })}
+            {t('services', { defaultValue: t('coachCall', { defaultValue: 'Feedback Loop' }) })}
           </a>
           <a href="#about" className="hover:text-copper-rust transition">
             {t('about')}

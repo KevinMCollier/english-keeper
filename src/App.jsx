@@ -4,10 +4,7 @@ import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import Painpoints from "./components/Painpoints"
-import FeedbackLoop from "./components/FeedbackLoop";
-import FeedbackLoopDetails from "./components/FeedbackLoopDetails";
 import HowIHelp from "./components/HowIHelp";
-import StatsGrid from "./components/StatsGrid";
 
 function App() {
 
@@ -17,10 +14,7 @@ function App() {
         <Navbar />
         <Banner />
         <Painpoints />
-        <StatsGrid />
         <HowIHelp />
-        <FeedbackLoop />
-        <FeedbackLoopDetails />
         <About />
         <Contact />
         <Footer />

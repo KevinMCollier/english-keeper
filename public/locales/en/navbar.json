@@ -1,9 +1,8 @@
 {
-  "brand": "Collier Consulting",
+  "brand": "The English Keeper",
   "location": "Tokyo, JP",
-  "feedbackLoop": "The Feedback Loop",
+  "services": "Services",
   "about": "About",
   "contact": "Contact Me",
-  "aboutKevin": "About Kevin",
-  "aboutParagraph1": "With an MBA from the University of Arizona and 11 years …"
+  "aboutKevin": "About Kevin"
 }
