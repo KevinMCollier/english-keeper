@@ -7,7 +7,7 @@ export default function Navbar() {
   const { t } = useTranslation('navbar');
 
   return (
-    <header className="bg-midnight-navy sticky top-0 z-20">
+    <header className="bg-orange sticky top-0 z-20">
       <div className="container mx-auto px-5 py-4 flex items-center">
         {/* ---- Brand ---- */}
         <a

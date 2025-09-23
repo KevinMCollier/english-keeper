@@ -1,0 +1,12 @@
+{
+  "heading": "Services & Pricing",
+  "items": [
+    { "key": "inperson", "title": "1:1 In-Person (50 min)", "price": "¥5,000", "desc": "Personalized coaching for your goals: <strong>conversation, meetings, presentation practice</strong> near Magome." },
+    { "key": "online40", "title": "1:1 Online (40 min)", "price": "¥3,000", "desc": "Focused sessions for busy schedules. Improve speaking confidence and <strong>business email & meeting language</strong>." },
+    { "key": "online25", "title": "1:1 Online (25 min)", "price": "¥2,000", "desc": "Short, consistent practice. Perfect for <strong>daily speaking reps</strong> and vocabulary refresh." },
+    { "key": "group", "title": "Group (in-person, 60 min, up to 8)", "price": "¥2,000 / person", "desc": "A friendly conversation group with light correction and <strong>useful business topics</strong>." , "note": "Pilot class: ask about schedule & venue (Magome/Ota-ku)."}
+  ],
+  "ctaLine": "Ready to book?",
+  "policy": "Bookings and cancellations require 24-hour notice. Payment via PayPay / bank transfer / cash.",
+  "corpHint": "For company training or team workshops, please contact me directly (pricing varies)."
+}

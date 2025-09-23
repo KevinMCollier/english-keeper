@@ -25,11 +25,11 @@ export default function ContactSplit() {
       <div className="mx-auto max-w-7xl px-6 lg:px-12 py-20 lg:py-24 flex flex-col md:flex-row md:items-start md:justify-center gap-10 md:gap-14">
 
         {/* ---------- LEFT : headline ---------- */}
-        <h2 className="flex-none max-w-md font-mont font-black text-midnight-navy text-2xl sm:text-3xl leading-tight break-words">
+        <h2 className="flex-none max-w-md font-mont font-black text-black text-2xl sm:text-3xl leading-tight break-words">
           <Trans
             i18nKey="heading"
             t={t}
-            components={{ 1: <span className="text-copper-rust" /> }}
+            components={{ 1: <span className="text-black" /> }}
           />
         </h2>
 
@@ -39,37 +39,26 @@ export default function ContactSplit() {
           <button
             onClick={openCalendly}
             className={btn(
-              'bg-copper-rust text-off-white',
-              'hover:bg-copper-rust/90'
+              'bg-lemon',
+              'hover:bg-lemon/90'
             )}
           >
             {t('cta.call')}
           </button>
-          {/* Join List */}
-          <button
-            onClick={() => setOpenSignup(true)}
-            className={btn(
-              'border bg-midnight-navy text-off-white',
-              'hover:bg-midnight-navy/80'
-            )}
-          >
-            {t('cta.join')}
-          </button>
-
 
           {/* Inquiry */}
           <button
             onClick={() => setOpenInquiry(true)}
             className={btn(
-              'border border-graphite text-graphite',
-              'hover:bg-graphite hover:text-off-white'
+              'bg-caramel',
+              'hover:bg-caramel/90'
             )}
           >
             {t('cta.inquiry')}
           </button>
 
           {/* Pre-launch note */}
-          <p className="text-xs text-graphite leading-snug pt-2 break-words">
+          <p className="text-xs text-black leading-snug pt-2 break-words">
             <Trans
               i18nKey="note"
               t={t}
@@ -82,7 +71,7 @@ export default function ContactSplit() {
       {/* =============== HERO IMAGE =============== */}
       <div className="h-40 sm:h-56 lg:h-64 overflow-hidden">
         <img
-          src="/arizona-canyon-paul-van-cotthem.jpg"
+          src="/arizona1.jpg"
           alt={t('imageAlt')}
           className="h-full w-full object-cover object-center"
           loading="lazy"

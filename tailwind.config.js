@@ -7,14 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        'midnight-navy': '#0F1A3C',
-        'off-white':     '#F8F9FC',
-        'stone-grey':    '#E2E6EE',
-        'graphite':      '#54607A',
-        'copper-rust':   '#C46446',
-        'sea-mist':      '#8ECAC1',
-        'sunlit-sand':   '#DFD9C7',
-        'coach-blue':    '#79d4ed',
+        'orange':       '#ea6f29',
+        'caramel':      '#C7883B',
+        'lemon':        '#F5D58A',
+        'off-white':    '#FDFCF7',
+        'creme':        '#FFF9F0'
       },
 
       /* —— add this block —— */

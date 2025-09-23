@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import Painpoints from "./components/Painpoints"
-import HowIHelp from "./components/HowIHelp";
+import HowIHelp from "./components/Services";
 
 function App() {
 

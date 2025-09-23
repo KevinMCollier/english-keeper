@@ -26,18 +26,17 @@ export default function Banner() {
 
 
   return (
-    <section id="banner" className="bg-midnight-navy h-screen pt-28 md:pt-0">
+    <section id="banner" className="bg-creme h-screen pt-28 md:pt-0">
       <div className="container mx-auto flex px-10 lg:py-20 md:flex-row flex-col items-center">
         <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start text-center md:text-left mb-10 md:mb-0">
 
           {/* === HEADLINE === */}
-          <h1 className="font-mont font-bold text-off-white text-6xl sm:text-8xl tracking-tight">
-            <span className="text-sea-mist">Growth</span> begins with your&nbsp;
-            <span className="text-copper-rust">people</span>
+          <h1 className="font-mont font-bold text-caramel text-6xl sm:text-8xl tracking-tight">
+            <span className="text-orange">Color</span> Test Test Test&nbsp;
           </h1>
 
           {/* === TAGLINE === */}
-          <h2 className="mt-6 max-w-3xl text-xl text-off-white/90">
+          <h2 className="mt-6 max-w-3xl text-xl text-caramel">
             {t('tagline', { defaultValue: t('sub', { defaultValue: '' }) })}
           </h2>
 
@@ -46,29 +45,11 @@ export default function Banner() {
             {/* Book Call (primary) */}
             <button
               onClick={openCalendly}
-              className={btn('bg-copper-rust text-off-white', 'hover:bg-copper-rust/90')}
+              className={btn('bg-orange text-off-white', 'hover:bg-copper-rust/90')}
             >
               {tc('cta.call')}
             </button>
           </div>
-
-          <p className="mt-5 text-sm text-off-white/70">
-          <a
-            href="#FeedbackLoop"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('FeedbackLoop')?.scrollIntoView({
-                behavior: 'smooth', block: 'start'
-              });
-            }}
-            className="underline underline-offset-4 hover:text-off-white"
-          >
-            {t('offering', {
-              defaultValue: 'Want lasting change? Discover The Feedback Loop.',
-            })}
-          </a>
-        </p>
-
         </div>
       </div>
 
