@@ -16,7 +16,8 @@ export default {
 
       /* —— add this block —— */
       fontFamily: {
-        mont: ['Montserrat', 'sans-serif'],
+        display: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        body: ['"Source Sans 3"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
     },
   },

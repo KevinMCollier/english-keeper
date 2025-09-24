@@ -32,11 +32,11 @@ export default function Banner() {
 
           {/* === HEADLINE === */}
           <h1 className="font-mont font-bold text-caramel text-6xl sm:text-8xl tracking-tight">
-            <span className="text-orange">Color</span> Test Test Test&nbsp;
+            Learn. Connect. Keep Growing.
           </h1>
 
           {/* === TAGLINE === */}
-          <h2 className="mt-6 max-w-3xl text-xl text-caramel">
+          <h2 className="mt-6 max-w-3xl text-xl font-bold text-black">
             {t('tagline', { defaultValue: t('sub', { defaultValue: '' }) })}
           </h2>
 
