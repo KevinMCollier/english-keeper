@@ -1,0 +1,33 @@
+{
+  "heading": "Recommended Topics",
+  "sub": "Don’t see a topic you’re interested in? No problem — sessions are flexible and can cover other areas too.",
+  "items": [
+    {
+      "key": "business",
+      "emoji": "🏢",
+      "title": "Business & Professional English",
+      "desc": "Meetings, presentations, and workplace communication. Build confidence and clarity."
+    },
+    {
+      "key": "tech",
+      "emoji": "💻",
+      "title": "English for Tech & Startups",
+      "desc": "Discuss projects, features, and teamwork. Perfect for engineers and product teams."
+    },
+    {
+      "key": "travel",
+      "emoji": "🗺️",
+      "title": "Travel & Everyday English",
+      "desc": "Practical conversations for trips and daily life. Get comfortable speaking naturally."
+    },
+    {
+      "key": "culture",
+      "emoji": "📚",
+      "title": "English for Literature & Culture",
+      "desc": "Explore books, films, and pop culture to grow vocabulary and <0>express yourself</0>."
+    }
+  ],
+  "ctaLine": "Not sure which to pick?",
+  "cta.toServices": "See session types & prices",
+  "note": "All sessions are customized to your goals and interests."
+}

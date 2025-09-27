@@ -4,7 +4,9 @@ import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import Intro from "./components/Intro"
-import HowIHelp from "./components/Services";
+import Services from "./components/Services";
+import SpecializedTopics from "./components/SpecializedTopics";
+
 
 function App() {
 
@@ -14,7 +16,8 @@ function App() {
         <Navbar />
         <Banner />
         <Intro />
-        <HowIHelp />
+        <Services />
+        <SpecializedTopics />
         <About />
         <Contact />
         <Footer />

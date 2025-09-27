@@ -1,12 +1,43 @@
 {
-  "heading": "Services & Pricing",
+  "heading": "Sessions & Pricing",
+
   "items": [
-    { "key": "inperson", "title": "1:1 In-Person (50 min)", "price": "¥5,000", "desc": "Personalized coaching for your goals: <strong>conversation, meetings, presentation practice</strong> near Magome." },
-    { "key": "online40", "title": "1:1 Online (40 min)", "price": "¥3,000", "desc": "Focused sessions for busy schedules. Improve speaking confidence and <strong>business email & meeting language</strong>." },
-    { "key": "online25", "title": "1:1 Online (25 min)", "price": "¥2,000", "desc": "Short, consistent practice. Perfect for <strong>daily speaking reps</strong> and vocabulary refresh." },
-    { "key": "group", "title": "Group (in-person, 60 min, up to 8)", "price": "¥2,000 / person", "desc": "A friendly conversation group with light correction and <strong>useful business topics</strong>." , "note": "Pilot class: ask about schedule & venue (Magome/Ota-ku)."}
+    {
+      "key": "inperson",
+      "title": "1:1 In-Person (50 min)",
+      "price": "¥6,000",
+      "desc": "Personalized for your goals. Great for focused speaking practice and feedback."
+    },
+    {
+      "key": "online50",
+      "title": "1:1 Online (50 min)",
+      "price": "¥4,000",
+      "desc": "Convenient sessions from anywhere. Flexible scheduling."
+    },
+    {
+      "key": "group80",
+      "title": "Group (80 min, up to 8)",
+      "price": "¥3,200 / person",
+      "desc": "Learn together in a friendly setting."
+    },
+    {
+      "key": "corporate",
+      "title": "Corporate Training",
+      "price": "",
+      "desc": "For coporate training and team workshops, visit Collier Consulting."
+    }
   ],
+
+  "packagesHeading": "Package Plans",
+  "packagesSub": "Save with multi-session bundles.",
+  "packages": [
+    { "key": "pack_inperson4", "title": "In-Person 4-Pack (4 × 50 min)", "price": "¥22,000", "note": "Save ¥2,000 vs single sessions." },
+    { "key": "pack_online4",  "title": "Online 4-Pack (4 × 50 min)",   "price": "¥14,000", "note": "Save ¥2,000 vs single sessions." }
+  ],
+
+  "studentBadge": "学生割引: 10% OFF（学生証提示）",
   "ctaLine": "Ready to book?",
   "policy": "Bookings and cancellations require 24-hour notice. Payment via PayPay / bank transfer / cash.",
-  "corpHint": "For company training or team workshops, please contact me directly (pricing varies)."
+  "corpHint": "For company training or team workshops, please contact me directly (pricing varies).",
+  "consultingHint": "Looking for broader HR, management, or career support? Visit <0>Collier Consulting</0>."
 }

@@ -14,8 +14,8 @@ export default {
         'creme':        '#FFF9F0'
       },
 
-      /* —— add this block —— */
       fontFamily: {
+        brand: ['"Luckiest Guy"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         display: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         body: ['"Source Sans 3"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },

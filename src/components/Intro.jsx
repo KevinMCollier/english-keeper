@@ -17,14 +17,16 @@ export default function IntroAlt() {
   const viewport = { once: false, amount: 0.3 };
 
   return (
-    <section id="intro" className="border-t border-white/10 bg-creme text-midnight-navy">
+    <section id="intro" className="border-t border-white/10 bg-creme text-midnight-navy font-body">
       <div className="container mx-auto px-5 py-16 space-y-20">
-        {/* Block 1: Lead + Personas (text left, image right) */}
-        <div className="grid gap-10 md:grid-cols-2 md:items-center">
+
+        {/* Block 1: Lead + Personas (text left / image right) */}
+        <div className="grid gap-10 md:[grid-template-columns:3fr_2fr] md:items-center">
           <div>
-            <h2 className="font-mont font-bold text-3xl sm:text-4xl md:text-5xl tracking-tight mb-6">
+            <h2 className="font-display font-extrabold text-3xl sm:text-4xl tracking-tight mb-6">
               {t('lead')}
             </h2>
+
             <ul className="space-y-3">
               {personas.map((_, i) => (
                 <motion.li
@@ -38,7 +40,11 @@ export default function IntroAlt() {
                 >
                   <span aria-hidden className="mt-2 h-2 w-2 shrink-0 rounded-full bg-copper-rust" />
                   <p className="text-base sm:text-lg leading-relaxed">
-                    <Trans i18nKey={`personas.${i}`} ns="intro" components={{ strong: <strong className="font-bold" /> }} />
+                    <Trans
+                      i18nKey={`personas.${i}`}
+                      ns="intro"
+                      components={{ strong: <strong className="font-semibold" /> }}
+                    />
                   </p>
                 </motion.li>
               ))}
@@ -51,17 +57,18 @@ export default function IntroAlt() {
           </div>
         </div>
 
-        {/* Block 2: Benefits (text right, image left) */}
-        <div className="grid gap-10 md:grid-cols-2 md:items-center">
+        {/* Block 2: Benefits (image left / text right) */}
+        <div className="grid gap-10 md:[grid-template-columns:2fr_3fr] md:items-center">
           {/* Placeholder image */}
           <div className="order-2 md:order-1 h-64 md:h-80 bg-gray-200 rounded-xl flex items-center justify-center text-graphite/70">
             [ Image here ]
           </div>
 
           <div className="order-1 md:order-2">
-            <h3 className="font-mont font-bold text-3xl sm:text-4xl tracking-tight mb-6">
+            <h3 className="font-display font-extrabold text-3xl sm:text-4xl tracking-tight mb-6">
               {t('headingSecondary')}
             </h3>
+
             <ul className="space-y-3">
               {benefits.map((_, i) => (
                 <motion.li
@@ -75,13 +82,18 @@ export default function IntroAlt() {
                 >
                   <span aria-hidden className="mt-2 h-2 w-2 shrink-0 rounded-full bg-copper-rust" />
                   <p className="text-base sm:text-lg leading-relaxed">
-                    <Trans i18nKey={`benefits.${i}`} ns="intro" components={{ strong: <strong className="font-bold" /> }} />
+                    <Trans
+                      i18nKey={`benefits.${i}`}
+                      ns="intro"
+                      components={{ strong: <strong className="font-semibold" /> }}
+                    />
                   </p>
                 </motion.li>
               ))}
             </ul>
           </div>
         </div>
+
       </div>
     </section>
   );
