@@ -53,7 +53,12 @@ export default function IntroAlt() {
 
           {/* Placeholder image */}
           <div className="h-64 md:h-80 bg-gray-200 rounded-xl flex items-center justify-center text-graphite/70">
-            [ Image here ]
+            <img
+              src="/convo.jpg"
+              alt={t('imageAlt')}
+              className="h-full w-full object-cover object-center"
+              loading="lazy"
+            />
           </div>
         </div>
 
@@ -61,7 +66,12 @@ export default function IntroAlt() {
         <div className="grid gap-10 md:[grid-template-columns:2fr_3fr] md:items-center">
           {/* Placeholder image */}
           <div className="order-2 md:order-1 h-64 md:h-80 bg-gray-200 rounded-xl flex items-center justify-center text-graphite/70">
-            [ Image here ]
+            <img
+              src="/office.jpg"
+              alt={t('imageAlt')}
+              className="h-full w-full object-cover object-center"
+              loading="lazy"
+            />
           </div>
 
           <div className="order-1 md:order-2">

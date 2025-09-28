@@ -71,7 +71,7 @@ export default function ContactSplit() {
       {/* =============== HERO IMAGE =============== */}
       <div className="h-40 sm:h-56 lg:h-64 overflow-hidden">
         <img
-          src="/arizona1.jpg"
+          src="/plant.jpg"
           alt={t('imageAlt')}
           className="h-full w-full object-cover object-center"
           loading="lazy"
