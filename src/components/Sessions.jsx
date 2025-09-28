@@ -1,17 +1,17 @@
 import { useTranslation } from 'react-i18next';
 import ServiceButton from './ServiceButton';
 
-export default function Services() {
-  const { t } = useTranslation('services');
+export default function Sessions() {
+  const { t } = useTranslation('sessions');
 
   const items           = (t('items', { returnObjects: true }) || []).filter(i => i.key !== 'corporate'); // remove from table
-  const packages        = t('packages', { returnObjects: true }) || [];
-  const packagesHeading = t('packagesHeading', { defaultValue: '' });
-  const packagesSub     = t('packagesSub', { defaultValue: '' });
+  // const packages        = t('packages', { returnObjects: true }) || [];
+  // const packagesHeading = t('packagesHeading', { defaultValue: '' });
+  // const packagesSub     = t('packagesSub', { defaultValue: '' });
   const studentBadge    = t('studentBadge', { defaultValue: '' });
 
   return (
-    <section id="services" className="bg-creme py-16 sm:py-20 font-body">
+    <section id="sessions" className="bg-creme py-16 sm:py-20 font-body">
       <div className="mx-auto w-full max-w-3xl px-5">
         <h2 className="font-display font-bold text-copper-rust text-2xl sm:text-3xl mb-3">
           {t('heading')}
@@ -75,10 +75,10 @@ export default function Services() {
 
           {/* Global notes under the table */}
           <div className="mt-4 space-y-1 text-xs text-graphite/80">
-            <p>Prices include session fee, post-session learning summary, and venue/transportation cost.</p>
+            <p>※ Prices include session fee, post-session learning summary, and venue/transportation cost.</p>
             <p>※ In-person & group sessions available within limited locations. Contact for more details.</p>
             <p>
-              Cancellation policy: Free up to <strong>48 hours</strong> before; <strong>24–48 hours</strong> = 50% fee;{' '}
+              <strong>Cancellation policy</strong>: Free up to <strong>48 hours</strong> before; <strong>24–48 hours</strong> = 50% fee;{' '}
               <strong>within 24 hours</strong> = 100% fee. Rescheduling allowed up to <strong>24 hours</strong> before start.
             </p>
           </div>
@@ -98,7 +98,7 @@ export default function Services() {
           </a>.
         </div>
 
-        {/* PACKAGES */}
+        {/* PACKAGES
         {packages.length > 0 && (
           <div className="mt-10">
             {packagesHeading && (
@@ -136,7 +136,7 @@ export default function Services() {
               </div>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </section>
   );

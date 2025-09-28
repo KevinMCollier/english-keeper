@@ -29,8 +29,8 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <nav className="hidden md:flex items-center gap-6 text-off-white">
-          <a href="#Services" className="hover:underline underline-offset-4">
-            {t('services', { defaultValue: t('coachCall', { defaultValue: 'Feedback Loop' }) })}
+          <a href="#sessions" className="hover:underline underline-offset-4">
+            {t('sessions')}
           </a>
           <a href="#about" className="hover:underline underline-offset-4">
             {t('about')}
