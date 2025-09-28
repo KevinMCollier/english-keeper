@@ -7,11 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        'orange':       '#ea6f29',
-        'caramel':      '#C7883B',
-        'lemon':        '#F5D58A',
-        'off-white':    '#FDFCF7',
-        'creme':        '#FFF9F0'
+        'orange':         '#ea6f29',
+        'caramel':        '#C7883B',
+        'lemon':          '#F5D58A',
+        'off-white':      '#FDFCF7',
+        'creme':          '#FFF9F0',
+        'midnight-navy':  '#2C3E50',
       },
 
       fontFamily: {

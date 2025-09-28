@@ -2,16 +2,19 @@
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-export default function ScheduleButton({ variant = 'solid', className = '', onBeforeOpen }) {
+export default function ScheduleButton({
+  variant = 'solid',
+  className = '',
+  onBeforeOpen,
+  url
+}) {
   const { t } = useTranslation('contact');
 
   const openCalendly = () => {
     if (typeof onBeforeOpen === 'function') onBeforeOpen();
 
-    if (window?.Calendly?.initPopupWidget) {
-      window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/kevin-collier-consulting/30min',
-      });
+    if (window?.Calendly?.initPopupWidget && url) {
+      window.Calendly.initPopupWidget({ url });
     } else {
       document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
     }
@@ -34,5 +37,6 @@ export default function ScheduleButton({ variant = 'solid', className = '', onBe
 ScheduleButton.propTypes = {
   variant: PropTypes.oneOf(['solid', 'outline']),
   className: PropTypes.string,
-  onBeforeOpen: PropTypes.func, // optional hook (e.g., to close mobile menu)
+  onBeforeOpen: PropTypes.func, // optional hook
+  url: PropTypes.string.isRequired, // new!
 };

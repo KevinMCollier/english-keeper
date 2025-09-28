@@ -9,7 +9,7 @@ export default function SpecializedTopics() {
       <div className="container mx-auto px-5">
         {/* Heading + sub */}
         <div className="mb-10">
-          <h2 className="font-display font-extrabold text-midnight-navy text-3xl sm:text-5xl">
+          <h2 className="font-display font-extrabold text-caramel text-xl sm:text-3xl">
             {t('heading')}
           </h2>
           {t('sub') && (

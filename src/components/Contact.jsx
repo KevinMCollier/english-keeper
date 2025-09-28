@@ -15,7 +15,7 @@ export default function ContactSplit() {
 
   const openCalendly = () => {
     window.Calendly.initPopupWidget({
-      url: 'https://calendly.com/kevin-collier-consulting/30min',
+      url: 'https://calendly.com/collier-consulting/',
     });
   };
 

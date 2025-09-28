@@ -4,40 +4,52 @@
   "items": [
     {
       "key": "inperson",
-      "title": "1:1 In-Person (50 min)",
+      "title": "1:1 In-Person",
+      "duration": "50 min",
       "price": "¥6,000",
-      "desc": "Personalized for your goals. Great for focused speaking practice and feedback."
+      "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-in-person"
     },
     {
       "key": "online50",
-      "title": "1:1 Online (50 min)",
+      "title": "1:1 Online",
+      "duration": "50 min",
       "price": "¥4,000",
-      "desc": "Convenient sessions from anywhere. Flexible scheduling."
+      "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-online"
     },
     {
       "key": "group80",
-      "title": "Group (80 min, up to 8)",
+      "title": "Group (Max 8)",
+      "duration": "80 min",
       "price": "¥3,200 / person",
-      "desc": "Learn together in a friendly setting."
+      "url": "https://calendly.com/collier-consulting/english-with-kevin-group-session"
     },
     {
-      "key": "corporate",
-      "title": "Corporate Training",
-      "price": "",
-      "desc": "For coporate training and team workshops, visit Collier Consulting."
+      "key": "freetrial",
+      "title": "Free Trial (Online)",
+      "duration": "15 min",
+      "price": "--",
+      "url": "https://calendly.com/collier-consulting/english-with-kevin-free-trial"
     }
   ],
 
   "packagesHeading": "Package Plans",
   "packagesSub": "Save with multi-session bundles.",
   "packages": [
-    { "key": "pack_inperson4", "title": "In-Person 4-Pack (4 × 50 min)", "price": "¥22,000", "note": "Save ¥2,000 vs single sessions." },
-    { "key": "pack_online4",  "title": "Online 4-Pack (4 × 50 min)",   "price": "¥14,000", "note": "Save ¥2,000 vs single sessions." }
+    {
+      "key": "pack_inperson4",
+      "title": "In-Person 4-Pack (4 × 50 min)",
+      "price": "¥22,000",
+      "note": "Save ¥2,000 vs single sessions.",
+      "url": ""
+    },
+    {
+      "key": "pack_online4",
+      "title": "Online 4-Pack (4 × 50 min)",
+      "price": "¥14,000",
+      "note": "Save ¥2,000 vs single sessions.",
+      "url": ""
+    }
   ],
 
-  "studentBadge": "学生割引: 10% OFF（学生証提示）",
-  "ctaLine": "Ready to book?",
-  "policy": "Bookings and cancellations require 24-hour notice. Payment via PayPay / bank transfer / cash.",
-  "corpHint": "For company training or team workshops, please contact me directly (pricing varies).",
-  "consultingHint": "Looking for broader HR, management, or career support? Visit <0>Collier Consulting</0>."
+  "studentBadge": "学生割引: 10% OFF（学生証提示）"
 }
