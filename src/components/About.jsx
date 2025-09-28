@@ -1,35 +1,34 @@
 import { useTranslation } from 'react-i18next';
+import Timeline from './Timeline';
 
 export default function About() {
   const { t } = useTranslation('about');
 
   return (
     <section id="about" className="bg-white text-blue">
-      <div className="container mx-auto flex px-5 pt-20 pb-20 md:flex-row flex-col items-center">
-        {/* Photo + Highlights */}
-        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-full mb-12 md:mb-0 flex flex-col items-center">
+      <div className="container mx-auto flex px-5 pt-20 pb-10 md:flex-row flex-col items-start gap-10">
+        {/* Avatar */}
+        <div className="md:w-2/5 w-full flex flex-col items-center md:items-start">
           <img
-            className="rounded-full w-64 h-64 object-cover"
+            className="rounded-full w-56 h-56 object-cover shadow-md"
             src="/kevin-profile.jpg"
-            alt="Kevin Collier profile"
+            alt={t('avatarAlt')}
             loading="lazy"
           />
-          <ul className="list-disc w-64 mt-4 space-y-1 text-sm italic text-midnight-navy/80 text-left">
-            <li>{t('highlights.experience')}</li>
-            <li>{t('highlights.mba')}</li>
-            <li>{t('highlights.focus')}</li>
-          </ul>
         </div>
 
-        {/* Narrative Copy */}
-        <div className="lg:flex-grow md:w-1/2 flex flex-col sm:items-start">
-          <h1 className="font-mont font-bold text-3xl sm:text-4xl mb-6">{t('heading')}</h1>
-          <p className="max-w-[55ch] text-xl leading-relaxed mb-6 break-words">{t('credibility')}</p>
-          <p className="max-w-[55ch] text-xl leading-relaxed mb-6 break-words [text-wrap:balance]">
-            {t('story')}
-          </p>
-          <p className="text-lg font-semibold break-words">{t('mission')}</p>
+        {/* Prose */}
+        <div className="md:w-3/5 w-full">
+          <h2 className="font-mont font-bold text-2xl sm:text-3xl mb-4">{t('heading')}</h2>
+          <p className="text-lg sm:text-xl leading-relaxed text-slate-800 mb-4">{t('credibility')}</p>
+          <p className="text-lg sm:text-xl leading-relaxed text-slate-800 mb-4">{t('story')}</p>
+          <p className="text-base sm:text-lg font-semibold text-slate-900">{t('mission')}</p>
         </div>
+      </div>
+
+      {/* Timeline injected here */}
+      <div className="container mx-auto px-5 pb-20">
+        <Timeline />
       </div>
     </section>
   );

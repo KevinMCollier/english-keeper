@@ -1,0 +1,22 @@
+{
+  "heading": "Your Life, Your Learning",
+  "subheading": "Clear principles that put you first — so you actually use English outside the classroom.",
+  "cards": {
+    "learnerFirst": {
+      "title": "Learner-First",
+      "body": "Every lesson is built around your goals and interests. No cookie-cutter textbooks."
+    },
+    "outputFocused": {
+      "title": "Output-Focused",
+      "body": "You learn by doing. I reduce teacher talk time so you maximize practice."
+    },
+    "contextDriven": {
+      "title": "Context-Driven",
+      "body": "MBA + IT background: I connect English to business, tech, and global culture."
+    },
+    "lifeBeyond": {
+      "title": "Life Beyond Class",
+      "body": "Conversations that go beyond textbooks — sports, cooking, travel, everyday life."
+    }
+  }
+}

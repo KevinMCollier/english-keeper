@@ -5,7 +5,8 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 import Intro from "./components/Intro"
 import Sessions from "./components/Sessions";
-import SpecializedTopics from "./components/SpecializedTopics";
+import Approach from "./components/Approach";
+// import SpecializedTopics from "./components/SpecializedTopics";
 
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
         <Banner />
         <Intro />
         <Sessions />
-        <SpecializedTopics />
+        {/* <SpecializedTopics /> */}
+        <Approach />
         <About />
         <Contact />
         <Footer />

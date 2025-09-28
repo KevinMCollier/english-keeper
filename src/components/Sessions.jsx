@@ -8,22 +8,22 @@ export default function Sessions() {
   // const packages        = t('packages', { returnObjects: true }) || [];
   // const packagesHeading = t('packagesHeading', { defaultValue: '' });
   // const packagesSub     = t('packagesSub', { defaultValue: '' });
-  const studentBadge    = t('studentBadge', { defaultValue: '' });
+  // const studentBadge    = t('studentBadge', { defaultValue: '' });
 
   return (
     <section id="sessions" className="bg-creme py-16 sm:py-20 font-body">
       <div className="mx-auto w-full max-w-3xl px-5">
-        <h2 className="font-display font-bold text-copper-rust text-2xl sm:text-3xl mb-3">
+        <h2 className="font-display font-bold text-copper-rust text-2xl sm:text-3xl mb-5">
           {t('heading')}
         </h2>
 
-        {studentBadge && (
+        {/* {studentBadge && (
           <div className="mb-5">
             <span className="inline-block rounded-full bg-midnight-navy text-off-white text-xs sm:text-sm px-3 py-1">
               {studentBadge}
             </span>
           </div>
-        )}
+        )} */}
 
         {/* SESSIONS & PRICING TABLE */}
         <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm">
