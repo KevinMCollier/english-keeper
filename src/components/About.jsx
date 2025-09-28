@@ -8,7 +8,7 @@ export default function About() {
     <section id="about" className="bg-white text-blue">
       <div className="container mx-auto flex px-5 pt-20 pb-10 md:flex-row flex-col items-start gap-10">
         {/* Avatar */}
-        <div className="md:w-2/5 w-full flex flex-col items-center md:items-start">
+        <div className="md:w-2/5 w-full flex flex-col items-center md:items-center">
           <img
             className="rounded-full w-56 h-56 object-cover shadow-md"
             src="/kevin-profile.jpg"

@@ -69,14 +69,14 @@ export default function ContactSplit() {
       </div>
 
       {/* =============== HERO IMAGE =============== */}
-      <div className="h-40 sm:h-56 lg:h-64 overflow-hidden">
+      {/* <div className="h-40 sm:h-56 lg:h-64 overflow-hidden">
         <img
-          src="/plant.jpg"
+          src="/tokyo.jpg"
           alt={t('imageAlt')}
-          className="h-full w-full object-cover object-center"
+          className="h-full w-full object-cover object-lower"
           loading="lazy"
         />
-      </div>
+      </div> */}
 
       {/* =============== MODAL: JOIN LIST =============== */}
       {openSignup && (
