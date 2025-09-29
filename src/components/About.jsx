@@ -1,3 +1,4 @@
+// src/components/About.jsx
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Timeline from './Timeline';
@@ -5,10 +6,17 @@ import Timeline from './Timeline';
 export default function About() {
   const { t } = useTranslation('about');
 
+  // Main blurb paragraphs
   const paragraphs = t('blurb', { returnObjects: true });
   const blurbArray = Array.isArray(paragraphs)
     ? paragraphs
     : String(paragraphs).split('\n\n');
+
+  // Subtext under avatar (small grey lines)
+  const metaRaw = t('avatarMeta', { returnObjects: true });
+  const metaLines = Array.isArray(metaRaw)
+    ? metaRaw
+    : String(metaRaw ?? '').split('\n').filter(Boolean);
 
   const [expanded, setExpanded] = useState(false);
 
@@ -16,14 +24,25 @@ export default function About() {
     <section id="about" className="bg-white text-blue">
       <div className="container mx-auto max-w-6xl px-5 pt-20 md:pl-20 grid md:grid-cols-12 grid-cols-1 gap-10 items-start justify-center">
 
-        {/* Avatar */}
+        {/* Avatar + subtle meta */}
         <div className="md:col-span-3 col-span-12 flex md:justify-end justify-center pr-6">
-          <img
-            className="rounded-full w-44 h-44 md:w-52 md:h-52 object-cover shadow-md"
-            src="/kevin-profile.jpg"
-            alt={t('avatarAlt')}
-            loading="lazy"
-          />
+          <div className="flex flex-col items-center md:items-end">
+            <img
+              className="rounded-full w-44 h-44 md:w-52 md:h-52 object-cover shadow-md"
+              src="/kevin-profile.jpg"
+              alt={t('avatarAlt')}
+              loading="lazy"
+            />
+
+            {/* subtle grey, left-aligned, same width as avatar */}
+            {metaLines.length > 0 && (
+              <div className="mt-2 pl-2 text-[12px] text-gray-500 leading-tight w-44 md:w-52 text-left">
+                {metaLines.map((line, i) => (
+                  <p key={i}>{line}</p>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Prose */}
