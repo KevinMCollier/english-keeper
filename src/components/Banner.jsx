@@ -28,7 +28,7 @@ export default function Banner() {
 
         {/* Sub — supporting line */}
         <p
-          className="mt-3 max-w-3xl text-lg sm:text-xl font-medium text-black/90
+          className="mt-3 max-w-3xl text-lg sm:text-xl font-extrabold text-midnight-navy
                     tracking-normal leading-relaxed"
         >
           {t('sub')}

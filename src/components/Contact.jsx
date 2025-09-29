@@ -25,7 +25,7 @@ export default function ContactSplit() {
       <div className="mx-auto max-w-7xl px-6 lg:px-12 py-20 lg:py-24 flex flex-col md:flex-row md:items-start md:justify-center gap-10 md:gap-14">
 
         {/* ---------- LEFT : headline ---------- */}
-        <h2 className="flex-none max-w-md font-mont font-black text-black text-2xl sm:text-3xl leading-tight break-words">
+        <h2 className="text-midnight-navy font-display font-extrabold flex-none max-w-md text-black text-2xl sm:text-3xl leading-tight break-words">
           <Trans
             i18nKey="heading"
             t={t}

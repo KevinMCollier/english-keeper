@@ -46,8 +46,8 @@ export default function Approach() {
         <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-8">
           {/* Header column (a bit wider, larger type) */}
           <div className="md:w-2/5">
-            <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight">
-              {t('heading') || 'My Approach'}
+            <h2 className="text-midnight-navy font-display font-extrabold text-3xl lg:text-4xl tracking-tight leading-tight">
+              {t('heading')}
             </h2>
             <p className="mt-3 text-slate-600 max-w-[36ch] text-base lg:text-lg">
               {t('subheading')}

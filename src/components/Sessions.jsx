@@ -13,7 +13,7 @@ export default function Sessions() {
   return (
     <section id="sessions" className="bg-creme py-16 sm:py-20 font-body">
       <div className="mx-auto w-full max-w-3xl px-5">
-        <h2 className="font-display font-bold text-copper-rust text-2xl sm:text-3xl mb-5">
+        <h2 className="text-midnight-navy font-display font-extrabold text-2xl sm:text-3xl mb-5">
           {t('heading')}
         </h2>
 

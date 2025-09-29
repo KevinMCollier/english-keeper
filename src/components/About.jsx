@@ -48,7 +48,7 @@ export default function About() {
         {/* Prose */}
         <div className="md:col-span-7 col-span-12 ml-6">
           <div className="max-w-2xl">
-            <h2 className="font-mont font-bold text-2xl sm:text-3xl text-slate-900 mb-4">
+            <h2 className="text-midnight-navy font-display font-extrabold text-2xl sm:text-3xl text-slate-900 mb-4">
               {t('heading')}
             </h2>
 

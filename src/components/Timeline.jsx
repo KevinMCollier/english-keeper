@@ -38,7 +38,7 @@ export default function Timeline() {
   return (
     <section id="timeline" className="bg-white text-blue py-10">
       <div className="container mx-auto px-5 max-w-5xl">
-        <h2 className="text-lg lg:text-xl font-extrabold tracking-tight mb-6 ml-6">
+        <h2 className="text-midnight-navy font-display font-extrabold text-lg lg:text-xl tracking-tight mb-6 ml-6">
           {t('heading') || 'Career Timeline'}
         </h2>
 
