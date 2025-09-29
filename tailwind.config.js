@@ -13,6 +13,7 @@ export default {
         'off-white':      '#FDFCF7',
         'creme':          '#FFF9F0',
         'midnight-navy':  '#2C3E50',
+        'sea-mist':       '#8ec9c1'
       },
 
       fontFamily: {

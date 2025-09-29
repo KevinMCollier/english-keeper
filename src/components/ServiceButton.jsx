@@ -16,7 +16,7 @@ export default function ServiceButton({ url, label, color = 'caramel', className
       ? 'bg-caramel text-off-white hover:bg-caramel/80'
       : color === 'lemon'
       ? 'bg-lemon text-midnight-navy hover:bg-lemon/90'
-      : 'bg-orange text-off-white hover:bg-orange/80'; // fallback
+      : 'bg-orange text-off-white hover:bg-orange/80';
 
   return (
     <button type="button" onClick={openCalendly} className={`${base} ${styles} ${className}`}>

@@ -1,6 +1,6 @@
 /* src/components/Banner.jsx */
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 
 export default function Banner() {
   const { t } = useTranslation('banner');
@@ -17,22 +17,25 @@ export default function Banner() {
       <div className="container mx-auto flex px-10 lg:py-20 md:flex-row flex-col items-center">
         <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start text-center md:text-left mb-10 md:mb-0">
 
-        {/* Headline */}
-        <h1
-          className="font-display font-extrabold text-caramel text-5xl sm:text-7xl
-                    tracking-tight leading-snug mb-4"
-        >
-          {t('headline')}
-        </h1>
+          {/* Headline */}
+          <h1
+            className="font-display font-extrabold text-caramel text-5xl sm:text-7xl
+                       tracking-tight leading-snug mb-4"
+          >
+            <Trans
+              t={t}
+              i18nKey="headline"
+              components={[<br key="linebreak" />]}
+            />
+          </h1>
 
-
-        {/* Sub — supporting line */}
-        <p
-          className="mt-3 max-w-3xl text-lg sm:text-xl font-extrabold text-midnight-navy
-                    tracking-normal leading-relaxed"
-        >
-          {t('sub')}
-        </p>
+          {/* Sub — supporting line */}
+          <p
+            className="mt-3 max-w-3xl text-lg sm:text-xl font-extrabold text-midnight-navy
+                       tracking-normal leading-relaxed"
+          >
+            {t('sub')}
+          </p>
 
           {/* CTAs */}
           <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -46,7 +49,7 @@ export default function Banner() {
         </div>
       </div>
 
-      {/* (optional) signup modal you already have… */}
+      {/* signup modal */}
       {openSignup && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4"
@@ -56,7 +59,7 @@ export default function Banner() {
             className="bg-off-white w-full max-w-md rounded-xl p-8 space-y-6 relative"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* modal content unchanged */}
+            {/* modal content */}
           </div>
         </div>
       )}

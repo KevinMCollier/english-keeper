@@ -1,6 +1,21 @@
 {
   "heading": "Sessions & Pricing",
 
+  "table": {
+    "session": "Session",
+    "time": "Time",
+    "price": "Price",
+    "book": "Book"
+  },
+
+  "buttons": {
+    "book": "Book",
+    "bookInPerson": "Book 1:1 In-Person",
+    "bookOnline": "Book 1:1 Online",
+    "bookGroup": "Book Group",
+    "bookFreeTrial": "Book Free Trial"
+  },
+
   "items": [
     {
       "key": "inperson",
@@ -32,24 +47,17 @@
     }
   ],
 
-  "packagesHeading": "Package Plans",
-  "packagesSub": "Save with multi-session bundles.",
-  "packages": [
-    {
-      "key": "pack_inperson4",
-      "title": "In-Person 4-Pack (4 × 50 min)",
-      "price": "¥22,000",
-      "note": "Save ¥2,000 vs single sessions.",
-      "url": ""
-    },
-    {
-      "key": "pack_online4",
-      "title": "Online 4-Pack (4 × 50 min)",
-      "price": "¥14,000",
-      "note": "Save ¥2,000 vs single sessions.",
-      "url": ""
-    }
-  ],
+  "notes": {
+    "prices": "※ Prices include session fee, post-session learning summary, and venue/transportation cost.",
+    "locations": "※ In-person & group sessions available within limited locations. Contact for more details.",
+    "cancellation": "<0>Cancellation policy</0>: Free up to <1>48 hours</1> before; <2>24–48 hours</2> = 50% fee; <3>within 24 hours</3> = 100% fee. Rescheduling allowed up to <4>24 hours</4> before start."
+  },
 
-  "studentBadge": "学生割引: 10% OFF（学生証提示）"
+  "corporate": {
+    "title": "Corporate Training",
+    "body": "Tailored programs for teams and companies.",
+    "linkLabel": "visit Collier Consulting",
+    "linkUrl": "https://kevin-collier.me",
+    "trailingPunct": "."
+  }
 }
