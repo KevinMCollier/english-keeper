@@ -22,13 +22,23 @@ export default function About() {
 
   return (
     <section id="about" className="bg-white text-blue">
-      <div className="container mx-auto max-w-6xl px-5 pt-20 md:pl-20 grid md:grid-cols-12 grid-cols-1 gap-10 items-start justify-center">
-
+      {/* Top: avatar + prose */}
+      <div
+        className="
+          container mx-auto max-w-6xl
+          px-6 sm:px-8
+          pt-16 md:pt-20
+          grid grid-cols-1 md:grid-cols-12
+          gap-8 md:gap-10
+          items-start
+          overflow-x-hidden
+        "
+      >
         {/* Avatar + subtle meta */}
-        <div className="md:col-span-3 col-span-12 flex md:justify-end justify-center pr-6">
+        <div className="md:col-span-3 col-span-12 flex md:justify-end justify-center md:pr-6">
           <div className="flex flex-col items-center md:items-end">
             <img
-              className="rounded-full w-44 h-44 md:w-52 md:h-52 object-cover shadow-md"
+              className="rounded-full w-40 h-40 sm:w-44 sm:h-44 md:w-52 md:h-52 object-cover shadow-md max-w-full"
               src="/kevin-profile.jpg"
               alt={t('avatarAlt')}
               loading="lazy"
@@ -36,7 +46,7 @@ export default function About() {
 
             {/* subtle grey, left-aligned, same width as avatar */}
             {metaLines.length > 0 && (
-              <div className="mt-2 pl-2 text-[12px] text-gray-500 leading-tight w-44 md:w-52 text-left">
+              <div className="mt-2 pl-1 sm:pl-2 text-[12px] text-gray-500 leading-tight w-40 sm:w-44 md:w-52 text-left break-words hyphens-auto">
                 {metaLines.map((line, i) => (
                   <p key={i}>{line}</p>
                 ))}
@@ -46,7 +56,7 @@ export default function About() {
         </div>
 
         {/* Prose */}
-        <div className="md:col-span-7 col-span-12 ml-6">
+        <div className="md:col-span-7 col-span-12 md:ml-6">
           <div className="max-w-2xl">
             <h2 className="text-midnight-navy font-display font-extrabold text-2xl sm:text-3xl text-slate-900 mb-4">
               {t('heading')}
@@ -67,7 +77,10 @@ export default function About() {
               {blurbArray.map((p, idx) => (
                 <p
                   key={idx}
-                  className="text-[15px] sm:text-base leading-relaxed text-slate-700 mb-4"
+                  className="
+                    text-[15px] sm:text-base leading-relaxed text-slate-700 mb-4
+                    break-words hyphens-auto
+                  "
                 >
                   {p}
                 </p>
@@ -88,7 +101,7 @@ export default function About() {
       </div>
 
       {/* Timeline */}
-      <div className="container mx-auto px-5 pb-20">
+      <div className="container mx-auto px-6 sm:px-8 pb-20 overflow-x-hidden">
         <Timeline />
       </div>
     </section>

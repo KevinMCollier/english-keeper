@@ -1,3 +1,4 @@
+// src/components/IntroAlt.jsx
 import { Trans, useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 
@@ -17,12 +18,16 @@ export default function IntroAlt() {
   const viewport = { once: false, amount: 0.3 };
 
   return (
-    <section id="intro" className="border-t border-white/10 bg-creme text-midnight-navy font-body">
-      <div className="container mx-auto px-5 py-16 space-y-20">
+    <section
+      id="intro"
+      className="border-t border-white/10 bg-creme text-midnight-navy font-body"
+    >
+      {/* Give the section generous side padding on mobile */}
+      <div className="container mx-auto max-w-6xl px-6 sm:px-8 py-16 space-y-16 sm:space-y-20">
 
         {/* Block 1: Lead + Personas (text left / image right) */}
-        <div className="grid gap-10 md:[grid-template-columns:3fr_2fr] md:items-center">
-          <div>
+        <div className="grid gap-8 md:gap-10 md:[grid-template-columns:3fr_2fr] md:items-center">
+          <div className="max-w-2xl mx-auto md:mx-0">
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl tracking-tight mb-6">
               {t('lead')}
             </h2>
@@ -38,8 +43,11 @@ export default function IntroAlt() {
                   viewport={viewport}
                   custom={i}
                 >
-                  <span aria-hidden className="mt-2 h-2 w-2 shrink-0 rounded-full bg-copper-rust" />
-                  <p className="text-base sm:text-lg leading-relaxed">
+                  <span
+                    aria-hidden
+                    className="mt-2 h-2 w-2 shrink-0 rounded-full bg-copper-rust"
+                  />
+                  <p className="text-base sm:text-lg leading-relaxed break-words">
                     <Trans
                       i18nKey={`personas.${i}`}
                       ns="intro"
@@ -51,30 +59,30 @@ export default function IntroAlt() {
             </ul>
           </div>
 
-          {/* Placeholder image */}
-          <div className="h-64 md:h-80 bg-gray-200 rounded-xl flex items-center justify-center text-graphite/70">
+          {/* Image card — centered on mobile, clipped & shadowed */}
+          <div className="h-64 md:h-80 rounded-xl overflow-hidden bg-gray-200/70 ring-1 ring-black/5 shadow-sm flex items-center justify-center text-graphite/70 mx-auto w-full max-w-2xl md:max-w-none">
             <img
               src="/convo.jpg"
               alt={t('imageAlt')}
-              className="h-full w-full object-cover object-center"
+              className="block h-full w-full object-cover object-center"
               loading="lazy"
             />
           </div>
         </div>
 
         {/* Block 2: Benefits (image left / text right) */}
-        <div className="grid gap-10 md:[grid-template-columns:2fr_3fr] md:items-center">
-          {/* Placeholder image */}
-          <div className="order-2 md:order-1 h-64 md:h-80 bg-gray-200 rounded-xl flex items-center justify-center text-graphite/70">
+        <div className="grid gap-8 md:gap-10 md:[grid-template-columns:2fr_3fr] md:items-center">
+          {/* Image card */}
+          <div className="order-2 md:order-1 h-64 md:h-80 rounded-xl overflow-hidden bg-gray-200/70 ring-1 ring-black/5 shadow-sm flex items-center justify-center text-graphite/70 mx-auto w-full max-w-2xl md:max-w-none">
             <img
               src="/office.jpg"
               alt={t('imageAlt')}
-              className="h-full w-full object-cover object-center"
+              className="block h-full w-full object-cover object-center"
               loading="lazy"
             />
           </div>
 
-          <div className="order-1 md:order-2">
+          <div className="order-1 md:order-2 max-w-2xl mx-auto md:mx-0">
             <h3 className="font-display font-extrabold text-3xl sm:text-4xl tracking-tight mb-6">
               {t('headingSecondary')}
             </h3>
@@ -90,8 +98,11 @@ export default function IntroAlt() {
                   viewport={viewport}
                   custom={i + personas.length}
                 >
-                  <span aria-hidden className="mt-2 h-2 w-2 shrink-0 rounded-full bg-copper-rust" />
-                  <p className="text-base sm:text-lg leading-relaxed">
+                  <span
+                    aria-hidden
+                    className="mt-2 h-2 w-2 shrink-0 rounded-full bg-copper-rust"
+                  />
+                  <p className="text-base sm:text-lg leading-relaxed break-words">
                     <Trans
                       i18nKey={`benefits.${i}`}
                       ns="intro"

@@ -14,7 +14,7 @@ export default function Banner() {
 
   return (
     <section id="banner" className="bg-creme h-screen pt-28 md:pt-0 font-body">
-      <div className="container mx-auto flex px-10 lg:py-20 md:flex-row flex-col items-center">
+      <div className="container mx-auto flex px-10 lg:py-10 md:flex-row flex-col items-center">
         <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start text-center md:text-left mb-10 md:mb-0">
 
           {/* Headline */}

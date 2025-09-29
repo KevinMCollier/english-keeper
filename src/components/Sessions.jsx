@@ -20,8 +20,57 @@ export default function Sessions() {
           {t('heading')}
         </h2>
 
-        {/* SESSIONS & PRICING TABLE */}
-        <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm">
+        {/* —— MOBILE CARDS (<= md) —— */}
+        <div className="md:hidden space-y-3">
+          {items.map((i) => (
+            <div
+              key={i.key}
+              className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100"
+            >
+              <div className="font-display text-midnight-navy text-lg font-semibold break-words">
+                {i.title}
+              </div>
+
+              <dl className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
+                <div>
+                  <dt className="text-graphite/60">{table.time || 'Time'}</dt>
+                  <dd className="text-graphite">{i.duration?.trim() || '—'}</dd>
+                </div>
+                <div className="text-right">
+                  <dt className="text-graphite/60">{table.price || 'Price'}</dt>
+                  <dd className="text-midnight-navy font-medium">
+                    {i.price?.trim() || '—'}
+                  </dd>
+                </div>
+              </dl>
+
+              {i.url?.trim() && (
+                <div className="mt-3">
+                  <ServiceButton
+                    url={i.url}
+                    label={
+                      i.key === 'freetrial'
+                        ? t('buttons.bookFreeTrial', 'Book Free Trial')
+                        : i.key === 'online50'
+                        ? t('buttons.bookOnline', 'Book 1:1 Online')
+                        : i.key === 'inperson'
+                        ? t('buttons.bookInPerson', 'Book 1:1 In-Person')
+                        : i.key === 'group80'
+                        ? t('buttons.bookGroup', 'Book Group')
+                        : t('buttons.book', 'Book')
+                    }
+                    color={i.key === 'freetrial' ? 'lemon' : 'caramel'}
+                    // Keep single-line but scale down on tiny screens so it fits
+                    className="w-full justify-center whitespace-nowrap text-sm py-2"
+                  />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* —— DESKTOP TABLE (md+) — EXACTLY YOUR ORIGINAL —— */}
+        <div className="hidden md:block bg-white rounded-2xl p-5 sm:p-6 shadow-sm">
           <table className="w-full table-fixed">
             <colgroup>
               <col className="w-[55%] sm:w-[58%]" />
@@ -100,86 +149,71 @@ export default function Sessions() {
           </div>
         </div>
 
-        {/* Corporate callout — light card */}
-{(corporate.title || corporate.body) && (
-  <div
-    className="
-      mt-6 rounded-xl bg-white text-midnight-navy
-      shadow-sm border border-gray-200
-    "
-  >
-    <div
-      className="
-        p-5 flex flex-col gap-4
-        sm:flex-row sm:items-center
-      "
-    >
-      {/* Icon + text */}
-      <div className="flex items-start gap-3 flex-1">
-        <span
-          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-midnight-navy/10"
-          aria-hidden="true"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 text-midnight-navy"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M3 7h18v10a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7Z" />
-            <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-          </svg>
-        </span>
-        <div>
-          <div className="font-semibold text-base sm:text-lg">
-            {corporate.title}
+        {/* —— Corporate callout — unchanged —— */}
+        {(corporate.title || corporate.body) && (
+          <div className="mt-6 rounded-xl bg-white text-midnight-navy shadow-sm border border-gray-200">
+            <div className="p-5 flex flex-col gap-4 sm:flex-row sm:items-center">
+              {/* Icon + text */}
+              <div className="flex items-start gap-3 flex-1">
+                <span
+                  className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-midnight-navy/10"
+                  aria-hidden="true"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-midnight-navy"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M3 7h18v10a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7Z" />
+                    <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                  </svg>
+                </span>
+                <div>
+                  <div className="font-semibold text-base sm:text-lg">
+                    {corporate.title}
+                  </div>
+                  {corporate.body && (
+                    <p className="mt-0.5 text-sm sm:text-base leading-relaxed">
+                      {corporate.body}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {/* CTA button */}
+              {corporate.linkUrl && corporate.linkLabel && (
+                <div className="sm:ml-auto">
+                  <a
+                    href={corporate.linkUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full px-4 py-2 bg-sea-mist text-white font-semibold hover:opacity-90 transition"
+                  >
+                    {corporate.linkLabel}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              )}
+            </div>
           </div>
-          {corporate.body && (
-            <p className="mt-0.5 text-sm sm:text-base leading-relaxed">
-              {corporate.body}
-            </p>
-          )}
-        </div>
-      </div>
-
-      {/* CTA button */}
-      {corporate.linkUrl && corporate.linkLabel && (
-        <div className="sm:ml-auto">
-          <a
-            href={corporate.linkUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              inline-flex items-center gap-2 rounded-full px-4 py-2
-              bg-sea-mist text-white font-semibold
-              hover:opacity-90 transition
-            "
-          >
-            {corporate.linkLabel}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          </a>
-        </div>
-      )}
-    </div>
-  </div>
-)}
-
+        )}
       </div>
     </section>
   );

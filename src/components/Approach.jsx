@@ -1,3 +1,4 @@
+// src/components/Approach.jsx
 import { useTranslation } from 'react-i18next';
 import { User, MessageSquare, Globe, Sparkles } from 'lucide-react';
 
@@ -41,10 +42,10 @@ export default function Approach() {
 
   return (
     <section id="approach" className="bg-white text-blue py-14">
-      <div className="container mx-auto px-5 max-w-6xl">
+      <div className="container mx-auto max-w-6xl px-6 sm:px-8">
         {/* Tighter two-column layout */}
         <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-8">
-          {/* Header column (a bit wider, larger type) */}
+          {/* Header column */}
           <div className="md:w-2/5">
             <h2 className="text-midnight-navy font-display font-extrabold text-3xl lg:text-4xl tracking-tight leading-tight">
               {t('heading')}
@@ -56,13 +57,17 @@ export default function Approach() {
 
           {/* Cards column */}
           <div className="md:w-3/5">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-5">
               {cards.map(({ key, title, body, accent, accentSoft, Icon }) => (
                 <div
                   key={key}
-                  className="group relative overflow-hidden rounded-2xl border bg-white/90 backdrop-blur-[2px]
-                            transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:scale-[1.03]
-                            shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)]"
+                  className="
+                    group relative overflow-hidden rounded-2xl border bg-white/90 backdrop-blur-[2px]
+                    shadow-[0_6px_18px_rgba(0,0,0,0.08)]
+                    md:hover:-translate-y-0.5 md:hover:scale-[1.03]
+                    md:hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)]
+                    transition-transform duration-150 ease-out
+                  "
                   style={{ borderColor: accentSoft }}
                 >
                   {/* Left accent bar */}
@@ -80,12 +85,12 @@ export default function Approach() {
                       >
                         <Icon className="h-5 w-5" />
                       </span>
-                      <h3 className="text-xl lg:text-2xl font-bold tracking-tight">
+                      <h3 className="text-xl lg:text-2xl font-bold tracking-tight break-words">
                         {title}
                       </h3>
                     </div>
 
-                    <p className="mt-3 text-slate-700 leading-relaxed text-base">
+                    <p className="mt-3 text-slate-700 leading-relaxed text-base break-words">
                       {body}
                     </p>
                   </div>
