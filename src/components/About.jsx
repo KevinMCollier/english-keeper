@@ -14,7 +14,7 @@ export default function About() {
 
   return (
     <section id="about" className="bg-white text-blue">
-      <div className="container mx-auto max-w-6xl px-5 pt-20 pb-10 md:pl-20 grid md:grid-cols-12 grid-cols-1 gap-10 items-start justify-center">
+      <div className="container mx-auto max-w-6xl px-5 pt-20 md:pl-20 grid md:grid-cols-12 grid-cols-1 gap-10 items-start justify-center">
 
         {/* Avatar */}
         <div className="md:col-span-3 col-span-12 flex md:justify-end justify-center pr-6">

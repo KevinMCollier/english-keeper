@@ -11,7 +11,6 @@ export default function Timeline() {
   // Hover-only (no click-to-lock)
   const [hover, setHover] = useState(null);
 
-  // Tokens
   const lineGray      = '#E5E7EB';
   const orange        = '#ea6f29';
 
@@ -20,18 +19,18 @@ export default function Timeline() {
   const elbowRun    = 20;
   const panelW      = 300;  // slightly narrower text
 
-  // Marker sizes (bigger, square corners)
-  const markerBtn   = 34;   // centering box
-  const markerBox   = 24;   // actual square
+  // Marker sizes
+  const markerBtn   = 34;   // hitbox
+  const markerBox   = 24;   // orange square
   const fromBottomOffset = markerBox / 2;
 
-  // Rail sizing (thicker line; moderate right tail so last item fits)
+  // Rail sizing
   const railThickness = 3;
   const sidePad       = 80;
-  const endPad        = 120;         // ↓ reduced so Now doesn’t float with a huge gap
+  const endPad        = 120;
   const minInnerW     = Math.max(items.length * 180, 640);
 
-  // Extra space below so multi-line blurbs never clip (no vertical scroll)
+  // Extra space below
   const reserveBelow = 100;
 
   if (!hasItems) return null;
@@ -39,7 +38,7 @@ export default function Timeline() {
   return (
     <section id="timeline" className="bg-white text-blue py-10">
       <div className="container mx-auto px-5 max-w-5xl">
-        <h2 className="text-xl lg:text-2xl font-extrabold tracking-tight mb-6">
+        <h2 className="text-lg lg:text-xl font-extrabold tracking-tight mb-6 ml-6">
           {t('heading') || 'Career Timeline'}
         </h2>
 
@@ -59,15 +58,15 @@ export default function Timeline() {
                   style={{ height: railThickness, backgroundColor: lineGray }}
                 />
 
-                {/* items — evenly distributed */}
+                {/* items */}
                 <div className="absolute inset-0 flex items-center justify-between">
                   {items.map((it, i) => {
-                    const isLast = i === items.length - 1;   // flip the last so it never clips
+                    const isLast = i === items.length - 1;
                     const shown  = hover === i;
 
                     return (
                       <div key={`${it.year}-${i}`} className="relative flex-1">
-                        {/* year label (a bit more air) */}
+                        {/* year label */}
                         <span
                           className={[
                             'absolute bottom-[calc(100%+12px)] left-1/2 -translate-x-1/2',
@@ -78,14 +77,14 @@ export default function Timeline() {
                           {it.year}
                         </span>
 
-                        {/* orange marker (square corners) */}
+                        {/* orange marker (square inside centered button) */}
                         <button
                           type="button"
                           onMouseEnter={() => setHover(i)}
                           onMouseLeave={() => setHover(null)}
                           onFocus={() => setHover(i)}
                           onBlur={() => setHover(null)}
-                          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 grid place-items-center"
                           style={{ height: markerBtn, width: markerBtn }}
                           aria-label={`Timeline ${it.year}`}
                         >
@@ -102,10 +101,9 @@ export default function Timeline() {
                           />
                         </button>
 
-                        {/* connector + blurb (hover) */}
+                        {/* connector + blurb */}
                         {shown && (
                           <>
-                            {/* vertical leg from bottom edge of the square */}
                             <div
                               className="absolute"
                               style={{
@@ -113,25 +111,23 @@ export default function Timeline() {
                                 top : '50%',
                                 transform: `translateX(-50%) translateY(${fromBottomOffset}px)`,
                                 width: 1,
-                                height: 0,                           // 0 → elbowDrop
+                                height: 0,
                                 backgroundColor: lineGray,
-                                animation: `drawY 180ms ease-out forwards`, // slower again
+                                animation: `drawY 180ms ease-out forwards`,
                               }}
                             />
-                            {/* horizontal elbow (flip left for the last item) */}
                             <div
                               className="absolute"
                               style={{
                                 left: '50%',
                                 top : '50%',
                                 transform: `translateY(${fromBottomOffset + elbowDrop}px) ${isLast ? 'translateX(-100%)' : ''}`,
-                                width: 0,                            // 0 → elbowRun
+                                width: 0,
                                 height: 1,
                                 backgroundColor: lineGray,
                                 animation: `drawX 160ms 120ms ease-out forwards`,
                               }}
                             />
-                            {/* description — slower fade; starts mid-draw */}
                             <div
                               className="absolute"
                               style={{
@@ -159,12 +155,12 @@ export default function Timeline() {
                 </div>
               </div>
 
-              {/* space for 2–3 lines of text; no inner vertical scrolling */}
+              {/* reserve space */}
               <div style={{ height: reserveBelow }} />
             </div>
           </div>
 
-          {/* scrollbar hide + keyframes */}
+          {/* scrollbar + keyframes */}
           <style>{`
             .rail-hide-scroll {
               scrollbar-width: none;
