@@ -1,22 +1,22 @@
 {
-  "heading": "Your Life, Your Learning",
+  "heading": "Learning That Fits You",
   "subheading": "Clear principles that put you first — so you actually use English outside the classroom.",
   "cards": {
     "learnerFirst": {
       "title": "Learner-First",
-      "body": "Every lesson is built around your goals and interests. No cookie-cutter textbooks."
+      "body": "Textbooks, free conversation, movies and tv shows, business prep — everyone has their own style. Learning built around your goals, interests, strengths, and challenges."
     },
     "outputFocused": {
       "title": "Output-Focused",
-      "body": "You learn by doing. I reduce teacher talk time so you maximize practice."
+      "body": "Progress comes from expressing yourself. Every session is a chance to practice speaking and thinking in English — supported, guided, and at your pace."
     },
     "contextDriven": {
       "title": "Context-Driven",
-      "body": "MBA + IT background: I connect English to business, tech, and global culture."
+      "body": "Learning connects to your real world. Business, tech, travel, culture, cooking, literature, music, sports... We will find topics that matter to you and go deeper."
     },
     "lifeBeyond": {
-      "title": "Life Beyond Class",
-      "body": "Conversations that go beyond textbooks — sports, cooking, travel, everyday life."
+      "title": "Process-Oriented",
+      "body": "Whether you’re aiming for a clear goal or simply enjoying the journey, consistent practice and taking small, steady steps will lead to a better experience and bigger results."
     }
   }
 }

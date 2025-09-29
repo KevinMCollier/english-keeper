@@ -4,7 +4,6 @@ import { User, MessageSquare, Globe, Sparkles } from 'lucide-react';
 export default function Approach() {
   const { t } = useTranslation('approach');
 
-  // Accent colors (muted but confident)
   const cards = [
     {
       key: 'learnerFirst',
@@ -51,7 +50,7 @@ export default function Approach() {
               {t('heading') || 'My Approach'}
             </h2>
             <p className="mt-3 text-slate-600 max-w-[36ch] text-base lg:text-lg">
-              Lessons built around your goals, with practice-first sessions and real-world context.
+              Built around your goals and learning style, with active conversation, real-world context and steady guidance.
             </p>
           </div>
 

@@ -56,15 +56,6 @@ export default function ContactSplit() {
           >
             {t('cta.inquiry')}
           </button>
-
-          {/* Pre-launch note */}
-          <p className="text-xs text-black leading-snug pt-2 break-words">
-            <Trans
-              i18nKey="note"
-              t={t}
-              components={{ 1: <em /> }}
-            />
-          </p>
         </div>
       </div>
 
