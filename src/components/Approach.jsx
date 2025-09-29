@@ -46,11 +46,11 @@ export default function Approach() {
         <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-8">
           {/* Header column (a bit wider, larger type) */}
           <div className="md:w-2/5">
-            <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+            <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight">
               {t('heading') || 'My Approach'}
             </h2>
             <p className="mt-3 text-slate-600 max-w-[36ch] text-base lg:text-lg">
-              Built around your goals and learning style, with active conversation, real-world context and steady guidance.
+              {t('subheading')}
             </p>
           </div>
 
@@ -61,8 +61,8 @@ export default function Approach() {
                 <div
                   key={key}
                   className="group relative overflow-hidden rounded-2xl border bg-white/90 backdrop-blur-[2px]
-                             transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:scale-[1.03]
-                             shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)]"
+                            transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:scale-[1.03]
+                            shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)]"
                   style={{ borderColor: accentSoft }}
                 >
                   {/* Left accent bar */}

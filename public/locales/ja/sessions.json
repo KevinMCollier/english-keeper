@@ -1,0 +1,55 @@
+{
+  "heading": "セッションと料金",
+
+  "items": [
+    {
+      "key": "inperson",
+      "title": "1:1（対面）",
+      "duration": "50分",
+      "price": "¥6,000",
+      "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-in-person"
+    },
+    {
+      "key": "online50",
+      "title": "1:1（オンライン）",
+      "duration": "50分",
+      "price": "¥4,000",
+      "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-online"
+    },
+    {
+      "key": "group80",
+      "title": "グループ（最大8名）",
+      "duration": "80分",
+      "price": "¥3,200 / 1人",
+      "url": "https://calendly.com/collier-consulting/english-with-kevin-group-session"
+    },
+    {
+      "key": "freetrial",
+      "title": "無料体験（オンライン）",
+      "duration": "15分",
+      "price": "--",
+      "url": "https://calendly.com/collier-consulting/english-with-kevin-free-trial"
+    }
+  ],
+
+  "packagesHeading": "パッケージプラン",
+  "packagesSub": "まとめて予約するとお得です。",
+  "packages": [
+    {
+      "key": "pack_inperson4",
+      "title": "対面4回パック（50分 × 4回）",
+      "price": "¥22,000",
+      "note": "単発セッションより¥2,000お得です。",
+      "url": ""
+    },
+    {
+      "key": "pack_online4",
+      "title": "オンライン4回パック（50分 × 4回）",
+      "price": "¥14,000",
+      "note": "単発セッションより¥2,000お得です。",
+      "url": ""
+    }
+  ],
+
+  "studentBadge": "学生割引: 10% OFF（学生証提示）"
+}
