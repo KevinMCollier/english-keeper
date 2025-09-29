@@ -6,8 +6,6 @@ import Footer from "./components/Footer";
 import Intro from "./components/Intro"
 import Sessions from "./components/Sessions";
 import Approach from "./components/Approach";
-// import SpecializedTopics from "./components/SpecializedTopics";
-
 
 function App() {
 
@@ -18,7 +16,6 @@ function App() {
         <Banner />
         <Intro />
         <Sessions />
-        {/* <SpecializedTopics /> */}
         <Approach />
         <About />
         <Contact />

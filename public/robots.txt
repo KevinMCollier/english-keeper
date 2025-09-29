@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kevin-collier.me/sitemap.xml
+Sitemap: https://english-kevin.com/sitemap.xml

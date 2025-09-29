@@ -4,46 +4,131 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>English with Kevin </title>
-  <meta
-    name="description"
-    content="Practical training and people-first consulting in Tokyo. Leadership, onboarding, international collaboration, and business English support for Japanese and global teams."
-  />
+  <!-- Primary SEO -->
+  <title>English with Kevin | English Lessons in Tokyo & Online</title>
+  <meta name="description"
+        content="Private and group English lessons in Tokyo (and online). Business English, presentation practice, interview prep, and real-world conversation—people-first and practical." />
   <link rel="canonical" href="https://kevin-collier.me/" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Collier Consulting | HR & Management Consulting for Global Teams in Japan" />
-  <meta property="og:description" content="Practical diagnosis, targeted coaching, and culture-first solutions for professionals and companies in Japan." />
+  <!-- Open Graph (social sharing) -->
+  <meta property="og:title" content="English with Kevin — English Lessons in Tokyo & Online" />
+  <meta property="og:description" content="1:1 and group English lessons for professionals, students, and lifelong learners. Practical, confidence-building, and tailored to your goals." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kevin-collier.me/" />
-  <meta property="og:image" content="https://kevin-collier.me/og-image.png" />
+  <meta property="og:image" content="https://kevin-collier.me/og-english.png" />
+
+  <!-- Twitter Card (optional but safe even without an account) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="English with Kevin — English Lessons in Tokyo & Online" />
+  <meta name="twitter:description" content="Practical, confidence-building English for work and life. 1:1 and group sessions." />
+  <meta name="twitter:image" content="https://kevin-collier.me/og-english.png" />
 
   <!-- Verification -->
   <meta name="google-site-verification" content="4Bu5Xq6EUdoVS9rejq_Pa8Rrk7mJ00PBx7dmvLhAKfw" />
 
-  <!-- Fonts & Icons -->
+  <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" />
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap"
-  rel="stylesheet"
-/>
-<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
 
+  <!-- Styles / Widgets -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+
+  <!-- Optional: Structured Data for Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "English with Kevin",
+    "image": "https://kevin-collier.me/og-english.png",
+    "url": "https://kevin-collier.me/",
+    "telephone": "+81-XX-XXXX-XXXX",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tokyo",
+      "addressCountry": "JP"
+    },
+    "areaServed": ["Tokyo", "Japan", "Online"],
+    "priceRange": "¥¥",
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "name": "1:1 In-Person English Lesson (50 min)",
+        "price": "6000",
+        "priceCurrency": "JPY",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "1:1 Online English Lesson (50 min)",
+        "price": "4000",
+        "priceCurrency": "JPY",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Group Lesson (80 min, max 8)",
+        "price": "3200",
+        "priceCurrency": "JPY",
+        "availability": "https://schema.org/InStock"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Optional: FAQ Rich Results (based on your common questions) -->
+  <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+     {
+       "@type": "Question",
+       "name": "Do you offer online English lessons?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Yes. 1:1 and group sessions are available online with flexible scheduling."
+       }
+     },
+     {
+       "@type": "Question",
+       "name": "Can you help with business English and interview prep?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Absolutely. We tailor lessons to presentations, interviews, emails, meetings, and industry-specific vocabulary."
+       }
+     },
+     {
+       "@type": "Question",
+       "name": "Are in-person lessons available in Tokyo?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Yes. In-person sessions are available in limited areas of Tokyo. Contact for details."
+       }
+     }
+   ]
+  }
+  </script>
+
+  <!-- (Optional) Theme color for mobile address bar -->
+  <meta name="theme-color" content="#0f1a2b" />
 </head>
 
+<body>
+  <div id="root"></div>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-    <script
-      src="https://assets.calendly.com/assets/external/widget.js"
-      async
-    ></script>
-  </body>
+  <!-- Your app scripts -->
+  <script type="module" src="/src/main.jsx"></script>
+
+  <!-- Calendly widget -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
 </html>
