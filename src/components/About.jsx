@@ -22,20 +22,48 @@ export default function About() {
 
   return (
     <section id="about" className="bg-white text-blue">
-      {/* Top: prose (left) + avatar (right) */}
+      {/* Top: avatar (left) + prose (right) */}
       <div
         className="
           container mx-auto max-w-6xl
-          px-6 sm:px-8
+          px-6 sm:px-8 md:pl-12
           pt-16 md:pt-20
           grid grid-cols-1 md:grid-cols-12
           gap-8 md:gap-10
           items-start
-          overflow-x-hidden
+          overflow-visible
         "
       >
-        {/* Prose (now first/left) */}
-        <div className="md:col-span-7 col-span-12 md:order-1 md:pr-6">
+        {/* Avatar + subtle meta (left) */}
+        <div className="md:col-span-3 col-span-12 md:order-1 flex md:justify-end justify-center md:pr-6">
+          <div className="flex flex-col items-center md:items-end">
+            <div className="w-56 md:w-64 aspect-square">
+              <img
+                className="w-full h-full rounded-full object-cover shadow-md"
+                src="/kevin-profile.jpg"
+                alt={t('avatarAlt')}
+                loading="lazy"
+              />
+            </div>
+
+            {metaLines.length > 0 && (
+              <div
+                className="
+                  mt-2 pr-1 sm:pr-2 text-[12px] text-gray-500 leading-tight
+                  w-48 sm:w-56 md:w-64
+                  text-left break-words hyphens-auto
+                "
+              >
+                {metaLines.map((line, i) => (
+                  <p key={i}>{line}</p>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Prose (right) */}
+        <div className="md:col-span-7 col-span-12 md:order-2 md:pl-6">
           <div className="max-w-2xl">
             <h2 className="text-midnight-navy font-display font-extrabold text-2xl sm:text-3xl text-slate-900 mb-4">
               {t('heading')}
@@ -75,38 +103,6 @@ export default function About() {
             >
               {expanded ? t('readLess') : t('readMore')}
             </button>
-          </div>
-        </div>
-
-        {/* Avatar + subtle meta (now second/right) */}
-        <div className="md:col-span-3 col-span-12 md:order-2 flex md:justify-start justify-center md:pl-6">
-          <div className="flex flex-col items-center md:items-start">
-            <img
-              className="
-                w-72 h-auto
-                md:w-80
-                rounded-xl
-                object-cover
-                shadow-md
-              "
-              src="/kevin-standing-profile.JPG"
-              alt={t('avatarAlt')}
-              loading="lazy"
-            />
-
-            {metaLines.length > 0 && (
-              <div
-                className="
-                  mt-2 pl-1 sm:pl-2 text-[12px] text-gray-500 leading-tight
-                  w-48 sm:w-56 md:w-64
-                  text-left break-words hyphens-auto
-                "
-              >
-                {metaLines.map((line, i) => (
-                  <p key={i}>{line}</p>
-                ))}
-              </div>
-            )}
           </div>
         </div>
       </div>
