@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Intro from "./components/Intro"
 import Sessions from "./components/Sessions";
 import Approach from "./components/Approach";
+import Overview from "./components/Overview";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Navbar />
         <Banner />
         <Intro />
+        <Overview />
         <Sessions />
         <Approach />
         <About />
