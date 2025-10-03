@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageToggle from './LanguageToggle';
