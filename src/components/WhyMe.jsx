@@ -38,7 +38,7 @@ export default function WhyMe() {
               <h3 className="font-display text-2xl sm:text-3xl font-bold text-caramel">
                 {p.title}
               </h3>
-              <p className="text-base sm:text-lg leading-relaxed text-graphite">
+              <p className="text-base sm:text-lg leading-relaxed text-graphite max-w-3xl">
                 {p.desc}
               </p>
             </motion.div>
