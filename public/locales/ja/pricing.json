@@ -1,0 +1,63 @@
+{
+  "heading": "セッションと料金",
+
+  "table": {
+    "session": "セッション",
+    "time": "時間",
+    "price": "料金",
+    "book": "予約"
+  },
+
+  "buttons": {
+    "book": "予約する",
+    "bookInPerson": "対面 1対1 を予約",
+    "bookOnline": "オンライン 1対1 を予約",
+    "bookGroup": "グループを予約",
+    "bookFreeTrial": "無料体験を予約"
+  },
+
+  "items": [
+    {
+      "key": "inperson",
+      "title": "1対1（対面）",
+      "duration": "50分",
+      "price": "¥6,000",
+      "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-in-person"
+    },
+    {
+      "key": "online50",
+      "title": "1対1（オンライン）",
+      "duration": "50分",
+      "price": "¥4,000",
+      "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-online"
+    },
+    {
+      "key": "group80",
+      "title": "グループ（最大8名）",
+      "duration": "80分",
+      "price": "¥3,200 / 1人",
+      "url": "https://calendly.com/collier-consulting/english-with-kevin-group-session"
+    },
+    {
+      "key": "freetrial",
+      "title": "無料体験（オンライン）",
+      "duration": "15分",
+      "price": "--",
+      "url": "https://calendly.com/collier-consulting/english-with-kevin-free-trial"
+    }
+  ],
+
+  "notes": {
+    "prices": "※ 料金にはセッション費用、セッション後の学習サマリー、会場費・交通費が含まれます。",
+    "locations": "※ 対面・グループは一部地域のみ対応しています。詳細はお問い合わせください。",
+    "cancellation": "<0>キャンセルポリシー</0>：<1>48時間前</1>まで無料。<2>24〜48時間前</2>は50%、<3>24時間以内</3>は100%のキャンセル料。開始の<4>24時間前</4>まで日程変更可能です。"
+  },
+
+  "corporate": {
+    "title": "法人向けトレーニング",
+    "body": "チーム・企業向けにカスタマイズしたプログラムをご提供しています。",
+    "linkLabel": "Collier Consulting へ",
+    "linkUrl": "https://kevin-collier.me",
+    "trailingPunct": "。"
+  }
+}

@@ -21,7 +21,7 @@ export default function About() {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <section id="about" className="bg-white text-blue">
+    <section id="about" className="bg-white">
       {/* Top: avatar (left) + prose (right) */}
       <div
         className="
@@ -65,7 +65,7 @@ export default function About() {
         {/* Prose (right) */}
         <div className="md:col-span-7 col-span-12 md:order-2 md:pl-6">
           <div className="max-w-2xl">
-            <h2 className="text-midnight-navy font-display font-extrabold text-2xl sm:text-3xl text-slate-900 mb-4">
+            <h2 className="text-midnight-navy font-display font-extrabold text-2xl sm:text-3xl mb-4">
               {t('heading')}
             </h2>
 

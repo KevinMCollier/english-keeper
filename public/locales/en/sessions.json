@@ -1,63 +1,43 @@
 {
-  "heading": "Sessions & Pricing",
-
-  "table": {
-    "session": "Session",
-    "time": "Time",
-    "price": "Price",
-    "book": "Book"
+  "title": "Private and Group Lessons",
+  "intro": "Every lesson is personalized, but there’s always a clear structure so you know what to expect and how you’ll grow.",
+  "oneToOne": {
+    "title": "1:1 Private Sessions",
+    "badge": "50 min · Online or In-Person",
+    "blocks": [
+      {
+        "heading": "First Session — Diagnostic & Roadmap",
+        "body": "We discuss your goals, check your English level, and design a personalized learning plan. You leave with a clear picture of how we’ll move forward."
+      },
+      {
+        "heading": "Ongoing Sessions — Simple, Focused Flow",
+        "body": "Each 50-minute session follows a repeatable pattern so it feels natural and productive.",
+        "steps": [
+          "Warm-up & review (5–10 min)",
+          "Focused practice (30 min): roleplay, conversation, or skills (e.g., meetings, interviews, travel)",
+          "Wrap-up & feedback (5–10 min)"
+        ]
+      },
+      {
+        "heading": "Milestone Check-Ins (every 10 sessions)",
+        "body": "We pause to review progress, reset goals, and design your next stage of learning."
+      },
+      {
+        "heading": "Post-Session Summary",
+        "body": "After each lesson, you receive key phrases, corrections, and next steps so you can keep learning between sessions."
+      }
+    ]
   },
-
-  "buttons": {
-    "book": "Book",
-    "bookInPerson": "Book 1:1 In-Person",
-    "bookOnline": "Book 1:1 Online",
-    "bookGroup": "Book Group",
-    "bookFreeTrial": "Book a Free Trial"
+  "groups": {
+    "title": "Group Sessions",
+    "badge": "Up to 8 learners · 80 min",
+    "blurb": "A fun, community-style format focused on speaking time and real-world topics. Great for momentum and accountability.",
+    "bullets": [
+      "Topic tracks like Business English, Travel, or Culture Club",
+      "Guided activities and pair work for maximum speaking time",
+      "Light homework to build continuity between sessions",
+      "Designed to feel welcoming for mixed levels"
+    ]
   },
-
-  "items": [
-    {
-      "key": "inperson",
-      "title": "1:1 In-Person",
-      "duration": "50 min",
-      "price": "¥6,000",
-      "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-in-person"
-    },
-    {
-      "key": "online50",
-      "title": "1:1 Online",
-      "duration": "50 min",
-      "price": "¥4,000",
-      "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-online"
-    },
-    {
-      "key": "group80",
-      "title": "Group (Max 8)",
-      "duration": "80 min",
-      "price": "¥3,200 / person",
-      "url": "https://calendly.com/collier-consulting/english-with-kevin-group-session"
-    },
-    {
-      "key": "freetrial",
-      "title": "Free Trial (Online)",
-      "duration": "15 min",
-      "price": "--",
-      "url": "https://calendly.com/collier-consulting/english-with-kevin-free-trial"
-    }
-  ],
-
-  "notes": {
-    "prices": "※ Prices include session fee, post-session learning summary, and venue/transportation cost.",
-    "locations": "※ In-person & group sessions available within limited locations. Contact for more details.",
-    "cancellation": "<0>Cancellation policy</0>: Free up to <1>48 hours</1> before; <2>24–48 hours</2> = 50% fee; <3>within 24 hours</3> = 100% fee. Rescheduling allowed up to <4>24 hours</4> before start."
-  },
-
-  "corporate": {
-    "title": "Corporate Training",
-    "body": "Tailored programs for teams and companies.",
-    "linkLabel": "visit Collier Consulting",
-    "linkUrl": "https://kevin-collier.me",
-    "trailingPunct": "."
-  }
+  "footnote": "All sessions include personalized preparation. 1:1 sessions also include a short post-session summary."
 }

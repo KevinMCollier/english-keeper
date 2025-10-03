@@ -1,219 +1,171 @@
-// src/components/Sessions.jsx
-import { useTranslation, Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 import ServiceButton from './ServiceButton';
 
 export default function Sessions() {
-  const { t } = useTranslation('sessions');
+  const { t } = useTranslation(['pricing', 'sessions']);
 
-  const items = (t('items', { returnObjects: true }) || []).filter(
-    (i) => i.key !== 'corporate'
-  );
+  const fadeUp = {
+    hidden: { opacity: 0, y: 10 },
+    show: (i = 0) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: 0.06 * i, duration: 0.4, ease: 'easeOut' },
+    }),
+  };
+  const viewport = { once: false, amount: 0.3 };
 
-  const table = t('table', { returnObjects: true }) || {};
-  const notes = t('notes', { returnObjects: true }) || {};
-  const corporate = t('corporate', { returnObjects: true }) || {};
+  // 1:1 blocks & groups bullets from overview namespace
+  const rawBlocks = t('oneToOne.blocks', { ns: 'sessions', returnObjects: true });
+  const blocks = Array.isArray(rawBlocks) ? rawBlocks : [];
+  // Desired visual order in the 2-col grid
+  const order = [0, 2, 1, 3].filter(i => blocks[i]);
+
+  const rawGroupBullets = t('groups.bullets', { ns: 'sessions', returnObjects: true });
+  const groupBullets = Array.isArray(rawGroupBullets) ? rawGroupBullets : [];
+
+  // Pull Calendly URLs from sessions.json items
+  const items = t('items', { ns: 'pricing', returnObjects: true });
+  const byKey = Array.isArray(items)
+    ? Object.fromEntries(items.map((i) => [i.key, i.url]))
+    : {};
+
+  const urlOnline   = byKey['online50']  || '';
+  const urlInPerson = byKey['inperson']  || '';
+  const urlGroup    = byKey['group80']   || '';
 
   return (
-    <section id="sessions" className="bg-creme py-16 sm:py-20 font-body">
-      <div className="mx-auto w-full max-w-3xl px-5">
-        <h2 className="text-midnight-navy font-display font-extrabold text-2xl sm:text-3xl mb-5">
-          {t('heading')}
-        </h2>
+    <section id="sessions" className="border-t border-white/10 bg-white text-midnight-navy font-body">
+      <div className="container mx-auto max-w-6xl px-6 sm:px-8 py-16 sm:py-20 space-y-12">
 
-        {/* —— MOBILE CARDS (<= md) —— */}
-        <div className="md:hidden space-y-3">
-          {items.map((i) => (
-            <div
-              key={i.key}
-              className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100"
-            >
-              <div className="font-display text-midnight-navy text-lg font-semibold break-words">
-                {i.title}
-              </div>
-
-              <dl className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
-                <div>
-                  <dt className="text-graphite/60">{table.time || 'Time'}</dt>
-                  <dd className="text-graphite">{i.duration?.trim() || '—'}</dd>
-                </div>
-                <div className="text-right">
-                  <dt className="text-graphite/60">{table.price || 'Price'}</dt>
-                  <dd className="text-midnight-navy font-medium">
-                    {i.price?.trim() || '—'}
-                  </dd>
-                </div>
-              </dl>
-
-              {i.url?.trim() && (
-                <div className="mt-3">
-                  <ServiceButton
-                    url={i.url}
-                    label={
-                      i.key === 'freetrial'
-                        ? t('buttons.bookFreeTrial', 'Book Free Trial')
-                        : i.key === 'online50'
-                        ? t('buttons.bookOnline', 'Book 1:1 Online')
-                        : i.key === 'inperson'
-                        ? t('buttons.bookInPerson', 'Book 1:1 In-Person')
-                        : i.key === 'group80'
-                        ? t('buttons.bookGroup', 'Book Group')
-                        : t('buttons.book', 'Book')
-                    }
-                    color={i.key === 'freetrial' ? 'lemon' : 'caramel'}
-                    // Keep single-line but scale down on tiny screens so it fits
-                    className="w-full justify-center whitespace-nowrap text-sm py-2"
-                  />
-                </div>
-              )}
-            </div>
-          ))}
+        {/* Header (left-aligned) */}
+        <div className="max-w-3xl">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl tracking-tight mb-4">
+            {t('title', { ns: 'sessions' })}
+          </h2>
+          <p className="text-base sm:text-lg leading-relaxed text-graphite">
+            <Trans i18nKey="intro" ns="sessions" />
+          </p>
         </div>
 
-        {/* —— DESKTOP TABLE (md+) — EXACTLY YOUR ORIGINAL —— */}
-        <div className="hidden md:block bg-white rounded-2xl p-5 sm:p-6 shadow-sm">
-          <table className="w-full table-fixed">
-            <colgroup>
-              <col className="w-[55%] sm:w-[58%]" />
-              <col className="w-[110px]" />
-              <col className="w-[150px]" />
-              <col className="w-[170px]" />
-            </colgroup>
-            <thead>
-              <tr className="text-xs uppercase tracking-wide text-graphite/60">
-                <th className="text-left pb-2">{table.session || 'Session'}</th>
-                <th className="text-left pb-2">{table.time || 'Time'}</th>
-                <th className="text-left pb-2">{table.price || 'Price'}</th>
-                <th className="text-left pb-2">{table.book || 'Book'}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {items.map((i) => (
-                <tr
-                  key={i.key}
-                  className="border-t first:border-t-0 border-gray-200/70 align-middle"
-                >
-                  <td className="py-4">
-                    <span className="font-display text-midnight-navy text-base sm:text-lg font-semibold">
-                      {i.title}
-                    </span>
-                  </td>
-                  <td className="py-4 text-sm sm:text-base text-graphite">
-                    {i.duration?.trim() || '—'}
-                  </td>
-                  <td className="py-4 text-sm sm:text-base font-medium text-midnight-navy">
-                    {i.price?.trim() || '—'}
-                  </td>
-                  <td className="py-4">
-                    {i.url?.trim() && (
-                      <ServiceButton
-                        url={i.url}
-                        label={
-                          i.key === 'freetrial'
-                            ? t('buttons.bookFreeTrial', 'Book Free Trial')
-                            : i.key === 'online50'
-                            ? t('buttons.bookOnline', 'Book 1:1 Online')
-                            : i.key === 'inperson'
-                            ? t('buttons.bookInPerson', 'Book 1:1 In-Person')
-                            : i.key === 'group80'
-                            ? t('buttons.bookGroup', 'Book Group')
-                            : t('buttons.book', 'Book')
-                        }
-                        color={i.key === 'freetrial' ? 'lemon' : 'caramel'}
-                        className="w-full justify-center whitespace-nowrap"
-                      />
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        {/* Private Sessions Card */}
+        <div className="rounded-2xl bg-white/70 ring-1 ring-black/5 p-6 sm:p-8 shadow-sm space-y-6">
+          <div className="flex items-center justify-between flex-wrap gap-3">
+            <h3 className="font-display font-bold text-xl sm:text-2xl">
+              {t('oneToOne.title', { ns: 'sessions' })}
+            </h3>
+            <span className="inline-flex items-center rounded-full px-3 py-1 text-sm ring-1 ring-black/10 bg-white">
+              {t('oneToOne.badge', { ns: 'sessions' })}
+            </span>
+          </div>
 
-          {/* Global notes under the table (from i18n) */}
-          <div className="mt-4 space-y-1 text-xs text-graphite/80">
-            {notes.prices && <p>{notes.prices}</p>}
-            {notes.locations && <p>{notes.locations}</p>}
-            {notes.cancellation && (
-              <p>
-                <Trans
-                  i18nKey="notes.cancellation"
-                  ns="sessions"
-                  components={[
-                    <strong key="b1" />,
-                    <strong key="b2" />,
-                    <strong key="b3" />,
-                    <strong key="b4" />
-                  ]}
-                />
-              </p>
-            )}
+          {/* Two-column grid for the four sections */}
+          <div className="grid md:grid-cols-2 grid-flow-row-dense gap-8">
+            {order.map((i, idx) => {
+              const steps = t(`oneToOne.blocks.${i}.steps`, { ns: 'sessions', returnObjects: true });
+              const stepList = Array.isArray(steps) ? steps : [];
+              return (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={viewport}
+                  custom={idx}
+                  className="space-y-2"
+                >
+                  <p className="font-semibold">
+                    <Trans i18nKey={`oneToOne.blocks.${i}.heading`} ns="sessions" />
+                  </p>
+                  <p className="text-graphite">
+                    <Trans i18nKey={`oneToOne.blocks.${i}.body`} ns="sessions" />
+                  </p>
+                  {stepList.length ? (
+                    <ul className="mt-2 ml-4 list-disc space-y-1 text-graphite">
+                      {stepList.map((__, j) => (
+                        <li key={j}>
+                          <Trans i18nKey={`oneToOne.blocks.${i}.steps.${j}`} ns="sessions" />
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* CTAs in bottom-right of card */}
+          <div className="flex justify-end gap-3 pt-2">
+            {urlInPerson ? (
+              <ServiceButton
+                url={urlInPerson}
+                label={t('buttons.bookInPerson', { ns: 'pricing', defaultValue: 'Book 1:1 In-Person' })}
+                color="caramel"
+                className="whitespace-nowrap text-sm py-2"
+              />
+            ) : null}
+            {urlOnline ? (
+              <ServiceButton
+                url={urlOnline}
+                label={t('buttons.bookOnline', { ns: 'pricing', defaultValue: 'Book 1:1 Online' })}
+                color="caramel"
+                className="whitespace-nowrap text-sm py-2"
+              />
+            ) : null}
           </div>
         </div>
 
-        {/* —— Corporate callout — unchanged —— */}
-        {(corporate.title || corporate.body) && (
-          <div className="mt-6 rounded-xl bg-white text-midnight-navy shadow-sm border border-gray-200">
-            <div className="p-5 flex flex-col gap-4 sm:flex-row sm:items-center">
-              {/* Icon + text */}
-              <div className="flex items-start gap-3 flex-1">
-                <span
-                  className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-midnight-navy/10"
-                  aria-hidden="true"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-midnight-navy"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M3 7h18v10a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7Z" />
-                    <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                  </svg>
-                </span>
-                <div>
-                  <div className="font-semibold text-base sm:text-lg">
-                    {corporate.title}
-                  </div>
-                  {corporate.body && (
-                    <p className="mt-0.5 text-sm sm:text-base leading-relaxed">
-                      {corporate.body}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              {/* CTA button */}
-              {corporate.linkUrl && corporate.linkLabel && (
-                <div className="sm:ml-auto">
-                  <a
-                    href={corporate.linkUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full px-4 py-2 bg-sea-mist text-white font-semibold hover:opacity-90 transition"
-                  >
-                    {corporate.linkLabel}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M5 12h14" />
-                      <path d="m12 5 7 7-7 7" />
-                    </svg>
-                  </a>
-                </div>
-              )}
-            </div>
+        {/* Group Sessions Card */}
+        <div className="rounded-2xl bg-white/50 ring-1 ring-black/5 p-6 sm:p-8 space-y-5">
+          <div className="flex items-center justify-between flex-wrap gap-3">
+            <h3 className="font-display font-bold text-xl sm:text-2xl">
+              {t('groups.title', { ns: 'sessions' })}
+            </h3>
+            <span className="inline-flex items-center rounded-full px-3 py-1 text-sm ring-1 ring-black/10 bg-white">
+              {t('groups.badge', { ns: 'sessions' })}
+            </span>
           </div>
-        )}
+
+          <p className="text-graphite leading-relaxed">
+            <Trans i18nKey="groups.blurb" ns="sessions" />
+          </p>
+
+          <ul className="grid sm:grid-cols-2 gap-2">
+            {groupBullets.map((_, i) => (
+              <motion.li
+                key={i}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={viewport}
+                custom={i + 10}
+                className="flex items-start gap-2"
+              >
+                <span aria-hidden className="mt-2 h-2 w-2 shrink-0 rounded-full bg-copper-rust" />
+                <p className="text-graphite">
+                  <Trans i18nKey={`groups.bullets.${i}`} ns="sessions" />
+                </p>
+              </motion.li>
+            ))}
+          </ul>
+
+          {/* CTA in bottom-right of card */}
+          <div className="flex justify-end pt-2">
+            {urlGroup ? (
+              <ServiceButton
+                url={urlGroup}
+                label={t('buttons.bookGroup', { ns: 'pricing', defaultValue: 'Book Group' })}
+                color="caramel"
+                className="whitespace-nowrap text-sm py-2"
+              />
+            ) : null}
+          </div>
+        </div>
+
+        {/* Footnote */}
+        <p className="text-sm text-graphite/80">
+          <Trans i18nKey="footnote" ns="sessions" />
+        </p>
       </div>
     </section>
   );

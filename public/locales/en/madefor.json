@@ -1,0 +1,32 @@
+{
+  "title": "Made For…",
+  "imageAlt": "Sample learner",
+  "images": ["/placeholder-1.jpg", "/placeholder-2.jpg", "/placeholder-3.jpg", "/placeholder-4.jpg"],
+
+  "pros": {
+    "title": "Business Professionals",
+    "bullets": [
+      "Build confidence in meetings, presentations, and negotiations",
+      "Prepare for interviews, internships, and global career opportunities",
+      "Gain workplace communication strategies, leadership skills, and career coaching alongside English fluency"
+    ]
+  },
+
+  "casual": {
+    "title": "Casual Learners",
+    "bullets": [
+      "Enjoy conversational English for travel, culture, or hobbies",
+      "Explore global topics like food, literature, and current events",
+      "Relaxed, flexible lessons that make learning fun and comfortable"
+    ]
+  },
+
+  "students": {
+    "title": "Motivated Students",
+    "bullets": [
+      "Develop presentation and discussion skills for university or study abroad",
+      "Boost confidence in English for job hunting and internships",
+      "Build a strong foundation for early-career success"
+    ]
+  }
+}

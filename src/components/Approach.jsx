@@ -41,7 +41,7 @@ export default function Approach() {
   ];
 
   return (
-    <section id="approach" className="bg-white text-blue py-14">
+    <section id="approach" className="bg-creme text-blue py-14">
       <div className="container mx-auto max-w-6xl px-6 sm:px-8">
         {/* Tighter two-column layout */}
         <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-8">
