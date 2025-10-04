@@ -16,7 +16,7 @@ export default function ScheduleButton({
     if (window?.Calendly?.initPopupWidget && url) {
       window.Calendly.initPopupWidget({ url });
     } else {
-      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
