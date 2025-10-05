@@ -63,7 +63,7 @@ export default function Banner() {
           {/* CTAs */}
           <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
             <button
-              onClick={() => scrollTo('sessions')}
+              onClick={() => scrollTo('pricing')}
               className={btn('bg-orange text-off-white', 'hover:bg-copper-rust/90')}
             >
               {t('cta.services')}
