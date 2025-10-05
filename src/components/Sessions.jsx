@@ -43,9 +43,6 @@ export default function Sessions() {
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl tracking-tight mb-4">
             {t('title', { ns: 'sessions' })}
           </h2>
-          <p className="text-base sm:text-lg leading-relaxed text-graphite">
-            <Trans i18nKey="intro" ns="sessions" />
-          </p>
         </div>
 
         {/* Private Sessions Card */}
