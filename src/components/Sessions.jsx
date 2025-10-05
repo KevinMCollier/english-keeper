@@ -161,11 +161,6 @@ export default function Sessions() {
             ) : null}
           </div>
         </div>
-
-        {/* Footnote */}
-        <p className="text-sm text-graphite/80">
-          <Trans i18nKey="footnote" ns="sessions" />
-        </p>
       </div>
     </section>
   );
