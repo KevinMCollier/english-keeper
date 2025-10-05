@@ -12,6 +12,10 @@ export default function Pricing() {
   const notes = t('notes', { returnObjects: true }) || {};
   const corporate = t('corporate', { returnObjects: true }) || {};
 
+  // NEW: pull promo + location strings from i18n
+  const promo = t('promo', { returnObjects: true }) || {};
+  const location = t('location', { returnObjects: true }) || {};
+
   // ---- Helpers to compute 20% off for private 1:1 ----
   const getItem = (key) => items.find((i) => i.key === key);
   const parseYen = (s) => {
@@ -24,16 +28,16 @@ export default function Pricing() {
 
   const INPERSON_PRICE = parseYen(getItem('inperson')?.price);
   const ONLINE_PRICE = parseYen(getItem('online50')?.price);
-  const RATE = 0.2;
+  const RATE = promo.rate ?? 0.2;
 
-  const inpersonDiscounted = INPERSON_PRICE ? INPERSON_PRICE * (1 - RATE) : null; // 4800
-  const onlineDiscounted = ONLINE_PRICE ? ONLINE_PRICE * (1 - RATE) : null; // 3200
+  const inpersonDiscounted = INPERSON_PRICE ? INPERSON_PRICE * (1 - RATE) : null;
+  const onlineDiscounted = ONLINE_PRICE ? ONLINE_PRICE * (1 - RATE) : null;
 
   return (
     <section id="pricing" className="bg-white py-16 sm:py-20 font-body">
       <div className="mx-auto w-full max-w-3xl px-5">
 
-      {/* Heading + Promo (compact ticket) */}
+        {/* Heading + Promo (compact ticket) */}
         <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
           {/* Title */}
           <h2 className="text-midnight-navy font-display font-extrabold text-3xl sm:text-4xl leading-tight">
@@ -47,7 +51,7 @@ export default function Pricing() {
               rounded-2xl border border-orange/25 bg-white shadow-sm
               md:w-[360px] lg:w-[400px]
             "
-            aria-label="20% off first private lesson"
+            aria-label={promo.ariaLabel || '20% off first private lesson'}
           >
             {/* Left strip (narrower) */}
             <div
@@ -58,7 +62,7 @@ export default function Pricing() {
                 font-extrabold tracking-wide
               "
             >
-              <span className="text-base">20% OFF</span>
+              <span className="text-base">{promo.badge || '20% OFF'}</span>
             </div>
 
             {/* Content (tighter padding) */}
@@ -67,7 +71,7 @@ export default function Pricing() {
                 {/* 1:1 In-Person */}
                 <div className="grid grid-cols-[1fr,auto] items-center gap-x-2">
                   <dt className="font-semibold text-midnight-navy leading-tight">
-                    1:1 In-Person
+                    {promo.inpersonLabel || '1:1 In-Person'}
                   </dt>
                   <dd className="text-right leading-tight">
                     {INPERSON_PRICE ? (
@@ -88,7 +92,7 @@ export default function Pricing() {
                 {/* 1:1 Online */}
                 <div className="grid grid-cols-[1fr,auto] items-center gap-x-2">
                   <dt className="font-semibold text-midnight-navy leading-tight">
-                    1:1 Online
+                    {promo.onlineLabel || '1:1 Online'}
                   </dt>
                   <dd className="text-right leading-tight">
                     {ONLINE_PRICE ? (
@@ -107,13 +111,14 @@ export default function Pricing() {
                 </div>
               </dl>
 
-              {/* Fine print (kept compact) */}
+              {/* Fine print */}
               <p className="mt-1 text-[11px] leading-4 text-graphite/70">
-                Not valid for group lessons.
+                {promo.finePrint || 'Not valid for group lessons.'}
               </p>
             </div>
           </aside>
         </div>
+
         {/* —— MOBILE CARDS (<= md) —— */}
         <div className="md:hidden space-y-3">
           {items.map((i) => (
@@ -142,7 +147,7 @@ export default function Pricing() {
                 <div className="mt-3">
                   <ServiceButton
                     url="#"
-                    label="Coming soon"
+                    label={t('buttons.comingSoon', 'Coming soon')}
                     disabled
                     disabledClassName="bg-[#E2B985] hover:bg-[#E2B985] text-white"
                     className="w-full justify-center whitespace-nowrap text-sm py-2"
@@ -210,7 +215,7 @@ export default function Pricing() {
                     {i.key === 'group80' ? (
                       <ServiceButton
                         url="#"
-                        label="Coming soon"
+                        label={t('buttons.comingSoon', 'Coming soon')}
                         disabled
                         disabledClassName="bg-[#E2B985] hover:bg-[#E2B985] text-white"
                         className="w-full justify-center whitespace-nowrap"
@@ -243,7 +248,6 @@ export default function Pricing() {
           <div className="mt-4 space-y-1 text-xs text-graphite/80">
             {notes.prices && <p>{notes.prices}</p>}
             {notes.locations && <p>{notes.locations}</p>}
-            {/* New discount note (i18n-backed if provided) */}
             <p>{notes.discount || '※ 20% first-lesson discount applies to private 1:1 sessions (online & in-person) only; not valid for group sessions.'}</p>
             {notes.cancellation && (
               <p>
@@ -262,47 +266,51 @@ export default function Pricing() {
           </div>
         </div>
 
-{/* —— Location Info (styled like Corporate card) —— */}
-<div className="mt-6 rounded-xl bg-white text-midnight-navy shadow-sm border border-gray-200">
-  <div className="p-5 flex flex-col gap-4 sm:flex-row sm:items-center">
-    {/* Icon */}
-    <span
-      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-midnight-navy/10"
-      aria-hidden="true"
-    >
-      {/* Map-pin icon */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-5 w-5 text-midnight-navy"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M12 22s7-5.33 7-12A7 7 0 0 0 5 10c0 6.67 7 12 7 12Z" />
-        <circle cx="12" cy="10" r="3" />
-      </svg>
-    </span>
+        {/* —— Location Info (styled like Corporate card) —— */}
+        <div className="mt-6 rounded-xl bg-white text-midnight-navy shadow-sm border border-gray-200">
+          <div className="p-5 flex flex-col gap-4 sm:flex-row sm:items-center">
+            {/* Icon */}
+            <span
+              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-midnight-navy/10"
+              aria-hidden="true"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 text-midnight-navy"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 22s7-5.33 7-12A7 7 0 0 0 5 10c0 6.67 7 12 7 12Z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </span>
 
-    {/* Text */}
-    <div className="flex-1">
-      <div className="font-semibold text-base sm:text-lg">Location Info</div>
-      <p className="mt-0.5 text-sm sm:text-base leading-relaxed text-graphite">
-        In-person sessions currently available in <strong>Jiyugaoka</strong>, <strong>Omori</strong>,
-        <strong> Oimachi</strong>, <strong>Shinagawa</strong>, and <strong>Gotanda</strong> upon request.
-      </p>
-      {/* Future headbase note (uncomment when ready) */}
-      {/*
-      <p className="mt-1.5 text-xs text-graphite/80 italic">
-        In-person sessions located at <strong>___ Building</strong> at <strong>___ Station</strong> (___ Line).
-      </p>
-      */}
-    </div>
-  </div>
-</div>
+            {/* Text */}
+            <div className="flex-1">
+              <div className="font-semibold text-base sm:text-lg">
+                {location.title || 'Location Info'}
+              </div>
+              <p className="mt-0.5 text-sm sm:text-base leading-relaxed text-graphite">
+                <Trans
+                  i18nKey="location.body"
+                  ns="pricing"
+                  components={{ strong: <strong className="font-semibold" /> }}
+                />
+              </p>
 
+              {/* Future headbase note (uncomment when ready) */}
+              {/* {location.headbase && (
+                <p className="mt-1.5 text-xs text-graphite/80 italic">
+                  {location.headbase}
+                </p>
+              )} */}
+            </div>
+          </div>
+        </div>
 
         {/* —— Corporate callout —— */}
         {(corporate.title || corporate.body) && (

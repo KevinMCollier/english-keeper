@@ -32,7 +32,7 @@ export default function Sessions() {
 
   const urlOnline   = byKey['online50']  || '';
   const urlInPerson = byKey['inperson']  || '';
-  const urlGroup    = byKey['group80']   || '';
+  // const urlGroup    = byKey['group80']   || '';
 
   return (
     <section id="sessions" className="border-t border-white/10 bg-white text-midnight-navy font-body">
@@ -150,16 +150,17 @@ export default function Sessions() {
           </ul>
 
           {/* CTA in bottom-right of card */}
-          <div className="flex justify-end pt-2">
-            {urlGroup ? (
-              <ServiceButton
-                url={urlGroup}
-                label={t('buttons.bookGroup', { ns: 'pricing', defaultValue: 'Book Group' })}
-                color="caramel"
-                className="whitespace-nowrap text-sm py-2"
-              />
-            ) : null}
-          </div>
+<div className="flex justify-end pt-2">
+    <ServiceButton
+      url="#"
+      label={t('buttons.comingSoon', { ns: 'pricing', defaultValue: 'Coming soon' })}
+      disabled
+      disabledClassName="bg-[#E2B985] hover:bg-[#E2B985] text-white"
+      className="whitespace-nowrap text-sm py-2"
+    />
+</div>
+
+
         </div>
       </div>
     </section>
