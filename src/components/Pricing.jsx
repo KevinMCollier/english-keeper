@@ -16,23 +16,6 @@ export default function Pricing() {
   const promo = t('promo', { returnObjects: true }) || {};
   const location = t('location', { returnObjects: true }) || {};
 
-  // ---- Helpers to compute 20% off for private 1:1 ----
-  const getItem = (key) => items.find((i) => i.key === key);
-  const parseYen = (s) => {
-    if (!s) return null;
-    const digits = String(s).replace(/[^\d]/g, '');
-    return digits ? Number(digits) : null;
-  };
-  const formatYen = (n) =>
-    `¥${(Math.round(n) || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
-
-  const INPERSON_PRICE = parseYen(getItem('inperson')?.price);
-  const ONLINE_PRICE = parseYen(getItem('online50')?.price);
-  const RATE = promo.rate ?? 0.2;
-
-  const inpersonDiscounted = INPERSON_PRICE ? INPERSON_PRICE * (1 - RATE) : null;
-  const onlineDiscounted = ONLINE_PRICE ? ONLINE_PRICE * (1 - RATE) : null;
-
   return (
     <section id="pricing" className="bg-white py-16 sm:py-20 font-body">
       <div className="mx-auto w-full max-w-3xl px-5">
@@ -44,79 +27,27 @@ export default function Pricing() {
             {t('heading')}
           </h2>
 
-          {/* Ticket card — narrower & shorter */}
+          {/* Promo banner — full orange, narrower, with line break */}
           <aside
             className="
-              relative overflow-hidden
-              rounded-2xl border border-orange/25 bg-white shadow-sm
-              md:w-[360px] lg:w-[400px]
+              w-[280px] sm:w-[320px]
+              rounded-2xl border border-orange/30 bg-orange text-white shadow-sm
+              px-4 py-3
             "
             aria-label={promo.ariaLabel || '20% off first private lesson'}
           >
-            {/* Left strip (narrower) */}
-            <div
-              className="
-                absolute inset-y-0 left-0 w-20
-                bg-orange/95 text-white
-                flex items-center justify-center
-                font-extrabold tracking-wide
-              "
-            >
-              <span className="text-base">{promo.badge || '20% OFF'}</span>
-            </div>
-
-            {/* Content (tighter padding) */}
-            <div className="pl-24 pr-3 py-2">
-              <dl className="mt-0.5 space-y-1">
-                {/* 1:1 In-Person */}
-                <div className="grid grid-cols-[1fr,auto] items-center gap-x-2">
-                  <dt className="font-semibold text-midnight-navy leading-tight">
-                    {promo.inpersonLabel || '1:1 In-Person'}
-                  </dt>
-                  <dd className="text-right leading-tight">
-                    {INPERSON_PRICE ? (
-                      <>
-                        <span className="text-graphite/50 line-through mr-1 text-[13px] align-middle">
-                          {formatYen(INPERSON_PRICE)}
-                        </span>
-                        <span className="font-extrabold text-midnight-navy text-lg align-middle">
-                          {formatYen(inpersonDiscounted)}
-                        </span>
-                      </>
-                    ) : (
-                      <span className="text-graphite/60">—</span>
-                    )}
-                  </dd>
-                </div>
-
-                {/* 1:1 Online */}
-                <div className="grid grid-cols-[1fr,auto] items-center gap-x-2">
-                  <dt className="font-semibold text-midnight-navy leading-tight">
-                    {promo.onlineLabel || '1:1 Online'}
-                  </dt>
-                  <dd className="text-right leading-tight">
-                    {ONLINE_PRICE ? (
-                      <>
-                        <span className="text-graphite/50 line-through mr-1 text-[13px] align-middle">
-                          {formatYen(ONLINE_PRICE)}
-                        </span>
-                        <span className="font-extrabold text-midnight-navy text-lg align-middle">
-                          {formatYen(onlineDiscounted)}
-                        </span>
-                      </>
-                    ) : (
-                      <span className="text-graphite/60">—</span>
-                    )}
-                  </dd>
-                </div>
-              </dl>
-
-              {/* Fine print */}
-              <p className="mt-1 text-[11px] leading-4 text-graphite/70">
-                {promo.finePrint || 'Not valid for group lessons.'}
-              </p>
-            </div>
+            <p className="font-display font-extrabold leading-snug text-base sm:text-xl">
+              {promo.headlineTop || '20% OFF first 1:1 lesson'}
+              <br />
+              <span className="font-bold">
+                {promo.headlineBottom || '(online or in-person)'}
+              </span>
+            </p>
+            <p className="mt-1 text-[12px] leading-4 opacity-95">
+              {promo.finePrint || 'One time use only. Not valid for group lessons.'}
+            </p>
           </aside>
+
         </div>
 
         {/* —— MOBILE CARDS (<= md) —— */}

@@ -10,12 +10,10 @@
     "comingSoon": "近日公開"
   },
   "promo": {
-    "badge": "20% OFF",
-    "ariaLabel": "初回のプライベートレッスンが20%オフ",
-    "inpersonLabel": "1対1（対面）",
-    "onlineLabel": "1対1（オンライン）",
-    "finePrint": "グループレッスンは対象外です。",
-    "rate": 0.2
+    "ariaLabel": "初回マンツーマンレッスン20％割引",
+    "headlineTop": "初回マンツーマンレッスン20％OFF",
+    "headlineBottom": "（対面／オンライン）",
+    "finePrint": "お一人様一回限り。グループレッスンは対象外です。"
   },
   "items": [
     { "key": "inperson", "title": "1対1（対面）", "duration": "50分", "price": "¥6,000", "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-in-person" },
