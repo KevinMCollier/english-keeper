@@ -29,11 +29,6 @@ export default function Navbar() {
           {t('brand')}
         </a>
 
-        {/* Location (hide on very small screens) */}
-        <span className="ml-3 text-xs text-off-white/80 tracking-wide hidden sm:inline">
-          {t('location')}
-        </span>
-
         {/* Divider */}
         <span className="hidden sm:inline-block h-4 w-px bg-off-white/25 mx-4 sm:mx-6" />
 
