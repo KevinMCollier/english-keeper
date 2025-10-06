@@ -35,8 +35,8 @@ export default function MadeFor() {
 
   const groups = [
     { key: 'pros', title: t('pros.title'), bullets: t('pros.bullets', { returnObjects: true }) || [] },
-    { key: 'casual', title: t('casual.title'), bullets: t('casual.bullets', { returnObjects: true }) || [] },
-    { key: 'students', title: t('students.title'), bullets: t('students.bullets', { returnObjects: true }) || [] }
+    { key: 'students', title: t('students.title'), bullets: t('students.bullets', { returnObjects: true }) || [] },
+    { key: 'casual', title: t('casual.title'), bullets: t('casual.bullets', { returnObjects: true }) || [] }
   ];
 
   return (

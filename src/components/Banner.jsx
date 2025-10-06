@@ -11,11 +11,8 @@ export default function Banner() {
   const scrollTo = (id) =>
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-  // Split-friendly: prefer subTop/subBottom, but fall back to old 'sub'
-  const subTop = t('subTop', { defaultValue: '' });
-  const subBottom = t('subBottom', { defaultValue: '' });
-  const hasSplit =
-    subTop && subTop !== 'subTop' && subBottom && subBottom !== 'subBottom';
+  // Single sub key (renamed from subTop / subBottom)
+  const sub = t('sub', { defaultValue: '' });
 
   return (
     <section id="banner" className="bg-creme h-screen pt-28 md:pt-0 font-body">
@@ -34,29 +31,13 @@ export default function Banner() {
             />
           </h1>
 
-          {/* Sub — split version first line (bold for emphasis/SEO) */}
-          {hasSplit ? (
-            <>
-              <p
-                className="mt-3 max-w-3xl text-lg sm:text-xl font-extrabold text-midnight-navy
-                           tracking-normal leading-relaxed"
-              >
-                {subTop}
-              </p>
-              <p
-                className="mt-3 max-w-3xl text-lg sm:text-xl font-medium text-midnight-navy/90
-                           tracking-normal leading-relaxed"
-              >
-                {subBottom}
-              </p>
-            </>
-          ) : (
-            // Fallback to old single 'sub' key (keeps your current site working)
+          {/* Sub (single line, bold for emphasis/SEO) */}
+          {sub && (
             <p
               className="mt-3 max-w-3xl text-lg sm:text-xl font-extrabold text-midnight-navy
                          tracking-normal leading-relaxed"
             >
-              {t('sub')}
+              {sub}
             </p>
           )}
 

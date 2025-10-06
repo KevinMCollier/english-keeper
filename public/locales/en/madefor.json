@@ -4,29 +4,25 @@
   "images": ["/placeholder-1.jpg", "/placeholder-2.jpg", "/placeholder-3.jpg", "/placeholder-4.jpg"],
 
   "pros": {
-    "title": "Business Professionals",
+    "title": "Professionals & Leaders",
     "bullets": [
       "Build confidence in meetings, presentations, and negotiations",
       "Prepare for interviews, internships, and global career opportunities",
-      "Gain workplace communication strategies, leadership skills, and career coaching alongside English fluency"
+      "Develop strategies for leadership communication, cross-cultural teamwork, and career growth."
     ]
   },
-
+  "students": {
+    "title": "Ambitious Learners & Students",
+    "bullets": [
+      "Develop presentation and discussion skills for study abroad or early-career success.",
+      "Boost confidence for job hunting and internships"
+    ]
+  },
   "casual": {
     "title": "Casual Learners",
     "bullets": [
-      "Enjoy conversational English for travel, culture, or hobbies",
-      "Explore global topics like food, literature, and current events",
-      "Relaxed, flexible lessons that make learning fun and comfortable"
-    ]
-  },
-
-  "students": {
-    "title": "Motivated Students",
-    "bullets": [
-      "Develop presentation and discussion skills for university or study abroad",
-      "Boost confidence in English for job hunting and internships",
-      "Build a strong foundation for early-career success"
+      "Enjoy conversation about culture, hobbies, or travel",
+      "Explore topics that keep learning fun and motivating"
     ]
   }
 }

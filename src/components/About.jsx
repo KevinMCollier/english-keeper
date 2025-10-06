@@ -12,12 +12,6 @@ export default function About() {
     ? paragraphs
     : String(paragraphs).split('\n\n');
 
-  // Subtext under avatar (small grey lines)
-  const metaRaw = t('avatarMeta', { returnObjects: true });
-  const metaLines = Array.isArray(metaRaw)
-    ? metaRaw
-    : String(metaRaw ?? '').split('\n').filter(Boolean);
-
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -34,7 +28,7 @@ export default function About() {
           overflow-visible
         "
       >
-        {/* Avatar + subtle meta (left) */}
+        {/* Avatar (left) */}
         <div className="md:col-span-3 col-span-12 md:order-1 flex md:justify-end justify-center md:pr-6">
           <div className="flex flex-col items-center md:items-end">
             <div className="w-56 md:w-64 aspect-square">
@@ -45,20 +39,6 @@ export default function About() {
                 loading="lazy"
               />
             </div>
-
-            {metaLines.length > 0 && (
-              <div
-                className="
-                  mt-2 pr-1 sm:pr-2 text-[12px] text-gray-500 leading-tight
-                  w-48 sm:w-56 md:w-64
-                  text-left break-words hyphens-auto
-                "
-              >
-                {metaLines.map((line, i) => (
-                  <p key={i}>{line}</p>
-                ))}
-              </div>
-            )}
           </div>
         </div>
 
