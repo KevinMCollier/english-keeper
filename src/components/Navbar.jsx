@@ -21,13 +21,19 @@ export default function Navbar() {
     <header className="bg-orange sticky top-0 z-20 w-full font-body">
       {/* Inner bar */}
       <div className="mx-auto w-full max-w-screen-xl px-4 sm:px-5 h-14 flex items-center overflow-x-hidden">
-        {/* Brand */}
-        <a
-          href="#banner"
-          className="shrink-0 font-brand text-off-white text-2xl sm:text-3xl tracking-wide hover:opacity-90 transition"
-        >
-          {t('brand')}
-        </a>
+        {/* Brand + service tagline */}
+        <div className="shrink-0 flex items-center gap-2 whitespace-nowrap">
+          <a
+            href="#banner"
+            className="font-brand text-off-white text-2xl sm:text-3xl leading-tight tracking-wide hover:opacity-90 transition"
+          >
+            {t('brand')}
+          </a>
+          <span className="hidden sm:inline text-off-white/80 text-xs sm:text-sm leading-tight">
+            | {t('serviceTag')}
+          </span>
+        </div>
+
 
         {/* Divider */}
         <span className="hidden sm:inline-block h-4 w-px bg-off-white/25 mx-4 sm:mx-6" />
@@ -66,7 +72,6 @@ export default function Navbar() {
           aria-expanded={open}
           aria-controls="mobile-menu"
         >
-          {/* Simple icon (keeps layout consistent) */}
           <span className="block text-2xl leading-none select-none">☰</span>
         </button>
       </div>
