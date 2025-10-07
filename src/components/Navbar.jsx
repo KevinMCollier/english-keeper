@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageToggle from './LanguageToggle';
-import ScheduleButton from './ScheduleButton';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -59,10 +58,12 @@ export default function Navbar() {
         </div>
 
         {/* Desktop CTA */}
-        <ScheduleButton
-          variant="outline"
-          className="ml-3 hidden md:inline-block"
-        />
+        <a
+          href="#pricing"
+          className="ml-3 hidden md:inline-block inline-flex items-center justify-center rounded-full text-sm font-semibold transition px-4 py-1.5 text-off-white border-2 border-off-white/70 hover:bg-off-white hover:text-black"
+        >
+          {t('contact:cta.call')}
+        </a>
 
         {/* Hamburger */}
         <button
@@ -111,11 +112,12 @@ export default function Navbar() {
             </div>
 
             {/* Mobile CTA (full-width button; closes menu first) */}
-            <ScheduleButton
-              variant="outline"
-              className="block w-full"
-              onBeforeOpen={closeMenu}
-            />
+            <a
+              href="#pricing"
+              className="ml-3 hidden md:inline-block inline-flex items-center justify-center rounded-full text-sm font-semibold transition px-4 py-1.5 text-off-white border-2 border-off-white/70 hover:bg-off-white hover:text-black"
+            >
+              {t('contact:cta.call')}
+            </a>
           </div>
         </nav>
       )}

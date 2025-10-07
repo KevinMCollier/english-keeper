@@ -7,29 +7,135 @@
     "bookOnline": "Book 1:1 Online",
     "bookGroup": "Book Group",
     "bookFreeTrial": "Book a Free Trial",
-    "comingSoon": "Coming soon"
+    "comingSoon": "Coming soon",
+    "buy": "Buy"
   },
   "promo": {
     "ariaLabel": "20% off first private lesson",
     "headlineTop": "20% OFF first 1:1 lesson",
     "headlineBottom": "(online or in-person)",
-    "finePrint": "One time use only. Not valid for group lessons."
+    "finePrint": "One time use only. Not valid for group lessons or package purchases."
   },
   "items": [
     { "key": "inperson", "title": "1:1 In-Person", "duration": "50 min", "price": "¥6,000", "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-in-person" },
     { "key": "online50", "title": "1:1 Online", "duration": "50 min", "price": "¥4,500", "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-online" },
     { "key": "group80", "title": "Group (Max 8)", "duration": "80 min", "price": "¥3,200 / person", "url": "https://calendly.com/collier-consulting/english-with-kevin-group-session" }
   ],
+  "packages": {
+    "heading": "Packages",
+    "badgePopular": "Most popular",
+    "buy": "Buy",
+    "items": [
+      {
+        "key": "inperson4",
+        "title": "1:1 In-Person — 4-Pack",
+        "duration": "50 min each",
+        "price": "¥21,600",
+        "unitPrice": "¥5,400 / session",
+        "buttonLabel": "Buy In-Person 4-Pack",
+        "url": "https://buy.stripe.com/3cIbJ01Pq6ma1COfCueUU05"
+      },
+      {
+        "key": "inperson8",
+        "title": "1:1 In-Person — 8-Pack",
+        "popular": true,
+        "duration": "50 min each",
+        "price": "¥40,800",
+        "unitPrice": "¥5,100 / session",
+        "buttonLabel": "Buy In-Person 8-Pack",
+        "url": "https://buy.stripe.com/dRm3cu0Lmh0OftE1LEeUU03"
+      },
+      {
+        "key": "online4",
+        "title": "1:1 Online — 4-Pack",
+        "duration": "50 min each",
+        "price": "¥16,200",
+        "unitPrice": "¥4,050 / session",
+        "buttonLabel": "Buy Online 4-Pack",
+        "url": "https://buy.stripe.com/eVq6oG65G39Y0yK75YeUU04"
+      },
+      {
+        "key": "online8",
+        "title": "1:1 Online — 8-Pack",
+        "popular": true,
+        "duration": "50 min each",
+        "price": "¥30,600",
+        "unitPrice": "¥3,825 / session",
+        "buttonLabel": "Buy Online 8-Pack",
+        "url": "https://buy.stripe.com/28E7sKgKkbGu95gcqieUU02"
+      }
+    ],
+    "ctaPurchased": {
+      "text": "Already purchased a package? Schedule your session here:",
+      "onlineLabel": "Book 1:1 Online",
+      "onlineUrl": "https://calendly.com/collier-consulting/english-with-kevin-1-1-online",
+      "inpersonLabel": "Book 1:1 In-Person",
+      "inpersonUrl": "https://calendly.com/collier-consulting/english-with-kevin-1-1-in-person"
+    }
+  },
   "notes": {
     "prices": "※ Prices include session fee, post-session learning summary, and venue/transportation cost.",
     "locations": "※ In-person & group sessions available within limited locations. Contact for more details.",
     "discount": "※ 20% first-lesson discount applies to private 1:1 sessions (online & in-person) only; not valid for group sessions.",
     "cancellation": "<0>Cancellation policy</0>: Free up to <1>48 hours</1> before; <2>24–48 hours</2> = 50% fee; <3>within 24 hours</3> = 100% fee. Rescheduling allowed up to <4>24 hours</4> before start."
   },
-"location": {
-  "title": "Location Info",
-  "body": "In-person sessions currently available in <strong>Jiyugaoka</strong>, <strong>Omori</strong>, <strong>Oimachi</strong>, <strong>Shinagawa</strong>, and <strong>Gotanda</strong> upon request. Locations outside these areas are subject to additional charges."
-},
+  "policies": {
+    "heading": "Policies & Notes",
+    "sections": [
+      {
+        "title": "General",
+        "items": [
+          "Prices are in JPY and include the session fee and a post-session learning summary.",
+          "In-person and group sessions are available within limited locations—contact me for details."
+        ]
+      },
+      {
+        "title": "Discounts",
+        "items": [
+          "<strong>FIRST20</strong>: 20% off your first private 1:1 lesson (online or in-person).",
+          "FIRST20 is <strong>not valid</strong> for group sessions or package purchases."
+        ]
+      },
+      {
+        "title": "Packages (credits)",
+        "items": [
+          "Each credit equals one 50-minute private session.",
+          "Schedule each session anytime within the validity window.",
+          "<strong>4-Pack:</strong> valid <strong>120 days</strong> from purchase; <strong>8-Pack:</strong> valid <strong>240 days</strong> from purchase.",
+          "<strong>Credit usage:</strong> 1 credit per session held, or if you cancel within 24 hours of the start time.",
+          "Rescheduling allowed up to <strong>24 hours</strong> before start.",
+          "Credits are for the purchaser only and are not transferable."
+        ]
+      },
+      {
+        "title": "Refunds — Single Lessons",
+        "items": [
+          "Cancel >48h before: refund minus a <strong>¥500 cancellation/admin fee</strong> (free reschedule also available).",
+          "Cancel 24–48h before: <strong>50%</strong> refund.",
+          "Cancel within 24h or after the session occurs: <strong>no refund</strong> (except in case of service issues on my side)."
+        ]
+      },
+      {
+        "title": "Refunds — Packages",
+        "items": [
+          "Refundable <strong>within 48 hours</strong> of purchase if unused; refund minus a cancellation/admin fee of <strong>¥1,000 (4-Pack)</strong> or <strong>¥1,500 (8-Pack)</strong>.",
+          "After 48 hours or once any credit is used: <strong>non-refundable</strong>.",
+          "No refunds after the validity period ends."
+        ]
+      },
+      {
+        "title": "Payment",
+        "items": [
+          "Online lessons: payment is requested within <strong>24 hours</strong> of booking to keep your spot (payment link provided by email).",
+          "In-person lessons: pay online in advance or in cash on the day."
+        ]
+      }
+    ]
+  },
+  "location": {
+    "title": "Location Info",
+    "body": "In-person sessions currently available in <strong>Jiyugaoka</strong>, <strong>Omori</strong>, <strong>Oimachi</strong>, <strong>Shinagawa</strong>, and <strong>Gotanda</strong> upon request. Locations outside these areas are subject to additional charges."
+  },
   "corporate": {
     "title": "Corporate Training",
     "body": "Tailored programs for teams and companies.",

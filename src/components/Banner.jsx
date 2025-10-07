@@ -1,51 +1,55 @@
-import { useState } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
 export default function Banner() {
   const { t } = useTranslation('banner');
-  const [openSignup, setOpenSignup] = useState(false);
 
   const btn = (...c) =>
-    `inline-flex items-center justify-center text-base font-semibold px-6 py-2 rounded-full transition ${c.join(' ')}`;
+    `inline-flex items-center justify-center text-base font-semibold px-6 py-2 rounded-full transition whitespace-nowrap ${c.join(' ')}`;
 
   const scrollTo = (id) =>
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-  // Single sub key (renamed from subTop / subBottom)
   const sub = t('sub', { defaultValue: '' });
 
   return (
-    <section id="banner" className="bg-creme h-screen pt-28 md:pt-0 font-body">
-      <div className="container mx-auto flex px-10 lg:py-10 md:flex-row flex-col items-center">
-        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start text-center md:text-left mb-10 md:mb-0">
+    <section id="banner" className="relative bg-creme font-body overflow-hidden pt-14">
+      {/* Image pinned to top-right WITH its own relative container */}
+      <div
+        className="absolute top-0 right-0 z-0 hidden md:block pointer-events-none select-none"
+        aria-hidden="true"
+      >
+        <div className="relative w-[70vw] max-w-[496px]">
+          <img
+            src="/handshake.jpg"
+            alt=""
+            className="block w-full h-auto object-contain"
+            loading="eager"
+          />
+          <div className="absolute inset-y-0 left-0 w-[0%] bg-gradient-to-r from-creme via-creme/40 to-transparent" />
+        </div>
+      </div>
 
-          {/* H1 (keep for SEO) */}
-          <h1
-            className="font-display font-extrabold text-caramel text-5xl sm:text-7xl
-                       tracking-tight leading-snug mb-4"
-          >
-            <Trans
-              t={t}
-              i18nKey="headline"
-              components={[<br key="linebreak" />]}
-            />
+      {/* Text container aligned EXACTLY like the navbar */}
+      <div className="relative z-10 mx-auto w-full max-w-screen-xl px-4 sm:px-5">
+        {/* Left on all breakpoints (desktop was already left) */}
+        <div className="max-w-3xl text-left">
+          <h1 className="font-display font-extrabold text-caramel
+                         text-3xl sm:text-5xl md:text-7xl
+                         tracking-tight leading-tight md:leading-snug mb-4 break-words">
+            <Trans t={t} i18nKey="headline" components={[<br key="br" />]} />
           </h1>
 
-          {/* Sub (single line, bold for emphasis/SEO) */}
           {sub && (
-            <p
-              className="mt-3 max-w-3xl text-lg sm:text-xl font-extrabold text-midnight-navy
-                         tracking-normal leading-relaxed"
-            >
+            <p className="mt-3 text-base sm:text-xl font-extrabold text-midnight-navy leading-relaxed">
               {sub}
             </p>
           )}
 
-          {/* CTAs */}
-          <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+          {/* Stack on mobile, align-left, and keep button to content width */}
+          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
             <button
               onClick={() => scrollTo('pricing')}
-              className={btn('bg-orange text-off-white', 'hover:bg-copper-rust/90')}
+              className={btn('bg-orange text-off-white', 'hover:bg-copper-rust/90', 'self-start w-auto')}
             >
               {t('cta.services')}
             </button>
@@ -53,20 +57,8 @@ export default function Banner() {
         </div>
       </div>
 
-      {/* signup modal */}
-      {openSignup && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4"
-          onClick={() => setOpenSignup(false)}
-        >
-          <div
-            className="bg-off-white w-full max-w-md rounded-xl p-8 space-y-6 relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* modal content */}
-          </div>
-        </div>
-      )}
+      {/* Spacer before next section */}
+      <div className="h-[26rem] md:h-[32rem]" aria-hidden="true" />
     </section>
   );
 }

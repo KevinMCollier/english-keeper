@@ -1,6 +1,6 @@
 import { Trans, useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import ServiceButton from './ServiceButton';
+import CalendlyButton from './CalendlyButton';
 
 export default function Sessions() {
   const { t } = useTranslation(['pricing', 'sessions']);
@@ -94,7 +94,7 @@ export default function Sessions() {
           {/* CTAs in bottom-right of card */}
           <div className="flex justify-end gap-3 pt-2">
             {urlInPerson ? (
-              <ServiceButton
+              <CalendlyButton
                 url={urlInPerson}
                 label={t('buttons.bookInPerson', { ns: 'pricing', defaultValue: 'Book 1:1 In-Person' })}
                 color="caramel"
@@ -102,7 +102,7 @@ export default function Sessions() {
               />
             ) : null}
             {urlOnline ? (
-              <ServiceButton
+              <CalendlyButton
                 url={urlOnline}
                 label={t('buttons.bookOnline', { ns: 'pricing', defaultValue: 'Book 1:1 Online' })}
                 color="caramel"
@@ -148,7 +148,7 @@ export default function Sessions() {
 
           {/* CTA in bottom-right of card */}
 <div className="flex justify-end pt-2">
-    <ServiceButton
+    <CalendlyButton
       url="#"
       label={t('buttons.comingSoon', { ns: 'pricing', defaultValue: 'Coming soon' })}
       disabled

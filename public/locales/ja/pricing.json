@@ -7,29 +7,136 @@
     "bookOnline": "オンライン 1対1 を予約",
     "bookGroup": "グループを予約",
     "bookFreeTrial": "無料体験を予約",
-    "comingSoon": "近日公開"
+    "comingSoon": "近日公開",
+    "buy": "購入する"
   },
   "promo": {
     "ariaLabel": "初回マンツーマンレッスン20％割引",
     "headlineTop": "初回マンツーマンレッスン20％OFF",
     "headlineBottom": "（対面／オンライン）",
-    "finePrint": "お一人様一回限り。グループレッスンは対象外です。"
+    "finePrint": "お一人様一回限り。グループ・パッケージは対象外です。"
   },
   "items": [
     { "key": "inperson", "title": "1対1（対面）", "duration": "50分", "price": "¥6,000", "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-in-person" },
     { "key": "online50", "title": "1対1（オンライン）", "duration": "50分", "price": "¥4,500", "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-online" },
     { "key": "group80", "title": "グループ（最大8名）", "duration": "80分", "price": "¥3,200 / 1人", "url": "https://calendly.com/collier-consulting/english-with-kevin-group-session" }
   ],
+  "packages": {
+    "heading": "パッケージ",
+    "badgePopular": "人気",
+    "buy": "購入",
+    "items": [
+      {
+        "key": "inperson4",
+        "title": "1対1 対面 4回パック",
+        "duration": "各50分",
+        "price": "¥21,600",
+        "unitPrice": "1回あたり ¥5,400",
+        "buttonLabel": "対面 4回パック",
+        "url": "REPLACE_WITH_STRIPE_LINK_INPERSON_4"
+      },
+      {
+        "key": "inperson8",
+        "title": "1対1 対面 8回パック",
+        "popular": true,
+        "duration": "各50分",
+        "price": "¥40,800",
+        "unitPrice": "1回あたり ¥5,100",
+        "buttonLabel": "対面 8回パック",
+        "url": "REPLACE_WITH_STRIPE_LINK_INPERSON_8"
+      },
+      {
+        "key": "online4",
+        "title": "1対1 オンライン 4回パック",
+        "duration": "各50分",
+        "price": "¥16,200",
+        "unitPrice": "1回あたり ¥4,050",
+        "buttonLabel": "オンライン 4回パック",
+        "url": "REPLACE_WITH_STRIPE_LINK_ONLINE_4"
+      },
+      {
+        "key": "online8",
+        "title": "1対1 オンライン 8回パック",
+        "popular": true,
+        "duration": "各50分",
+        "price": "¥30,600",
+        "unitPrice": "1回あたり ¥3,825",
+        "buttonLabel": "オンライン 8回パック",
+        "url": "REPLACE_WITH_STRIPE_LINK_ONLINE_8"
+      }
+    ],
+    "ctaPurchased": {
+      "text": "すでにパッケージを購入済みの方：こちらから予約してください",
+      "onlineLabel": "対面 1対1 を予約",
+      "onlineUrl": "REPLACE_WITH_CALENDLY_ONLINE_PACKAGE_LINK",
+      "inpersonLabel": "オンライン 1対1 を予約",
+      "inpersonUrl": "REPLACE_WITH_CALENDLY_INPERSON_PACKAGE_LINK"
+    }
+
+  },
   "notes": {
     "prices": "※ 料金にはセッション費用、セッション後の学習サマリー、会場費・交通費が含まれます。",
     "locations": "※ 対面・グループは一部地域のみ対応しています。詳細はお問い合わせください。",
     "discount": "※ 初回限定20%オフは1対1（オンライン／対面）のみ対象。グループは対象外です。",
     "cancellation": "<0>キャンセルポリシー</0>：<1>48時間前</1>まで無料。<2>24〜48時間前</2>は50%、<3>24時間以内</3>は100%のキャンセル料。開始の<4>24時間前</4>まで日程変更可能です。"
   },
-"location": {
-  "title": "対応エリア",
-  "body": "対面レッスンは <strong>自由が丘</strong>、<strong>大森</strong>、<strong>大井町</strong>、<strong>品川</strong>、<strong>五反田</strong> でリクエストに応じて実施可能です。"
-},
+  "policies": {
+    "heading": "ご利用規約・注意事項",
+    "sections": [
+      {
+        "title": "一般",
+        "items": [
+          "表示価格は税込み。セッション費用およびセッション後の学習サマリーを含みます。",
+          "対面・グループは対応エリアが限られます。詳細はお問い合わせください。"
+        ]
+      },
+      {
+        "title": "割引",
+        "items": [
+          "<strong>FIRST20</strong>：初回マンツーマン（対面／オンライン）20%オフ。",
+          "FIRST20はグループおよびパッケージ購入には<strong>適用されません</strong>。"
+        ]
+      },
+      {
+        "title": "パッケージ（クレジット）",
+        "items": [
+          "1クレジット＝50分のプライベートセッション1回。",
+          "有効期間内であればお好きなタイミングで予約可能。",
+          "<strong>4回パック：</strong>購入日から<strong>120日</strong>有効 ／ <strong>8回パック：</strong>購入日から<strong>240日</strong>有効。",
+          "<strong>消化ルール：</strong>実施したセッション1回につき1クレジット、開始<strong>24時間以内</strong>のキャンセルも1クレジット消化。",
+          "日程変更は開始<strong>24時間前</strong>まで可能。",
+          "クレジットの共有・譲渡はできません。"
+        ]
+      },
+      {
+        "title": "返金（単発）",
+        "items": [
+          "48時間以前のキャンセル：<strong>¥500の手数料</strong>を差し引いて返金（または無料で日程変更）。",
+          "24〜48時間前のキャンセル：<strong>50%</strong>返金。",
+          "24時間以内／実施後のキャンセル：<strong>返金不可</strong>（当方の事情による不具合を除く）。"
+        ]
+      },
+      {
+        "title": "返金（パッケージ）",
+        "items": [
+          "購入後<strong>48時間以内</strong>かつ未使用の場合のみ返金可。手数料は<strong>4回：¥1,000／8回：¥1,500</strong>。",
+          "48時間経過後、または一部でも使用済みの場合は<strong>返金不可</strong>。",
+          "有効期限経過後の返金はできません。"
+        ]
+      },
+      {
+        "title": "支払い",
+        "items": [
+          "オンライン：予約後<strong>24時間以内</strong>にお支払いをお願いします（メールにてリンクをご案内）。",
+          "対面：事前オンライン決済または当日現金にてお支払い可能です。"
+        ]
+      }
+    ]
+  },
+  "location": {
+    "title": "対応エリア",
+    "body": "対面レッスンは <strong>自由が丘</strong>、<strong>大森</strong>、<strong>大井町</strong>、<strong>品川</strong>、<strong>五反田</strong> でリクエストに応じて実施可能です。"
+  },
   "corporate": {
     "title": "法人向けトレーニング",
     "body": "チーム・企業向けにカスタマイズしたプログラムをご提供しています。",

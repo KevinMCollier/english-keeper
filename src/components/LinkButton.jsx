@@ -1,23 +1,14 @@
 import PropTypes from 'prop-types';
 
-export default function ServiceButton({
-  url,
+export default function LinkButton({
+  href,
   label,
   color = 'caramel',
   className = '',
   disabled = false,
-  disabledClassName = ''
+  disabledClassName = '',
+  sameTab = false,
 }) {
-  const openCalendly = () => {
-    if (disabled) return;
-    if (window?.Calendly?.initPopupWidget && url) {
-      window.Calendly.initPopupWidget({ url });
-    } else {
-      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  // 🔹 Your original geometry preserved
   const base =
     'inline-flex items-center justify-center rounded-lg text-sm font-medium transition px-3 py-1.5';
 
@@ -34,25 +25,45 @@ export default function ServiceButton({
 
   const classes = `${base} ${disabled ? disabledStyles : styles} ${className}`;
 
+  if (disabled) {
+    return (
+      <button type="button" className={classes} disabled aria-disabled title={label}>
+        {label}
+      </button>
+    );
+  }
+
+  const isAnchor = typeof href === 'string' && href.startsWith('#');
+
+  // Anchors: same-tab
+  if (isAnchor) {
+    return (
+      <a href={href} className={classes} title={label}>
+        {label}
+      </a>
+    );
+  }
+
+  // External links (Stripe, your sites, mailto, etc.)
   return (
-    <button
-      type="button"
-      onClick={openCalendly}
+    <a
+      href={href}
+      target={sameTab ? '_self' : '_blank'}
+      rel={sameTab ? undefined : 'noopener noreferrer'}
       className={classes}
-      disabled={disabled}
-      aria-disabled={disabled}
       title={label}
     >
       {label}
-    </button>
+    </a>
   );
 }
 
-ServiceButton.propTypes = {
-  url: PropTypes.string.isRequired,
+LinkButton.propTypes = {
+  href: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   color: PropTypes.oneOf(['caramel', 'lemon', 'orange']),
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  disabledClassName: PropTypes.string
+  disabledClassName: PropTypes.string,
+  sameTab: PropTypes.bool,
 };
