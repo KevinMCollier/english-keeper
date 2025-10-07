@@ -17,7 +17,7 @@
   },
   "items": [
     { "key": "inperson", "title": "1対1（対面）", "duration": "50分", "price": "¥6,000", "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-in-person" },
-    { "key": "online50", "title": "1対1（オンライン）", "duration": "50分", "price": "¥4,000", "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-online" },
+    { "key": "online50", "title": "1対1（オンライン）", "duration": "50分", "price": "¥4,500", "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-online" },
     { "key": "group80", "title": "グループ（最大8名）", "duration": "80分", "price": "¥3,200 / 1人", "url": "https://calendly.com/collier-consulting/english-with-kevin-group-session" }
   ],
   "notes": {
