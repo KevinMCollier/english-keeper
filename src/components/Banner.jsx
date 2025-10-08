@@ -31,11 +31,12 @@ export default function Banner() {
 
       {/* Text container aligned EXACTLY like the navbar */}
       <div className="relative z-10 mx-auto w-full max-w-screen-xl px-4 sm:px-5">
-        {/* Left on all breakpoints (desktop was already left) */}
         <div className="max-w-3xl text-left">
-          <h1 className="font-display font-extrabold text-caramel
-                         text-3xl sm:text-5xl md:text-7xl
-                         tracking-tight leading-tight md:leading-snug mb-4 break-words">
+          <h1
+            className="font-display font-extrabold text-caramel
+                       text-3xl sm:text-5xl md:text-7xl
+                       tracking-tight leading-tight md:leading-snug mb-4 break-words"
+          >
             <Trans t={t} i18nKey="headline" components={[<br key="br" />]} />
           </h1>
 
@@ -45,13 +46,24 @@ export default function Banner() {
             </p>
           )}
 
-          {/* Stack on mobile, align-left, and keep button to content width */}
+          {/* Primary + Secondary CTAs */}
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
             <button
               onClick={() => scrollTo('pricing')}
               className={btn('bg-orange text-off-white', 'hover:bg-copper-rust/90', 'self-start w-auto')}
             >
               {t('cta.services')}
+            </button>
+
+            <button
+              onClick={() => scrollTo('made-for')} // change if your section id differs
+              className={btn(
+                'bg-white text-midnight-navy border border-gray-300',
+                'hover:bg-gray-50',
+                'self-start w-auto'
+              )}
+            >
+              {t('cta.isThisForMe')}
             </button>
           </div>
         </div>

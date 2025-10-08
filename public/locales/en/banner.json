@@ -1,5 +1,8 @@
 {
-  "headline": "Career & <0/> Communication <0/> Coaching <0/> through English",
-  "sub": "Personalized 1:1 and group sessions designed to help you succeed in international workplaces and in life.",
-  "cta": { "services": "View lesson pricing" }
+  "headline": "Career.<0/> Communication.<0/> English.",
+  "sub": "Build the skills you need for work, study, and everyday life with personalized 1:1 and group sessions.",
+  "cta": {
+    "services": "View lesson pricing",
+    "isThisForMe": "Is this for me?"
+  }
 }
