@@ -4,7 +4,7 @@ import LinkButton from './LinkButton';
 import PoliciesAccordion from './Policies';
 
 export default function Pricing() {
-  const { t } = useTranslation('pricing');
+  const { t, i18n } = useTranslation('pricing');
 
   const items = (t('items', { returnObjects: true }) || []).filter(
     (i) => i.key !== 'corporate'
@@ -29,34 +29,30 @@ export default function Pricing() {
   const mobileBtn =
     'inline-flex self-start w-auto min-w-[13rem] justify-center whitespace-nowrap text-sm py-2';
 
+  const locale = (i18n.resolvedLanguage || i18n.language || 'en').toLowerCase();
+  const promoSrc = locale.startsWith('ja') ? '/Promo_ja.jpg' : '/Promo_en.jpg';
+  const promoAlt = promo.imageAlt || promo.ariaLabel || '20% off first private lesson';
+
   return (
     <section id="pricing" className="bg-white py-16 sm:py-20 font-body">
       <div className="mx-auto w-full max-w-3xl px-5">
-
-        {/* Heading + Promo (compact ticket) */}
         <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
           <h2 className="text-midnight-navy font-display font-extrabold text-3xl sm:text-4xl leading-tight">
             {t('heading')}
           </h2>
 
           <aside
-            className="
-              w-[280px] sm:w-[320px]
-              rounded-2xl border border-orange/30 bg-orange text-white shadow-sm
-              px-4 py-3
-            "
+            className="w-[280px] sm:w-[320px]"
             aria-label={promo.ariaLabel || '20% off first private lesson'}
           >
-            <p className="font-display font-normal leading-snug text-base sm:text-xl">
-              {promo.headlineTop || '20% OFF first 1:1 lesson'}
-              <br />
-              <span className="font-normal">
-                {promo.headlineBottom || '(online or in-person)'}
-              </span>
-            </p>
-            <p className="mt-1 text-[14px] leading-4 opacity-95">
-              {promo.finePrint || 'One time use only. Not valid for group lessons.'}
-            </p>
+            <img
+              src={promoSrc}
+              alt={promoAlt}
+              className="block w-full"
+              loading="lazy"
+              width={640}
+              height={360}
+            />
           </aside>
         </div>
 

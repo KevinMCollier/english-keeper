@@ -12,9 +12,7 @@
   },
   "promo": {
     "ariaLabel": "20% off first private lesson",
-    "headlineTop": "20% OFF first 1:1 lesson",
-    "headlineBottom": "(online or in-person)",
-    "finePrint": "One time use only. Not valid for group lessons or package purchases."
+    "imageAlt": "20% OFF your first 1:1 lesson—online or in-person"
   },
   "items": [
     { "key": "inperson", "title": "1:1 In-Person", "duration": "50 min", "price": "¥6,000", "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-in-person" },
