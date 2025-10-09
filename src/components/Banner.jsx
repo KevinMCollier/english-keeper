@@ -34,15 +34,15 @@ export default function Banner() {
         <div className="max-w-3xl text-left">
           <h1
             className="font-display font-extrabold text-caramel
-                       text-3xl sm:text-5xl md:text-7xl
-                       tracking-tight leading-tight md:leading-snug mb-4 break-words"
+                      text-3xl sm:text-5xl md:text-7xl
+                      tracking-tight leading-tight md:leading-snug mb-4 break-words"
           >
             <Trans t={t} i18nKey="headline" components={[<br key="br" />]} />
           </h1>
 
           {sub && (
             <p className="mt-3 text-base sm:text-xl font-extrabold text-midnight-navy leading-relaxed">
-              {sub}
+              <Trans t={t} i18nKey="sub" components={[<br key="br" />]} />
             </p>
           )}
 
