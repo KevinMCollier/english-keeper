@@ -1,0 +1,87 @@
+{
+  "title": "Privacy Policy",
+  "effective": "Last updated: 2025-10-09",
+
+  "who": {
+    "title": "Who we are",
+    "body": "English with Kevin | Kevin Matthew Collier (doing business as Collier Consulting). Contact: kevin.collier.consulting@gmail.com"
+  },
+
+  "data": {
+    "title": "Personal data we collect",
+    "items": {
+      "identity": "Identity data (name, preferred name).",
+      "contact": "Contact data (email address; phone number if provided).",
+      "booking": "Booking data (session date/time, preferences, messages).",
+      "payment": "Payment data (processed by Stripe). We do not store full card details—only status, method type, last4, and necessary metadata.",
+      "usage": "Technical/usage data (IP address, device, pages visited) necessary for security and performance.",
+      "cookies": "Cookies necessary for site operation. We currently do not use advertising cookies. If we add analytics, we will update this section."
+    }
+  },
+
+  "purpose": {
+    "title": "How we use your data (purpose of use)",
+    "items": {
+      "provide": "To schedule and provide lessons (online or in-person).",
+      "support": "To respond to inquiries and provide customer support.",
+      "billing": "To process payments and manage invoices/receipts.",
+      "security": "To keep our services secure, prevent fraud/abuse, and maintain service quality.",
+      "marketing": "To send occasional service updates or offers (you can opt out at any time).",
+      "compliance": "To comply with laws and requests from authorities, and to enforce our terms."
+    }
+  },
+
+  "thirdParties": {
+    "title": "Third-party processing",
+    "intro": "We share personal data with trusted service providers only to the extent necessary to provide our services:",
+    "items": {
+      "stripe": "Stripe (payments).",
+      "calendly": "Calendly (scheduling).",
+      "hosting": "Hosting/email providers and infrastructure (e.g., cloud hosting, email delivery).",
+      "analytics": "Optional analytics tools if enabled in the future."
+    },
+    "note": "These providers may process data in countries outside Japan."
+  },
+
+  "transfers": {
+    "title": "International data transfers",
+    "body": "Some providers (e.g., Stripe, Calendly, cloud hosting) may store and process data outside Japan, including the United States. Where required by the Act on the Protection of Personal Information (APPI), we obtain consent or put in place appropriate safeguards and disclose intelligible information about the transfer, including destination countries and measures taken. You can contact us to request details of the transfer mechanisms we rely on."
+  },
+
+  "security": {
+    "title": "Security",
+    "body": "We implement reasonable technical and organizational measures to protect personal data (e.g., encryption in transit, access controls, and limited retention)."
+  },
+
+  "retention": {
+    "title": "Retention",
+    "body": "We keep booking, contact, and payment records only as long as needed to deliver services and to meet legal obligations (e.g., accounting/tax). We minimize retention of payment data and rely on Stripe to store card data."
+  },
+
+  "rights": {
+    "title": "Your rights under APPI",
+    "items": {
+      "access": "Request disclosure of personal data we hold about you.",
+      "correct": "Request correction of inaccurate personal data.",
+      "suppress": "Request suspension of use or halt of third-party provision where legally required.",
+      "delete": "Request deletion where legally required.",
+      "optout": "Opt out of marketing emails at any time."
+    },
+    "how": "To exercise your rights, email kevin.collier.consulting@gmail.com. We may need to verify your identity."
+  },
+
+  "cookies": {
+    "title": "Cookies",
+    "body": "Essential cookies keep the site functioning (e.g., session management, load balancing). If we enable analytics, we will request consent where required and update this policy with details and opt-out options."
+  },
+
+  "updates": {
+    "title": "Changes to this policy",
+    "body": "We may update this policy from time to time. We will post the updated version here with a new “Last updated” date."
+  },
+
+  "contact": {
+    "title": "Contact",
+    "body": "Questions or requests: kevin.collier.consulting@gmail.com"
+  }
+}

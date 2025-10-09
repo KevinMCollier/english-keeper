@@ -1,1 +1,8 @@
-{ "copyright": "English with Kevin © 2025 Collier Consulting · Tokyo, JP. All rights reserved." }
+{
+  "links": {
+    "disclosure": "Commerce Disclosure",
+    "privacy": "Privacy Policy",
+    "pricing": "Pricing"
+  },
+  "copyright": "© 2025 English with Kevin | Collier Consulting"
+}

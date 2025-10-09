@@ -1,0 +1,86 @@
+{
+  "title": "Commerce Disclosure (Act on Specified Commercial Transactions)",
+  "effective": "Last updated: 2025-10-09",
+  "backHome": "Back to home",
+
+  "legalName": {
+    "label": "Legal name",
+    "value": "Kevin Matthew Collier (doing business as “Collier Consulting”)"
+  },
+  "head": {
+    "label": "Head of operations",
+    "value": "Kevin Matthew Collier"
+  },
+  "address": {
+    "label": "Address",
+    "value": "Ota-ku, Tokyo — Full address will be disclosed without delay upon request.",
+    "note": ""
+  },
+  "phone": {
+    "label": "Phone number",
+    "value": "Will be disclosed without delay upon request.",
+    "hours": "Support hours: Mon–Fri 10:00–18:00 JST (excl. public holidays)"
+  },
+  "email": {
+    "label": "Email address",
+    "value": "kevin.collier.consulting@gmail.com"
+  },
+  "url": {
+    "label": "Website URL",
+    "value": "https://english-kevin.com"
+  },
+
+  "price": {
+    "label": "Price (incl. consumption tax)",
+    "value": {
+      "before": "See the ",
+      "linkText": "pricing section",
+      "after": " for session and package prices (all prices in JPY; fees include the post-session learning summary)."
+    }
+  },
+  "fees": {
+    "label": "Additional fees",
+    "value": "None for standard online lessons. Administrative cancellation fees apply as stated in the refund policy below. In-person and group sessions are available within limited locations—contact us for details."
+  },
+  "paymentMethods": {
+    "label": "Accepted payment methods",
+    "value": "Credit card (processed by Stripe), PayPay, and Cash (in-person lessons only)."
+  },
+  "paymentPeriod": {
+    "label": "Payment period",
+    "value": "Online lessons: please complete payment within 24 hours of booking to keep your spot (payment link provided by email). In-person lessons: pay online in advance or in cash on the day."
+  },
+  "delivery": {
+    "label": "Delivery / service provision timing",
+    "value": "Lessons (50 minutes) are provided online or in-person at the reserved date and time."
+  },
+
+  "returns": {
+    "title": "Exchanges & returns (refunds)",
+    "customer": {
+      "title": "Customer requests (non-defective)",
+      "body": "Single lessons — Cancel >48h before: refund minus a ¥500 cancellation/admin fee (free reschedule also available). Cancel 24–48h before: 50% refund. Cancel within 24h or after the session occurs: no refund. Packages — Refundable within 48 hours of purchase if unused; refund minus a ¥1,000 (4-Pack) or ¥1,500 (8-Pack) cancellation/admin fee. After 48 hours or once any credit is used: non-refundable. No refunds after the validity period ends. Rescheduling is allowed up to 24 hours before start time. One credit is consumed per session held or if you cancel within 24 hours."
+    },
+    "defective": {
+      "title": "Defective service / operational issues",
+      "body": "If a lesson cannot be delivered due to our system or operational failure, contact support and we will provide a full refund or a free make-up session."
+    }
+  },
+
+  "optional": {
+    "applicationPeriod": { "label": "Application period", "value": "" },
+    "quantity": { "label": "Available quantity / restrictions", "value": "" },
+    "environment": { "label": "Operating environment (for software)", "value": "" }
+  },
+
+  "discounts": {
+    "label": "Discounts",
+    "value": "FIRST20: 20% off your first private 1:1 lesson (online or in-person). Not valid for group sessions or package purchases."
+  },
+  "packages": {
+    "label": "Packages (credits)",
+    "value": "Each credit equals one 50-minute private session. Schedule sessions anytime within the validity window. 4-Pack: valid 120 days; 8-Pack: valid 240 days. Credits are for the purchaser only and are not transferable."
+  },
+
+  "privacy": { "label": "Privacy policy", "value": "View Privacy Policy" }
+}
