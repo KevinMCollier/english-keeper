@@ -31,7 +31,7 @@
         "price": "¥21,600",
         "unitPrice": "1回あたり ¥5,400",
         "buttonLabel": "対面 4回パック",
-        "url": "REPLACE_WITH_STRIPE_LINK_INPERSON_4"
+        "url": "https://buy.stripe.com/3cIbJ01Pq6ma1COfCueUU05"
       },
       {
         "key": "inperson8",
@@ -41,7 +41,7 @@
         "price": "¥40,800",
         "unitPrice": "1回あたり ¥5,100",
         "buttonLabel": "対面 8回パック",
-        "url": "REPLACE_WITH_STRIPE_LINK_INPERSON_8"
+        "url": "https://buy.stripe.com/dRm3cu0Lmh0OftE1LEeUU03"
       },
       {
         "key": "online4",
@@ -50,7 +50,7 @@
         "price": "¥16,200",
         "unitPrice": "1回あたり ¥4,050",
         "buttonLabel": "オンライン 4回パック",
-        "url": "REPLACE_WITH_STRIPE_LINK_ONLINE_4"
+        "url": "https://buy.stripe.com/eVq6oG65G39Y0yK75YeUU04"
       },
       {
         "key": "online8",
@@ -60,7 +60,7 @@
         "price": "¥30,600",
         "unitPrice": "1回あたり ¥3,825",
         "buttonLabel": "オンライン 8回パック",
-        "url": "REPLACE_WITH_STRIPE_LINK_ONLINE_8"
+        "url": "https://buy.stripe.com/28E7sKgKkbGu95gcqieUU02"
       }
     ],
     "ctaPurchased": {
