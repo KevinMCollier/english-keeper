@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import PropTypes from 'prop-types'
 
 function Section({ title, children }) {
   return (
@@ -10,6 +11,11 @@ function Section({ title, children }) {
     </section>
   );
 }
+
+Section.propTypes = {
+  title: PropTypes.node.isRequired,
+  children: PropTypes.node
+};
 
 export default function Privacy() {
   const { t } = useTranslation('privacy');
