@@ -66,9 +66,9 @@
     "ctaPurchased": {
       "text": "すでにパッケージを購入済みの方：こちらから予約してください",
       "onlineLabel": "対面 1対1 を予約",
-      "onlineUrl": "REPLACE_WITH_CALENDLY_ONLINE_PACKAGE_LINK",
+      "onlineUrl": "https://calendly.com/collier-consulting/english-with-kevin-1-1-online",
       "inpersonLabel": "オンライン 1対1 を予約",
-      "inpersonUrl": "REPLACE_WITH_CALENDLY_INPERSON_PACKAGE_LINK"
+      "inpersonUrl": "https://calendly.com/collier-consulting/english-with-kevin-1-1-in-person"
     }
 
   },
