@@ -1,6 +1,6 @@
 {
-  "title": "Commerce Disclosure (Act on Specified Commercial Transactions)",
-  "effective": "Last updated: 2025-10-09",
+  "title": "Commerce Disclosure",
+  "effective": "Last updated: 2025-10-10",
   "backHome": "Back to home",
 
   "legalName": {
@@ -13,12 +13,12 @@
   },
   "address": {
     "label": "Address",
-    "value": "Ota-ku, Tokyo — Full address will be disclosed without delay upon request.",
+    "value": "Will be disclosed without delay upon request.",
     "note": ""
   },
   "phone": {
     "label": "Phone number",
-    "value": "Will be disclosed without delay upon request.",
+    "value": "070-9148-0521",
     "hours": "Support hours: Mon–Fri 10:00–18:00 JST (excl. public holidays)"
   },
   "email": {
@@ -40,7 +40,7 @@
   },
   "fees": {
     "label": "Additional fees",
-    "value": "None for standard online lessons. Administrative cancellation fees apply as stated in the refund policy below. In-person and group sessions are available within limited locations—contact us for details."
+    "value": "No shipping or handling fees beyond the listed lesson prices. Administrative cancellation fees apply as stated in the refund policy below. For in-person sessions outside of Jiyugaoka, Omori, Oimachi, Shinagawa, and Gotanda, additional transportation charges may apply."
   },
   "paymentMethods": {
     "label": "Accepted payment methods",

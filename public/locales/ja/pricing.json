@@ -141,5 +141,10 @@
     "linkLabel": "Collier Consulting へ",
     "linkUrl": "https://kevin-collier.me",
     "trailingPunct": "。"
+  },
+  "legal": {
+    "disclosureLabel": "特定商取引法に基づく表記",
+    "disclosureHref": "/commerce-disclosure",
+    "disclosureSentence": "日本の法令に基づく詳細は、<0>特定商取引法に基づく表記</0>をご確認ください。"
   }
 }

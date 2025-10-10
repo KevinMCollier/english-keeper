@@ -1,17 +1,21 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function PoliciesAccordion({ policies }) {
+  // Use pricing namespace for headings/sections (as before)
+  const { t: tPricing } = useTranslation('pricing');
+  // Use footer namespace for the disclosure link label EXACTLY like your footer
+  const { t: tFooter } = useTranslation('footer');
+
   const sections = policies.sections || [];
 
-  // helper to build a "closed" map for current sections
   const makeClosedMap = (arr) =>
     arr.reduce((acc, _sec, i) => ((acc[i] = false), acc), {});
 
-  // start with all closed
   const [open, setOpen] = useState(() => makeClosedMap(sections));
 
-  // if sections change (e.g., i18n switch), reset all to closed
   useEffect(() => {
     setOpen(makeClosedMap(sections));
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -19,11 +23,15 @@ export default function PoliciesAccordion({ policies }) {
 
   const toggle = (idx) => setOpen((o) => ({ ...o, [idx]: !o[idx] }));
 
+  // Same route + classes as footer
+  const disclosureHref = '/commerce-disclosure';
+  const disclosureLabel = tFooter('links.disclosure', 'Commercial Disclosure');
+
   return (
     <div className="mt-6 rounded-xl bg-white text-midnight-navy shadow-sm border border-gray-200">
       <div className="p-5">
         <div className="font-semibold text-base sm:text-lg">
-          {policies.heading || 'Policies & Notes'}
+          {policies.heading || tPricing('policies.heading', 'Policies & Notes')}
         </div>
 
         <div className="mt-3 divide-y divide-gray-200/70">
@@ -62,6 +70,15 @@ export default function PoliciesAccordion({ policies }) {
               </section>
             );
           })}
+        </div>
+
+        {/* —— Legal / Commercial Disclosure link (same as footer) —— */}
+        <div className="mt-4 pt-3 border-t border-gray-200/70">
+          <p className="text-xs sm:text-sm text-graphite/70">
+            <Link to={disclosureHref} className="hover:underline underline-offset-4">
+              {disclosureLabel}
+            </Link>
+          </p>
         </div>
       </div>
     </div>
