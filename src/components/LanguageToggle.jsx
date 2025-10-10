@@ -1,21 +1,21 @@
-import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function LanguageToggle() {
   const { i18n } = useTranslation();
-  const lang = i18n.language;
+  const { lng } = useParams();
+  const navigate = useNavigate();
+  const currentLang = i18n.language;
 
-  // Restore saved language on mount (if present)
-  useEffect(() => {
-    const saved = localStorage.getItem('lang');
-    if (saved && saved !== lang) i18n.changeLanguage(saved);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const change = (newLang) => {
+    if (newLang === currentLang) return;
 
-  const change = (lng) => {
-    if (lng === lang) return;
-    i18n.changeLanguage(lng);
-    localStorage.setItem('lang', lng);
+    i18n.changeLanguage(newLang);
+    localStorage.setItem('lang', newLang);
+
+    // Replace just the language prefix in the current path
+    const path = window.location.pathname.replace(`/${lng}`, `/${newLang}`);
+    navigate(path + window.location.search + window.location.hash);
   };
 
   return (
@@ -31,7 +31,7 @@ export default function LanguageToggle() {
         { code: 'en', label: 'En' },
         { code: 'ja', label: '日本語' },
       ].map(({ code, label }) => {
-        const active = lang === code;
+        const active = currentLang.startsWith(code); // handles 'en-US' etc
         return (
           <button
             key={code}

@@ -7,8 +7,8 @@ i18n
   .use(HttpBackend)
   .use(initReactI18next)
   .init({
-    lng: localStorage.getItem('lang') || 'en',
-    fallbackLng: 'en',
+    lng: localStorage.getItem('lang') || 'ja',
+    fallbackLng: 'ja',
 
     // Tell i18next where files live:
     backend: {
@@ -21,3 +21,5 @@ i18n
 
     interpolation: { escapeValue: false },
   });
+
+  export default i18n;
