@@ -1,25 +1,31 @@
 // src/i18n.js
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import HttpBackend from 'i18next-http-backend';   // lazy-loads JSON
+import HttpBackend from 'i18next-http-backend';
+
+// Prefer URL segment if present
+const pathLng = (typeof window !== 'undefined'
+  ? window.location.pathname.split('/')[1]
+  : null);
+const stored = (typeof window !== 'undefined'
+  ? localStorage.getItem('lang')
+  : null);
+
+const allowed = ['en', 'ja'];
+const initialLng = allowed.includes(pathLng) ? pathLng : (stored || 'ja');
 
 i18n
   .use(HttpBackend)
   .use(initReactI18next)
   .init({
-    lng: localStorage.getItem('lang') || 'ja',
+    lng: initialLng,
     fallbackLng: 'ja',
-
-    // Tell i18next where files live:
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
-
-    // Preload the most common strings (e.g. navbar)
     ns: ['navbar', 'footer'],
     defaultNS: 'navbar',
-
     interpolation: { escapeValue: false },
   });
 
-  export default i18n;
+export default i18n;

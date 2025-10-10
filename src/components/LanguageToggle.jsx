@@ -1,21 +1,33 @@
 import { useTranslation } from 'react-i18next';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function LanguageToggle() {
   const { i18n } = useTranslation();
-  const { lng } = useParams();
   const navigate = useNavigate();
   const currentLang = i18n.language;
 
-  const change = (newLang) => {
+  const switchLang = (newLang) => {
     if (newLang === currentLang) return;
 
-    i18n.changeLanguage(newLang);
-    localStorage.setItem('lang', newLang);
+    const { pathname, search, hash } = window.location;
+    const parts = pathname.split('/').filter(Boolean); // e.g. ["en","privacy"]
 
-    // Replace just the language prefix in the current path
-    const path = window.location.pathname.replace(`/${lng}`, `/${newLang}`);
-    navigate(path + window.location.search + window.location.hash);
+    let nextPath;
+    if (parts.length && ['en','ja'].includes(parts[0])) {
+      parts[0] = newLang; // replace existing prefix
+      nextPath = '/' + parts.join('/');
+    } else {
+      // no prefix yet → add one
+      nextPath = `/${newLang}${pathname}`;
+    }
+
+    i18n.changeLanguage(newLang);
+    try {
+      localStorage.setItem('lang', newLang);
+    // eslint-disable-next-line no-empty
+    } catch {}
+
+    navigate(nextPath + search + hash, { replace: true });
   };
 
   return (
@@ -31,7 +43,7 @@ export default function LanguageToggle() {
         { code: 'en', label: 'En' },
         { code: 'ja', label: '日本語' },
       ].map(({ code, label }) => {
-        const active = currentLang.startsWith(code); // handles 'en-US' etc
+        const active = currentLang && currentLang.startsWith(code);
         return (
           <button
             key={code}
@@ -39,7 +51,7 @@ export default function LanguageToggle() {
             aria-selected={active}
             aria-pressed={active}
             disabled={active}
-            onClick={() => change(code)}
+            onClick={() => switchLang(code)}
             className={`
               px-3 py-1.5 text-sm rounded-full transition font-semibold
               focus-visible:outline-none

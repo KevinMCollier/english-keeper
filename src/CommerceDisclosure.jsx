@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import useLangLink from './hooks/useLangLink';
 
 function Row({ label, children }) {
   return (
@@ -19,6 +20,7 @@ Row.propTypes = {
 
 export default function CommerceDisclosure() {
   const { t } = useTranslation('legal');
+  const langLink = useLangLink();
 
   return (
     <div className="min-h-screen bg-creme text-gray-900 font-body">
@@ -69,7 +71,9 @@ export default function CommerceDisclosure() {
               {/* Additional fees */}
               <Row label={t('price.label')}>
                 {t('price.value.before')}
-                <Link to="/#pricing" className="underline">{t('price.value.linkText')}</Link>
+                <Link to={langLink('/#pricing')} className="underline">
+                  {t('price.value.linkText')}
+                </Link>
                 {t('price.value.after')}
               </Row>
 
@@ -121,17 +125,18 @@ export default function CommerceDisclosure() {
                 </Row>
               )}
 
-              {/* Privacy policy link */}
+              {/* ✅ Privacy policy link — language aware */}
               <Row label={t('privacy.label')}>
-                <Link to="/privacy" className="underline">
+                <Link to={langLink('/privacy')} className="underline">
                   {t('privacy.value')}
                 </Link>
               </Row>
             </div>
           </section>
 
+          {/* ✅ Back home — language aware */}
           <div className="mt-8">
-            <Link to="/#banner" className="text-sm underline">
+            <Link to={langLink('/#banner')} className="text-sm underline">
               {t('backHome')}
             </Link>
           </div>

@@ -2,15 +2,16 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import useLangLink from '../hooks/useLangLink';
 
 export default function PoliciesAccordion({ policies }) {
-  // Use pricing namespace for headings/sections (as before)
   const { t: tPricing } = useTranslation('pricing');
-  // Use footer namespace for the disclosure link label EXACTLY like your footer
   const { t: tFooter } = useTranslation('footer');
+  const langLink = useLangLink();
 
   const sections = policies.sections || [];
 
+  // helper to start all panels closed
   const makeClosedMap = (arr) =>
     arr.reduce((acc, _sec, i) => ((acc[i] = false), acc), {});
 
@@ -23,8 +24,8 @@ export default function PoliciesAccordion({ policies }) {
 
   const toggle = (idx) => setOpen((o) => ({ ...o, [idx]: !o[idx] }));
 
-  // Same route + classes as footer
-  const disclosureHref = '/commerce-disclosure';
+  // ✅ language-aware disclosure link
+  const disclosureHref = langLink('/commerce-disclosure');
   const disclosureLabel = tFooter('links.disclosure', 'Commercial Disclosure');
 
   return (
@@ -72,7 +73,7 @@ export default function PoliciesAccordion({ policies }) {
           })}
         </div>
 
-        {/* —— Legal / Commercial Disclosure link (same as footer) —— */}
+        {/* —— Legal / Commercial Disclosure link —— */}
         <div className="mt-4 pt-3 border-t border-gray-200/70">
           <p className="text-xs sm:text-sm text-graphite/70">
             <Link to={disclosureHref} className="hover:underline underline-offset-4">
