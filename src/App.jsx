@@ -13,7 +13,7 @@ import MadeFor from "./components/Madefor";
 import WhyMe from "./components/WhyMe";
 import CommerceDisclosure from "./CommerceDisclosure";
 import Privacy from "./Privacy";
-import LanguageDetector from './languagedetector';
+import LanguageDetector from './TheLanguageDetector';
 // import NotFound from "./NotFound"; // (optional)
 
 function useScrollToHash() {
