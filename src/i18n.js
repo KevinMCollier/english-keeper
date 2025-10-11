@@ -23,7 +23,7 @@ i18n
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
-    ns: ['navbar', 'footer'],
+    ns: ['navbar', 'footer', 'contact'],
     defaultNS: 'navbar',
     interpolation: { escapeValue: false },
   });
