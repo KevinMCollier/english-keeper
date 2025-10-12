@@ -1,11 +1,9 @@
-// src/components/Modules.jsx
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { Briefcase, Sprout, Coffee, BarChart3, X } from 'lucide-react';
 
-// --- stable keys -> colors/icons (NOT localized titles) ---
 const COLOR_BY_KEY = {
   business_comm: 'bg-[#E9B66A] text-midnight-navy',
   career_dev: 'bg-[#B8D9C0] text-midnight-navy',
@@ -128,10 +126,11 @@ export default function Modules({ modules }) {
                   type="button"
                   onClick={() => setOpenIdx(i)}
                   className="group h-64 w-full rounded-lg ring-1 ring-black/5 shadow-sm relative text-left
-                            focus:outline-none focus-visible:ring-2 focus-visible:ring-caramel/70
-                            transition-transform duration-200 will-change-transform
-                            hover:-translate-y-0.5 hover:shadow-md cursor-pointer"
+                             focus:outline-none focus-visible:ring-2 focus-visible:ring-caramel/70
+                             transition-transform duration-200 will-change-transform
+                             hover:-translate-y-0.5 hover:shadow-md cursor-pointer"
                   layoutId={`module-card-${i}`}
+                  transition={{ layout: { duration: 0.18, ease: 'easeInOut' } }}
                 >
                   <div className={`absolute inset-0 ${cardColor} rounded-lg p-6 flex flex-col justify-center`}>
                     <div className="flex items-center gap-3">
@@ -140,9 +139,9 @@ export default function Modules({ modules }) {
                         {m.title}
                         <span
                           className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full
-                                    origin-left scale-x-0 bg-current opacity-60
-                                    transition-transform duration-300 ease-out
-                                    group-hover:scale-x-100"
+                                     origin-left scale-x-0 bg-current opacity-60
+                                     transition-transform duration-300 ease-out
+                                     group-hover:scale-x-100"
                           aria-hidden="true"
                         />
                       </span>
@@ -164,9 +163,9 @@ export default function Modules({ modules }) {
                   onClick={close}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
+                  exit={{ opacity: 0, transition: { duration: 0.12 } }}
                 />
-                {/* Wrapper now also closes on click (fix) */}
+                {/* Wrapper also closes on click */}
                 <motion.div
                   key="modal"
                   role="dialog"
@@ -181,16 +180,17 @@ export default function Modules({ modules }) {
                   {/* Card: stop bubbling so inside clicks don't close */}
                   <motion.div
                     layoutId={`module-card-${openIdx}`}
+                    transition={{ layout: { duration: 0.18, ease: 'easeInOut' } }}
                     onClick={(e) => e.stopPropagation()}
                     className="w-full max-w-3xl rounded-lg bg-white ring-1 ring-black/10 shadow-xl relative
-                              min-h-[60vh] md:min-h-[60vh] max-h-[86vh] overflow-hidden flex flex-col"
+                               min-h-[60vh] md:min-h-[60vh] max-h-[86vh] overflow-hidden flex flex-col"
                     initial={prefersReduced ? { opacity: 0 } : { opacity: 0, scale: 0.9 }}
                     animate={
                       prefersReduced
                         ? { opacity: 1 }
-                        : { opacity: 1, scale: 1, transition: { duration: 0.35 } }
+                        : { opacity: 1, scale: 1, transition: { duration: 0.25 } }
                     }
-                    exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.1 } }}
+                    exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.15 } }}
                   >
                     {/* Colored header */}
                     <div
@@ -215,23 +215,16 @@ export default function Modules({ modules }) {
                       </div>
                     </div>
 
-                    {/* Body */}
+                    {/* Body: ALWAYS two columns */}
                     <div className="px-6 py-5 overflow-auto">
-                      {(() => {
-                        const items = normalized[openIdx].items ?? [];
-                        const many = items.length >= 10;
-                        const gridCols = many ? 'sm:grid-cols-3' : 'sm:grid-cols-2';
-                        return (
-                          <ul className={`grid ${gridCols} gap-y-2 gap-x-4 text-[15px] md:text-base leading-6`}>
-                            {items.map((it) => (
-                              <li key={it} className="flex items-start gap-2">
-                                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-gray-400" />
-                                <span>{it}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        );
-                      })()}
+                      <ul className="grid sm:grid-cols-2 gap-y-2 gap-x-4 text-[15px] md:text-base leading-6">
+                        {(normalized[openIdx].items ?? []).map((it) => (
+                          <li key={it} className="flex items-start gap-2">
+                            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-gray-400" />
+                            <span>{it}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </motion.div>
                 </motion.div>

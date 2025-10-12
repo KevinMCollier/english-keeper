@@ -53,16 +53,24 @@
   "modules": {
     "altTitle": "Popular Session Topics",
     "subheader": "Choose topics that matter to you. Click a card to explore examples. Don’t see what you need? Reach out — chances are we can do it.",
-    "groups": [
+    "groups":
+    [
       {
         "key": "business_comm",
         "title": "Business English",
         "items": [
-          "Meetings & Discussions",
-          "Email Communication",
-          "Presentations & Storytelling at Work",
-          "Cross-Cultural Teamwork",
-          "Negotiation & Persuasion"
+          "Introductions & First Week at Work",
+          "Professional Small Talk & Rapport",
+          "Online Communication (Email, Chat, Async)",
+          "Meetings & Discussions (Leading & Participating)",
+          "Presentations & Public Speaking",
+          "Objection Handling & Difficult Conversations",
+          "Working with Managers & Stakeholders",
+          "Requesting Approval & Making Proposals",
+          "Task Delegation & Follow-ups",
+          "Teamwork & Collaboration",
+          "Cross-Cultural Communication",
+          "Writing Clear Briefs & Memos"
         ]
       },
       {
@@ -71,29 +79,51 @@
         "items": [
           "Interview Skills",
           "Networking & LinkedIn",
+          "Storytelling & Your Career Narrative",
+          "Resume/CV & Portfolio Reviews",
+          "Career Pivots & Transferable Skills",
+          "Performance Reviews & Promotion Cases",
+          "Salary Negotiation & Offers",
+          "Job Search Strategy & Outreach",
           "Leadership Communication",
           "Personal Branding",
-          "Salary & Career Conversations"
+          "Thought Leadership (Articles, Talks)"
         ]
       },
       {
         "key": "business_spec",
         "title": "Business Specialization",
         "items": [
-          "MBA-Style Case Discussions",
+          "MBA Case Studies",
           "Strategy & Innovation",
-          "Executive Presence",
-          "Data & Visualization Language"
+          "Product Management Communication",
+          "Marketing & Customer Messaging",
+          "Sales & Customer Success Language",
+          "Finance & Accounting Basics",
+          "Data & Visualization Language",
+          "Project Management & Status Updates",
+          "Operations & Supply Chain Language",
+          "IT & Engineering Collaboration",
+          "Workplace Engagement & Culture",
+          "Ethical Leadership & Decision-Making"
         ]
       },
       {
         "key": "everyday",
         "title": "Everyday English",
         "items": [
-          "Conversation & Fluency",
-          "Travel & Culture",
-          "News & Media",
-          "Life Topics & Opinions"
+          "Daily Life & Small Talk",
+          "Hobbies & Interests",
+          "Cooking & Food Culture",
+          "Travel Planning & Situations",
+          "Healthcare & Appointments",
+          "News, Media & Opinions",
+          "Books, Film & Literature Circle",
+          "Housing & Neighborhood Life",
+          "Technology & Gadgets",
+          "Personal Finance Basics",
+          "Social Invitations & Etiquette",
+          "Wellness & Mindset"
         ]
       }
     ]
