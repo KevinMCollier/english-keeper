@@ -35,7 +35,7 @@ export default function WhyMe() {
               custom={i}
               className="space-y-2"
             >
-              <h3 className="font-display text-2xl sm:text-3xl font-bold text-caramel">
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-caramel">
                 {p.title}
               </h3>
               <p className="text-base sm:text-lg leading-relaxed text-graphite max-w-3xl">

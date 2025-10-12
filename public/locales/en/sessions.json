@@ -1,41 +1,114 @@
 {
-  "title": "Private and Group Lessons",
-  "oneToOne": {
-    "title": "1:1 Private Sessions",
-    "badge": "50 min · Online or In-Person",
-    "blocks": [
+  "title": "How the Sessions Work",
+  "subtitle": "Learning that adapts to you — grounded in proven learning theories and business frameworks.",
+  "flow": {
+    "stages": [
       {
-        "heading": "First Session — Diagnostic & Roadmap",
-        "body": "We discuss your goals, check your English level, and design a personalized learning plan. You leave with a clear picture of how we’ll move forward."
-      },
-      {
-        "heading": "Ongoing Sessions — Simple, Focused Flow",
-        "body": "Each 50-minute session follows a repeatable pattern so it feels natural and productive.",
-        "steps": [
-          "Warm-up & review (5–10 min)",
-          "Focused practice (30 min): roleplay, conversation, or skills (e.g., meetings, interviews, travel)",
-          "Wrap-up & feedback (5–10 min)"
+        "key": "align",
+        "title": "Align",
+        "body": [
+          "Start with where you are today.",
+          "We check in to understand your current situation — in your English learning, career, or life.",
+          "What challenges and successes have you had recently? What do you want to focus on today and moving forward?",
+          "This stage ensures each session is aligned with your real goals, not a preset curriculum."
         ]
       },
       {
-        "heading": "Milestone Check-Ins (every 10 sessions)",
-        "body": "We pause to review progress, reset goals, and design your next stage of learning."
+        "key": "discover",
+        "title": "Discover",
+        "body": [
+          "We introduce new ideas connected to your goals — key phrases, business concepts, cultural topics, or references to well-known literature, research, and media.",
+          "Discovery links learning to ideas that matter to you, building curiosity and motivation."
+        ]
       },
       {
-        "heading": "Post-Session Summary",
-        "body": "After each lesson, you receive key phrases, corrections, and next steps so you can keep learning between sessions."
+        "key": "practice",
+        "title": "Practice",
+        "body": [
+          "The focus is output: you speaking, thinking, and experimenting while I guide, prompt, and support.",
+          "We dive into conversation, follow-up questions, presentation practice, or simulations — depending on your goals, level, and preferred style.",
+          "This stage turns insight into real-world skill."
+        ]
+      },
+      {
+        "key": "reflect",
+        "title": "Reflect",
+        "body": [
+          "We pause to reflect on what stood out from today’s session — both challenges and breakthroughs.",
+          "What felt difficult? What did you enjoy or notice about your communication style?",
+          "After the lesson, you’ll receive a short written summary with key feedback and takeaways to review at your own pace."
+        ]
+      },
+      {
+        "key": "apply",
+        "title": "Apply",
+        "body": [
+          "End every session with clear direction for what comes next.",
+          "Together, we identify one or two practical ways to apply what you learned — at work, in daily conversation, or in your studies.",
+          "These next steps are also included in your post-session summary so you can keep learning between lessons."
+        ]
       }
     ]
   },
-  "groups": {
-    "title": "Group Sessions",
-    "badge": "Up to 8 learners · 80 min",
-    "blurb": "A fun, community-style format focused on speaking time and real-world topics. Great for momentum and accountability.",
-    "bullets": [
-      "Topic tracks like Business English, Travel, or Culture Club",
-      "Guided activities and pair work for maximum speaking time",
-      "Light homework to build continuity between sessions",
-      "Designed to feel welcoming for mixed levels"
+  "modules": {
+    "altTitle": "Popular Session Topics",
+    "subheader": "Choose topics that matter to you. Click a card to explore examples. Don’t see what you need? Reach out — chances are we can do it.",
+    "groups": [
+      {
+        "key": "business_comm",
+        "title": "Business English",
+        "items": [
+          "Meetings & Discussions",
+          "Email Communication",
+          "Presentations & Storytelling at Work",
+          "Cross-Cultural Teamwork",
+          "Negotiation & Persuasion"
+        ]
+      },
+      {
+        "key": "career_dev",
+        "title": "Career Development",
+        "items": [
+          "Interview Skills",
+          "Networking & LinkedIn",
+          "Leadership Communication",
+          "Personal Branding",
+          "Salary & Career Conversations"
+        ]
+      },
+      {
+        "key": "business_spec",
+        "title": "Business Specialization",
+        "items": [
+          "MBA-Style Case Discussions",
+          "Strategy & Innovation",
+          "Executive Presence",
+          "Data & Visualization Language"
+        ]
+      },
+      {
+        "key": "everyday",
+        "title": "Everyday English",
+        "items": [
+          "Conversation & Fluency",
+          "Travel & Culture",
+          "News & Media",
+          "Life Topics & Opinions"
+        ]
+      }
     ]
+  },
+  "format": {
+    "title": "Lesson Format",
+    "badge": "1:1 Private · Group (coming soon)",
+    "oneToOne": {
+      "title": "1:1 Private Sessions",
+      "blurb": "50 minutes · Online or In-Person. Fully personalized around your goals. Post-session summary included."
+    },
+    "group": {
+      "title": "Group Sessions",
+      "blurb": "Up to 8 learners · 80 minutes. Real-world topics, high speaking time, mixed-level friendly.",
+      "comingSoon": "Coming soon"
+    }
   }
 }
