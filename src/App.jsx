@@ -72,22 +72,22 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
-      <Routes>
-        {/* Redirect root to default language */}
-        <Route path="/" element={<Navigate to="/ja" replace />} />
+<Routes>
+  <Route path="/" element={<Navigate to="/ja" replace />} />
 
-        {/* Redirect legacy links for safety */}
-        <Route path="/commerce-disclosure" element={<Navigate to="/ja/commerce-disclosure" replace />} />
-        <Route path="/privacy" element={<Navigate to="/ja/privacy" replace />} />
+  <Route path="/commerce-disclosure" element={<Navigate to="/ja/commerce-disclosure" replace />} />
+  <Route path="/privacy" element={<Navigate to="/ja/privacy" replace />} />
 
-        {/* Language-aware routes */}
-        <Route path=":lng" element={<LangLayout />}>
-          <Route index element={<Home />} />
-          <Route path="commerce-disclosure" element={<CommerceDisclosure />} />
-          <Route path="privacy" element={<Privacy />} />
-          {/* <Route path="*" element={<NotFound />} /> */}
-        </Route>
-      </Routes>
+  <Route path=":lng" element={<LangLayout />}>
+    <Route index element={<Home />} />
+    <Route path="commerce-disclosure" element={<CommerceDisclosure />} />
+    <Route path="privacy" element={<Privacy />} />
+  </Route>
+
+  <Route path="*" element={<Navigate to="/ja" replace />} />
+</Routes>
+
+
     </>
   );
 }
