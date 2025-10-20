@@ -51,79 +51,97 @@
     ]
   },
   "modules": {
-    "altTitle": "Popular Sessions",
-    "subheader": "Choose topics that matter to you. Click a card to explore examples. Don’t see what you need? Reach out — chances are we can do it.",
-    "groups":
-    [
+    "altTitle": "Learning Tracks",
+    "subheader": "Explore structured learning tracks or create your own path. Every course is tailored to your goals, your time, and your pace.",
+    "cta": {
+      "viewModules": "View module →"
+    },
+    "groups": [
       {
         "key": "business_comm",
-        "title": "Business English",
+        "title": "Business Communication",
+        "tagline": "Speak clearly, write effectively, and build trust across borders.",
         "items": [
-          "Introductions & First Week at Work",
-          "Professional Small Talk & Rapport",
+          "Introductions and First Week at Work",
+          "Professional Small Talk and Rapport",
           "Online Communication (Email, Chat, Async)",
-          "Meetings & Discussions (Leading & Participating)",
-          "Presentations & Public Speaking",
-          "Objection Handling & Difficult Conversations",
-          "Working with Managers & Stakeholders",
-          "Requesting Approval & Making Proposals",
-          "Task Delegation & Follow-ups",
-          "Teamwork & Collaboration",
+          "Meetings and Discussions (Leader and Participant)",
+          "Presentations and Public Speaking",
+          "Writing Clear Briefs and Memos",
+          "Requesting Approval and Making Proposals",
+          "Working with Managers and Stakeholders",
           "Cross-Cultural Communication",
-          "Writing Clear Briefs & Memos"
+          "Objection Handling and Difficult Conversations"
         ]
       },
       {
-        "key": "career_dev",
-        "title": "Career Development",
+        "key": "career_adv",
+        "title": "Career Advancement",
+        "tagline": "Land the role, earn the promotion, improve your future.",
         "items": [
           "Interview Skills",
-          "Networking & LinkedIn",
-          "Storytelling & Your Career Narrative",
-          "Resume/CV & Portfolio Reviews",
-          "Career Pivots & Transferable Skills",
-          "Performance Reviews & Promotion Cases",
-          "Salary Negotiation & Offers",
-          "Job Search Strategy & Outreach",
-          "Leadership Communication",
+          "Networking and LinkedIn",
+          "Storytelling and Your Career Narrative",
+          "Resume/CV and Portfolio Reviews",
+          "Career Pivots and Transferable Skills",
+          "Performance Reviews and Promotion Cases",
+          "Salary Negotiation and Offers",
+          "Job Search Strategy and Outreach",
           "Personal Branding",
           "Thought Leadership (Articles, Talks)"
         ]
       },
       {
-        "key": "business_spec",
-        "title": "Business Specialization",
+        "key": "leadership",
+        "title": "Leadership and Management",
+        "tagline": "Guide others with clarity, foster autonomy, and keep control without micromanaging.",
+        "items": [
+          "Leadership Communication",
+          "Teamwork and Collaboration",
+          "Task Delegation and Follow-ups",
+          "Project Management and Status Updates",
+          "Creating Autonomy and Ownership",
+          "Workplace Engagement and Culture",
+          "Ethical Leadership and Decision-Making",
+          "Managing Up and Across Teams"
+        ]
+      },
+      {
+        "key": "mba",
+        "title": "MBA and Strategy",
+        "tagline": "Explore strategic thinking, people, and markets — from HR to economics and emerging business trends.",
         "items": [
           "MBA Case Studies",
-          "Strategy & Innovation",
+          "Strategy and Innovation",
           "Product Management Communication",
-          "Marketing & Customer Messaging",
-          "Sales & Customer Success Language",
-          "Finance & Accounting Basics",
-          "Data & Visualization Language",
-          "Project Management & Status Updates",
-          "Operations & Supply Chain Language",
-          "IT & Engineering Collaboration",
-          "Workplace Engagement & Culture",
-          "Ethical Leadership & Decision-Making"
+          "Marketing and Customer Messaging",
+          "Sales and Customer Success Language",
+          "Finance and Accounting Basics",
+          "Data and Visualization Language",
+          "Operations and Supply Chain Management",
+          "HR and People Strategy",
+          "Economics and Market Forces",
+          "Current Events and Business Trends",
+          "IT and Engineering Collaboration"
         ]
       },
       {
         "key": "everyday",
-        "title": "Everyday English",
+        "title": "Everyday Confidence",
+        "tagline": "Fluent, natural English for your daily and professional life.",
         "items": [
-          "Daily Life & Small Talk",
-          "Hobbies & Interests",
-          "Cooking & Food Culture",
-          "Travel Planning & Situations",
-          "Healthcare & Appointments",
-          "News, Media & Opinions",
-          "Books, Film & Literature Circle",
-          "Housing & Neighborhood Life",
-          "Technology & Gadgets",
+          "Daily Life and Small Talk",
+          "Hobbies and Interests",
+          "Cooking and Food Culture",
+          "Travel Planning and Situations",
+          "Healthcare and Appointments",
+          "News, Media and Opinions",
+          "Books, Film and Literature Circle",
+          "Housing and Neighborhood Life",
+          "Technology and Gadgets",
           "Personal Finance Basics",
-          "Social Invitations & Etiquette",
-          "Wellness & Mindset"
+          "Social Invitations and Etiquette",
+          "Wellness and Mindset"
         ]
       }
     ]
