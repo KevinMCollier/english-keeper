@@ -11,34 +11,56 @@ import {
   X
 } from 'lucide-react';
 
-/** Track colors/icons (keys must match i18n) */
-const COLOR_BY_KEY = {
-  business_comm: 'bg-[#E9B66A] text-midnight-navy',  // caramel
-  career_adv:    'bg-[#B8D9C0] text-midnight-navy',  // soft green
-  leadership:    'bg-[#E8D9F1] text-midnight-navy',  // lavender
-  mba:           'bg-[#7C9AB0] text-white',          // steel blue
-  everyday:      'bg-[#BED9F7] text-midnight-navy'   // light blue
+/** ---------- Color & Icon maps ---------- */
+const TOP_BY_KEY = {
+  business_comm: 'bg-[#E9B66A]', // caramel
+  career_adv:    'bg-[#B8D9C0]', // soft green
+  leadership:    'bg-[#E8D9F1]', // lavender
+  mba:           'bg-[#F0A074]', // terracota
+  everyday:      'bg-[#BED9F7]'  // light blue
 };
 
-const ICON_BY_KEY = {
-  business_comm: <Briefcase className="w-6 h-6" />,
-  career_adv:    <Sprout className="w-6 h-6" />,
-  leadership:    <Users className="w-6 h-6" />,
-  mba:           <GraduationCap className="w-6 h-6" />,
-  everyday:      <Coffee className="w-6 h-6" />
+const TEXT_BY_KEY = {
+  business_comm: 'text-midnight-navy',
+  career_adv:    'text-midnight-navy',
+  leadership:    'text-midnight-navy',
+  mba:           'text-midnight-navy',
+  everyday:      'text-midnight-navy'
 };
 
-// Order: 3 on first row, 2 on second
+const BOTTOM_LIGHT_BY_KEY = {
+  business_comm: 'bg-[#F4D8AB]',
+  career_adv:    'bg-[#D7EBDD]',
+  leadership:    'bg-[#F4ECF9]',
+  mba:           'bg-[#FBE2CD]',
+  everyday:      'bg-[#D9EAFF]'
+};
+
+// Use white in the bottom section by default (set to false to use light tints)
+const USE_WHITE_BOTTOM = false;
+
+const ICON_COMPONENTS = {
+  business_comm: Briefcase,
+  career_adv:    Sprout,
+  leadership:    Users,
+  mba:           GraduationCap,
+  everyday:      Coffee
+};
+
 const ORDER = ['business_comm', 'career_adv', 'leadership', 'mba', 'everyday'];
+
+function TrackIcon({ k, className = '' }) {
+  const Cmp = ICON_COMPONENTS[k];
+  if (!Cmp) return <span className={`w-6 h-6 ${className}`}>•</span>;
+  return <Cmp className={className} />;
+}
 
 export default function Modules({ modules }) {
   const { t } = useTranslation('sessions');
   const prefersReduced = useReducedMotion();
 
-  // ✅ Helper: strip <0/> from titles where <Trans> is not used
   const cleanTitle = (title) => title?.replace(/<0\s*\/>/g, '') ?? '';
 
-  // Normalize & order
   const normalized = useMemo(() => {
     if (!Array.isArray(modules)) return [];
     const withKeys = modules.map((g) => ({
@@ -51,19 +73,18 @@ export default function Modules({ modules }) {
     return [...ordered, ...leftovers];
   }, [modules]);
 
-  // Mobile: pill selection
+  // Mobile pills
   const [activeIdx, setActiveIdx] = useState(0);
   const activeTopics = useMemo(
     () => (normalized?.[activeIdx]?.items ?? []),
     [normalized, activeIdx]
   );
 
-  // Desktop: modal state
+  // Desktop modal (JSX-safe: no type args)
   const [openIdx, setOpenIdx] = useState(null);
   const isOpen = openIdx !== null;
   const close = () => setOpenIdx(null);
 
-  // esc + scroll lock
   useEffect(() => {
     if (!isOpen) return;
     const onKey = (e) => e.key === 'Escape' && close();
@@ -98,7 +119,7 @@ export default function Modules({ modules }) {
         </div>
       ) : (
         <>
-          {/* Mobile: pills + list */}
+          {/* -------- Mobile: pills + list -------- */}
           <div className="md:hidden space-y-5">
             <div className="flex gap-2 overflow-x-auto overflow-y-visible no-scrollbar -mx-4 px-4 py-2">
               {normalized.map((m, i) => (
@@ -110,8 +131,9 @@ export default function Modules({ modules }) {
                   aria-pressed={i === activeIdx}
                 >
                   <span className="inline-flex items-center gap-2">
-                    <span aria-hidden="true">{ICON_BY_KEY[m.key] ?? <span className="w-6 h-6">•</span>}</span>
-                    {/* ✅ Use <Trans> here for mobile pills */}
+                    <span aria-hidden="true">
+                      <TrackIcon k={m.key} className="w-5 h-5" />
+                    </span>
                     <Trans components={[<br key="br" />]}>{m.title}</Trans>
                   </span>
                 </button>
@@ -135,42 +157,55 @@ export default function Modules({ modules }) {
             </div>
           </div>
 
-          {/* Desktop: small square cards */}
-          <div className="hidden md:flex flex-wrap gap-4">
+          {/* -------- Desktop: 5 rectangular two-tone cards in one row -------- */}
+          <div className="hidden md:grid grid-cols-5 gap-4">
             {normalized.map((m, i) => {
-              const cardColor = COLOR_BY_KEY[m.key] ?? 'bg-white text-midnight-navy';
+              const top = TOP_BY_KEY[m.key] ?? 'bg-gray-200';
+              const txt = TEXT_BY_KEY[m.key] ?? 'text-midnight-navy';
+              const bottom = USE_WHITE_BOTTOM
+                ? 'bg-white'
+                : (BOTTOM_LIGHT_BY_KEY[m.key] ?? 'bg-gray-50');
+
               return (
                 <motion.button
                   key={m.key}
                   type="button"
                   onClick={() => setOpenIdx(i)}
-                  className="group w-60 h-60 lg:w-64 lg:h-64 rounded-lg ring-1 ring-black/5 shadow-sm relative text-left
+                  className="group w-full rounded-xl overflow-hidden ring-1 ring-black/5 shadow-sm text-left
                             focus:outline-none focus-visible:ring-2 focus-visible:ring-caramel/70
                             transition-transform duration-200 will-change-transform
                             hover:-translate-y-0.5 hover:shadow-md cursor-pointer"
                   layoutId={`module-card-${i}`}
                   transition={{ layout: { duration: 0.18, ease: 'easeInOut' } }}
                 >
-                  <div className={`absolute inset-0 ${cardColor} rounded-lg p-6 flex flex-col justify-center`}>
-                    <div className="flex items-center gap-3">
-                      <span aria-hidden="true">{ICON_BY_KEY[m.key]}</span>
-                      {/* ✅ Use <Trans> for desktop cards only */}
-                      <span className="relative font-semibold text-lg leading-snug">
+                  {/* CARD HEIGHT: rectangles, not squares */}
+                  <div className="h-48 lg:h-80 flex flex-col">
+                    {/* Top banner (1/3) */}
+                    <div className={`flex-1 ${top} ${txt} grid place-items-center`}>
+                      {/* HUGE icon */}
+                      <TrackIcon
+                        k={m.key}
+                        className="w-[72px] h-[72px] lg:w-[72px] lg:h-[72px] opacity-95"
+                      />
+                    </div>
+                    {/* Bottom content (2/3) */}
+                    <div className={`flex-[2] ${bottom} ${txt} px-5 py-4 relative`}>
+                      <div className="font-semibold text-base lg:text-lg leading-snug relative inline-block">
                         <Trans components={[<br key="br" />]}>{m.title}</Trans>
                         <span
-                          className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full
-                                     origin-left scale-x-0 bg-current opacity-60
-                                     transition-transform duration-300 ease-out
-                                     group-hover:scale-x-100"
                           aria-hidden="true"
+                          className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full
+                                    origin-left scale-x-0 bg-current/70
+                                    transition-transform duration-300 ease-out
+                                    group-hover:scale-x-100"
                         />
-                      </span>
-                    </div>
-
-                    <div className="absolute left-6 bottom-5 text-xs opacity-0 group-hover:opacity-90 transition-opacity">
-                      <span className="underline decoration-dotted">
-                            {t('modules.cta.viewModules', { defaultValue: 'View modules →' })}
-                      </span>
+                      </div>
+                      {/* Subtle hover CTA */}
+                      <div className="absolute left-5 bottom-3 text-xs opacity-0 group-hover:opacity-90 transition-opacity">
+                        <span className="underline decoration-dotted">
+                          {t('modules.cta.viewModules', { defaultValue: 'View module →' })}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </motion.button>
@@ -178,7 +213,7 @@ export default function Modules({ modules }) {
             })}
           </div>
 
-          {/* Modal */}
+          {/* -------- Modal -------- */}
           <AnimatePresence>
             {isOpen && openIdx !== null && (
               <>
@@ -217,14 +252,15 @@ export default function Modules({ modules }) {
                   >
                     <div
                       className={`rounded-t-lg px-6 py-4 ${
-                        COLOR_BY_KEY[normalized[openIdx].key] ?? 'bg-gray-100 text-midnight-navy'
+                        `${TOP_BY_KEY[normalized[openIdx].key] ?? 'bg-gray-100'} ${TEXT_BY_KEY[normalized[openIdx].key] ?? 'text-midnight-navy'}`
                       }`}
                     >
                       <div className="flex items-center justify-between">
                         <div className="min-w-0">
                           <div className="flex items-center gap-3">
-                            <span aria-hidden="true">{ICON_BY_KEY[normalized[openIdx].key]}</span>
-                            {/* ❌ plain title (no <Trans> here) */}
+                            <span aria-hidden="true">
+                              <TrackIcon k={normalized[openIdx].key} className="w-6 h-6" />
+                            </span>
                             <h4 id={`module-modal-title-${openIdx}`} className="font-semibold text-xl truncate">
                               {cleanTitle(normalized[openIdx].title)}
                             </h4>
@@ -276,5 +312,11 @@ Modules.propTypes = {
     })
   )
 };
+
+TrackIcon.propTypes = {
+  k: PropTypes.string.isRequired,
+  className: PropTypes.string
+};
+
 
 Modules.defaultProps = { modules: [] };
