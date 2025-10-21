@@ -1,10 +1,13 @@
 // src/components/SessionFlow.jsx
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
 function SessionFlow({ stages }) {
   const [active, setActive] = useState(0);
+
+  // NEW: refs for each step button
+  const stepRefs = useRef([]);
 
   const goPrev = useCallback(() => setActive((i) => Math.max(0, i - 1)), []);
   const goNext = useCallback(
@@ -22,6 +25,14 @@ function SessionFlow({ stages }) {
     return () => window.removeEventListener('keydown', onKey);
   }, [goPrev, goNext]);
 
+  // NEW: keep active step scrolled into view on mobile
+  useEffect(() => {
+    const el = stepRefs.current[active];
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }, [active]);
+
   const fadeUp = {
     hidden: { opacity: 0, y: 6 },
     show: { opacity: 1, y: 0, transition: { duration: 0.25, ease: 'easeOut' } },
@@ -29,7 +40,7 @@ function SessionFlow({ stages }) {
 
   return (
     <div className="p-0">
-      {/* Stepper: horizontal scroll on mobile; prevent vertical clipping */}
+      {/* Stepper: horizontal scroll on mobile; auto-scrolls to active */}
       <div className="-mx-2 mb-4 overflow-x-auto overflow-y-visible py-1">
         <ol
           className="px-2 flex items-center gap-4 whitespace-nowrap text-sm sm:text-lg"
@@ -40,6 +51,8 @@ function SessionFlow({ stages }) {
             return (
               <li key={s.key || s.title} className="flex items-center">
                 <button
+                  // NEW: capture each button element
+                  ref={(el) => (stepRefs.current[i] = el)}
                   type="button"
                   onClick={() => setActive(i)}
                   className="group flex items-center focus:outline-none"
@@ -47,9 +60,7 @@ function SessionFlow({ stages }) {
                 >
                   <span
                     className={[
-                      // circle size: smaller on mobile, larger on sm+
                       'shrink-0 inline-flex items-center justify-center h-7 w-7 sm:h-8 sm:w-8 rounded-full ring-1 ring-black/10 mr-2 text-xs sm:text-sm font-semibold transition',
-                      // if you don't have 'caramel' in Tailwind, use bg-[#E2B985]
                       isActive ? 'bg-caramel text-white' : 'bg-white text-gray-700',
                     ].join(' ')}
                   >
@@ -58,7 +69,6 @@ function SessionFlow({ stages }) {
                   <span
                     className={[
                       'font-semibold transition underline-offset-4',
-                      // if you don't have 'caramel', use text-[#E2B985]
                       isActive ? 'underline text-caramel' : 'text-gray-700 group-hover:text-gray-900',
                     ].join(' ')}
                   >
@@ -74,9 +84,8 @@ function SessionFlow({ stages }) {
         </ol>
       </div>
 
-      {/* Row: [left gutter/arrow] [card] [right gutter/arrow] */}
+      {/* Row: [left arrow] [card] [right arrow] */}
       <div className="flex items-stretch">
-        {/* Left gutter: narrower on mobile, wider on md+ to align visually with stepper */}
         <div className="flex items-center justify-start w-9 md:w-11">
           {stages.length > 0 && active > 0 ? (
             <button
@@ -94,7 +103,6 @@ function SessionFlow({ stages }) {
           )}
         </div>
 
-        {/* Card (full width on mobile, capped width on md+) */}
         <div className="w-full md:w-auto">
           {stages.length > 0 && (
             <motion.div
@@ -104,7 +112,6 @@ function SessionFlow({ stages }) {
               animate="show"
               className="bg-white p-5 sm:p-7 pb-8 sm:pb-10 ring-1 ring-black/5 w-full md:w-auto md:max-w-[52rem] min-h-[300px] sm:min-h-[360px]"
             >
-              {/* Smaller title on mobile; caramel color kept */}
               <h3 className="font-display font-bold text-2xl sm:text-[2rem] mb-2 sm:mb-3 text-caramel">
                 {stages[active].title}
               </h3>
@@ -117,7 +124,6 @@ function SessionFlow({ stages }) {
           )}
         </div>
 
-        {/* Right gutter: mirrors left gutter for symmetry */}
         <div className="flex items-center justify-end w-9 md:w-11">
           {stages.length > 0 && active < stages.length - 1 ? (
             <button
