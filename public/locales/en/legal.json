@@ -52,7 +52,7 @@
   },
   "delivery": {
     "label": "Delivery / service provision timing",
-    "value": "Lessons (50 minutes) are provided online or in-person at the reserved date and time."
+    "value": "Standard sessions (50 minutes) are provided online or in-person at the reserved date and time. Compact sessions (30 minutes) are only provided online at the reserved date and time."
   },
 
   "returns": {
@@ -75,7 +75,7 @@
 
   "discounts": {
     "label": "Discounts",
-    "value": "FIRST20: 20% off your first private 1:1 lesson (online or in-person). Not valid for group sessions or package purchases."
+    "value": "FIRST20: 20% off your first lesson (available for either standard or compact sessions). Not valid for package purchases. Can only be used once (cannot be used for both standard and compact sessions)."
   },
   "packages": {
     "label": "Packages (credits)",
