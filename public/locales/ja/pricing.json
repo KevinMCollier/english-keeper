@@ -3,21 +3,30 @@
   "table": { "session": "セッション", "time": "時間", "price": "料金", "book": "予約" },
   "buttons": {
     "book": "予約する",
-    "bookInPerson": "対面 1対1 を予約",
-    "bookOnline": "オンライン 1対1 を予約",
-    "bookGroup": "グループを予約",
+    "bookStandard": "スタンダードを予約",
+    "bookCompact": "コンパクトを予約",
     "bookFreeTrial": "無料体験を予約",
-    "comingSoon": "近日公開",
     "buy": "購入する"
   },
   "promo": {
-    "ariaLabel": "初回マンツーマンレッスン20％割引",
+    "ariaLabel": "初回セッション20%オフ",
     "imageAlt": "初回1対1レッスン20％OFF（対面・オンライン）"
   },
   "items": [
-    { "key": "inperson", "title": "1対1（対面）", "duration": "50分", "price": "¥6,000", "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-in-person" },
-    { "key": "online50", "title": "1対1（オンライン）", "duration": "50分", "price": "¥4,500", "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-online" },
-    { "key": "group80", "title": "グループ（最大8名）", "duration": "80分", "price": "¥3,200 / 1人", "url": "https://calendly.com/collier-consulting/english-with-kevin-group-session" }
+    {
+      "key": "standard50",
+      "title": "スタンダード・セッション",
+      "duration": "50分",
+      "price": "¥6,500",
+      "url": "https://calendly.com/collier-consulting/standard-session"
+    },
+    {
+      "key": "compact30",
+      "title": "コンパクト・セッション",
+      "duration": "30分",
+      "price": "¥4,200",
+      "url": "https://calendly.com/collier-consulting/compact-session"
+    }
   ],
   "packages": {
     "heading": "パッケージ",
@@ -25,58 +34,51 @@
     "buy": "購入",
     "items": [
       {
-        "key": "inperson4",
-        "title": "1対1 対面 4回パック",
+        "key": "standard4",
+        "title": "スタンダード 4回パック",
         "duration": "各50分",
-        "price": "¥21,600",
-        "unitPrice": "1回あたり ¥5,400",
-        "buttonLabel": "対面 4回パック",
-        "url": "https://buy.stripe.com/3cIbJ01Pq6ma1COfCueUU05"
+        "price": "¥23,400",
+        "unitPrice": "1回あたり ¥5,850",
+        "buttonLabel": "スタンダード 4回パックを購入",
+        "url": "https://buy.stripe.com/bJe7sK8dOfWKbdobmeeUU09"
       },
       {
-        "key": "inperson8",
-        "title": "1対1 対面 8回パック",
+        "key": "standard8",
+        "title": "スタンダード 8回パック",
         "popular": true,
         "duration": "各50分",
-        "price": "¥40,800",
-        "unitPrice": "1回あたり ¥5,100",
-        "buttonLabel": "対面 8回パック",
-        "url": "https://buy.stripe.com/dRm3cu0Lmh0OftE1LEeUU03"
+        "price": "¥44,200",
+        "unitPrice": "1回あたり ¥5,525",
+        "buttonLabel": "スタンダード 8回パックを購入",
+        "url": "https://buy.stripe.com/00w8wO65G8ui4P0cqieUU08"
       },
       {
-        "key": "online4",
-        "title": "1対1 オンライン 4回パック",
-        "duration": "各50分",
-        "price": "¥16,200",
-        "unitPrice": "1回あたり ¥4,050",
-        "buttonLabel": "オンライン 4回パック",
-        "url": "https://buy.stripe.com/eVq6oG65G39Y0yK75YeUU04"
+        "key": "compact4",
+        "title": "コンパクト 4回パック",
+        "duration": "各30分",
+        "price": "¥15,100",
+        "unitPrice": "1回あたり ¥3,775",
+        "buttonLabel": "コンパクト 4回パックを購入",
+        "url": "https://buy.stripe.com/9B628qfGg25U95ggGyeUU0a"
       },
       {
-        "key": "online8",
-        "title": "1対1 オンライン 8回パック",
+        "key": "compact8",
+        "title": "コンパクト 8回パック",
         "popular": true,
-        "duration": "各50分",
-        "price": "¥30,600",
-        "unitPrice": "1回あたり ¥3,825",
-        "buttonLabel": "オンライン 8回パック",
-        "url": "https://buy.stripe.com/28E7sKgKkbGu95gcqieUU02"
+        "duration": "各30分",
+        "price": "¥28,600",
+        "unitPrice": "1回あたり ¥3,575",
+        "buttonLabel": "コンパクト 8回パックを購入",
+        "url": "https://buy.stripe.com/fZu8wO9hS25U95gdumeUU0b"
       }
     ],
     "ctaPurchased": {
-      "text": "すでにパッケージを購入済みの方：こちらから予約してください",
-      "onlineLabel": "対面 1対1 を予約",
-      "onlineUrl": "https://calendly.com/collier-consulting/english-with-kevin-1-1-online",
-      "inpersonLabel": "オンライン 1対1 を予約",
-      "inpersonUrl": "https://calendly.com/collier-consulting/english-with-kevin-1-1-in-person"
+      "text": "すでにパッケージを購入済みの方：こちらから予約してください。",
+      "standardLabel": "スタンダード・セッションを予約",
+      "standardUrl": "https://calendly.com/collier-consulting/standard-session-package",
+      "compactLabel": "コンパクト・セッションを予約",
+      "compactUrl": "https://calendly.com/collier-consulting/compact-session-package"
     }
-
-  },
-  "notes": {
-    "prices": "※ 料金にはセッション費用、セッション後の学習サマリー、会場費・交通費が含まれます。",
-    "locations": "※ 対面・グループは一部地域のみ対応しています。詳細はお問い合わせください。",
-    "discount": "※ 初回限定20%オフは1対1（オンライン／対面）のみ対象。グループは対象外です。",
-    "cancellation": "<0>キャンセルポリシー</0>：<1>48時間前</1>まで無料。<2>24〜48時間前</2>は50%、<3>24時間以内</3>は100%のキャンセル料。開始の<4>24時間前</4>まで日程変更可能です。"
   },
   "policies": {
     "heading": "ご利用規約・注意事項",
@@ -85,21 +87,21 @@
         "title": "一般",
         "items": [
           "表示価格は税込み。セッション費用およびセッション後の学習サマリーを含みます。",
-          "対面・グループは対応エリアが限られます。詳細はお問い合わせください。"
+          "対面レッスンの対応エリアは限定されています。詳細はお問い合わせください。"
         ]
       },
       {
         "title": "割引",
         "items": [
-          "<strong>FIRST20</strong>：初回マンツーマン（対面／オンライン）20%オフ。",
-          "FIRST20はグループおよびパッケージ購入には<strong>適用されません</strong>。"
+          "<strong>FIRST20</strong>：初回マンツーマン（スタンダード／コンパクト）20%オフ。",
+          "FIRST20はパッケージ購入には<strong>適用されません</strong>。"
         ]
       },
       {
         "title": "パッケージ（クレジット）",
         "items": [
-          "1クレジット＝50分のプライベートセッション1回。",
-          "有効期間内であればお好きなタイミングで予約可能。",
+          "1クレジット＝購入した種類・時間のセッション1回。",
+          "有効期間内であれば自由に予約可能。",
           "<strong>4回パック：</strong>購入日から<strong>120日</strong>有効 ／ <strong>8回パック：</strong>購入日から<strong>240日</strong>有効。",
           "<strong>消化ルール：</strong>実施したセッション1回につき1クレジット、開始<strong>24時間以内</strong>のキャンセルも1クレジット消化。",
           "日程変更は開始<strong>24時間前</strong>まで可能。",
@@ -133,18 +135,13 @@
   },
   "location": {
     "title": "対応エリア",
-    "body": "対面レッスンは <strong>自由が丘</strong>、<strong>大森</strong>、<strong>大井町</strong>、<strong>品川</strong>、<strong>五反田</strong> でリクエストに応じて実施可能です。"
+    "body": "対面レッスンは <strong>自由が丘</strong>、<strong>大森</strong>、<strong>大井町</strong>、<strong>品川</strong>、<strong>五反田</strong> で実施可能です。エリア外は追加料金となる場合があります。"
   },
   "corporate": {
     "title": "法人向けトレーニング",
-    "body": "チーム・企業向けにカスタマイズしたプログラムをご提供しています。",
+    "body": "チームや企業向けにカスタマイズしたプログラムをご提供しています。",
     "linkLabel": "Collier Consulting へ",
     "linkUrl": "https://kevin-collier.me",
     "trailingPunct": "。"
-  },
-  "legal": {
-    "disclosureLabel": "特定商取引法に基づく表記",
-    "disclosureHref": "/commerce-disclosure",
-    "disclosureSentence": "日本の法令に基づく詳細は、<0>特定商取引法に基づく表記</0>をご確認ください。"
   }
 }

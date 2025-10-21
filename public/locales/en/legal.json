@@ -77,10 +77,9 @@
     "label": "Discounts",
     "value": "FIRST20: 20% off your first lesson (available for either standard or compact sessions). Not valid for package purchases. Can only be used once (cannot be used for both standard and compact sessions)."
   },
-  "packages": {
-    "label": "Packages (credits)",
-    "value": "Each credit equals one 50-minute private session. Schedule sessions anytime within the validity window. 4-Pack: valid 120 days; 8-Pack: valid 240 days. Credits are for the purchaser only and are not transferable."
-  },
-
+"packages": {
+  "label": "Packages (credits)",
+  "value": "Each credit equals one session of the purchased type and duration (Standard: 50 minutes / Compact: 30 minutes). Schedule sessions anytime within the validity window. 4-Pack: valid 120 days; 8-Pack: valid 240 days. Credits are for the purchaser only and are not transferable."
+},
   "privacy": { "label": "Privacy policy", "value": "View Privacy Policy" }
 }

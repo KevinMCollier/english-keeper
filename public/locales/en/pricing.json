@@ -3,21 +3,30 @@
   "table": { "session": "Session", "time": "Time", "price": "Price", "book": "Book" },
   "buttons": {
     "book": "Book",
-    "bookInPerson": "Book 1:1 In-Person",
-    "bookOnline": "Book 1:1 Online",
-    "bookGroup": "Book Group",
+    "bookStandard": "Book Standard Session",
+    "bookCompact": "Book Compact Session",
     "bookFreeTrial": "Book a Free Trial",
-    "comingSoon": "Coming soon",
     "buy": "Buy"
   },
   "promo": {
-    "ariaLabel": "20% off first private lesson",
+    "ariaLabel": "20% off first session",
     "imageAlt": "20% OFF your first 1:1 lesson—online or in-person"
   },
   "items": [
-    { "key": "inperson", "title": "1:1 In-Person", "duration": "50 min", "price": "¥6,000", "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-in-person" },
-    { "key": "online50", "title": "1:1 Online", "duration": "50 min", "price": "¥4,500", "url": "https://calendly.com/collier-consulting/english-with-kevin-1-1-online" },
-    { "key": "group80", "title": "Group (Max 8)", "duration": "80 min", "price": "¥3,200 / person", "url": "https://calendly.com/collier-consulting/english-with-kevin-group-session" }
+    {
+      "key": "standard50",
+      "title": "Standard Session",
+      "duration": "50 min",
+      "price": "¥6,500",
+      "url": "https://calendly.com/collier-consulting/standard-session"
+    },
+    {
+      "key": "compact30",
+      "title": "Compact Session",
+      "duration": "30 min",
+      "price": "¥4,200",
+      "url": "https://calendly.com/collier-consulting/compact-session"
+    }
   ],
   "packages": {
     "heading": "Packages",
@@ -25,57 +34,51 @@
     "buy": "Buy",
     "items": [
       {
-        "key": "inperson4",
-        "title": "1:1 In-Person — 4-Pack",
+        "key": "standard4",
+        "title": "Standard 4-Pack",
         "duration": "50 min each",
-        "price": "¥21,600",
-        "unitPrice": "¥5,400 / session",
-        "buttonLabel": "Buy In-Person 4-Pack",
-        "url": "https://buy.stripe.com/3cIbJ01Pq6ma1COfCueUU05"
+        "price": "¥23,400",
+        "unitPrice": "¥5,850 / session",
+        "buttonLabel": "Buy Standard 4-Pack",
+        "url": "https://buy.stripe.com/bJe7sK8dOfWKbdobmeeUU09"
       },
       {
-        "key": "inperson8",
-        "title": "1:1 In-Person — 8-Pack",
+        "key": "standard8",
+        "title": "Standard 8-Pack",
         "popular": true,
         "duration": "50 min each",
-        "price": "¥40,800",
-        "unitPrice": "¥5,100 / session",
-        "buttonLabel": "Buy In-Person 8-Pack",
-        "url": "https://buy.stripe.com/dRm3cu0Lmh0OftE1LEeUU03"
+        "price": "¥44,200",
+        "unitPrice": "¥5,525 / session",
+        "buttonLabel": "Buy Standard 8-Pack",
+        "url": "https://buy.stripe.com/00w8wO65G8ui4P0cqieUU08"
       },
       {
-        "key": "online4",
-        "title": "1:1 Online — 4-Pack",
-        "duration": "50 min each",
-        "price": "¥16,200",
-        "unitPrice": "¥4,050 / session",
-        "buttonLabel": "Buy Online 4-Pack",
-        "url": "https://buy.stripe.com/eVq6oG65G39Y0yK75YeUU04"
+        "key": "compact4",
+        "title": "Compact 4-Pack",
+        "duration": "30 min each",
+        "price": "¥15,100",
+        "unitPrice": "¥3,775 / session",
+        "buttonLabel": "Buy Compact 4-Pack",
+        "url": "https://buy.stripe.com/9B628qfGg25U95ggGyeUU0a"
       },
       {
-        "key": "online8",
-        "title": "1:1 Online — 8-Pack",
+        "key": "compact8",
+        "title": "Compact 8-Pack",
         "popular": true,
-        "duration": "50 min each",
-        "price": "¥30,600",
-        "unitPrice": "¥3,825 / session",
-        "buttonLabel": "Buy Online 8-Pack",
-        "url": "https://buy.stripe.com/28E7sKgKkbGu95gcqieUU02"
+        "duration": "30 min each",
+        "price": "¥28,600",
+        "unitPrice": "¥3,575 / session",
+        "buttonLabel": "Buy Compact 8-Pack",
+        "url": "https://buy.stripe.com/fZu8wO9hS25U95gdumeUU0b"
       }
     ],
     "ctaPurchased": {
-      "text": "Already purchased a package? Schedule your session here:",
-      "onlineLabel": "Book 1:1 Online",
-      "onlineUrl": "https://calendly.com/collier-consulting/english-with-kevin-1-1-online",
-      "inpersonLabel": "Book 1:1 In-Person",
-      "inpersonUrl": "https://calendly.com/collier-consulting/english-with-kevin-1-1-in-person"
+      "text": "Already purchased a package? Schedule your sessions here:",
+      "standardLabel": "Schedule Standard Session",
+      "standardUrl": "https://calendly.com/collier-consulting/standard-session-package",
+      "compactLabel": "Schedule Compact Session",
+      "compactUrl": "https://calendly.com/collier-consulting/compact-session-package"
     }
-  },
-  "notes": {
-    "prices": "※ Prices include session fee, post-session learning summary, and venue/transportation cost.",
-    "locations": "※ In-person & group sessions available within limited locations. Contact for more details.",
-    "discount": "※ 20% first-lesson discount applies to private 1:1 sessions (online & in-person) only; not valid for group sessions.",
-    "cancellation": "<0>Cancellation policy</0>: Free up to <1>48 hours</1> before; <2>24–48 hours</2> = 50% fee; <3>within 24 hours</3> = 100% fee. Rescheduling allowed up to <4>24 hours</4> before start."
   },
   "policies": {
     "heading": "Policies & Notes",
@@ -84,21 +87,21 @@
         "title": "General",
         "items": [
           "Prices are in JPY and include the session fee and a post-session learning summary.",
-          "In-person and group sessions are available within limited locations—contact me for details."
+          "In-person sessions are available within limited locations—contact me for details."
         ]
       },
       {
         "title": "Discounts",
         "items": [
-          "<strong>FIRST20</strong>: 20% off your first private 1:1 lesson (online or in-person).",
-          "FIRST20 is <strong>not valid</strong> for group sessions or package purchases."
+          "<strong>FIRST20</strong>: 20% off your first private 1:1 lesson (Standard or Compact).",
+          "FIRST20 is <strong>not valid</strong> for package purchases."
         ]
       },
       {
         "title": "Packages (credits)",
         "items": [
-          "Each credit equals one 50-minute private session.",
-          "Schedule each session anytime within the validity window.",
+          "Each credit equals one session of the purchased type and duration.",
+          "Schedule within the validity window.",
           "<strong>4-Pack:</strong> valid <strong>120 days</strong> from purchase; <strong>8-Pack:</strong> valid <strong>240 days</strong> from purchase.",
           "<strong>Credit usage:</strong> 1 credit per session held, or if you cancel within 24 hours of the start time.",
           "Rescheduling allowed up to <strong>24 hours</strong> before start.",
@@ -124,7 +127,7 @@
       {
         "title": "Payment",
         "items": [
-          "Online lessons: payment is requested within <strong>24 hours</strong> of booking to keep your spot (payment link provided by email).",
+          "Online lessons: please pay within <strong>24 hours</strong> of booking to keep your spot (payment link provided by email).",
           "In-person lessons: pay online in advance or in cash on the day."
         ]
       }

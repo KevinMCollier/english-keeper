@@ -148,15 +148,15 @@
   },
   "format": {
     "title": "Lesson Format",
-    "badge": "1:1 Private · Group (coming soon)",
-    "oneToOne": {
-      "title": "1:1 Private Sessions",
-      "blurb": "50 minutes · Online or In-Person. Fully personalized around your goals. Post-session summary included."
+    "badge": "1:1 Private · Standard 50 min / Compact 30 min",
+    "standard": {
+      "title": "Standard Session (50 min)",
+      "blurb": "One comprehensive 50-minute coaching session tailored to your goals. Available in-person or online. Post-session summary included."
     },
-    "group": {
-      "title": "Group Sessions",
-      "blurb": "Up to 8 learners · 80 minutes. Real-world topics, high speaking time, mixed-level friendly.",
-      "comingSoon": "Coming soon"
+    "compact": {
+      "title": "Compact Session (30 min Online)",
+      "blurb": "Short, focused, and consistent — a 30-minute online session ideal for momentum and daily English.",
+      "missingUrl": "Set up 30-min Online URL"
     }
   }
 }

@@ -6,23 +6,23 @@ import PoliciesAccordion from './Policies';
 export default function Pricing() {
   const { t, i18n } = useTranslation('pricing');
 
+  // ITEMS: Standard (50) + Compact (30) + optional freetrial
   const items = (t('items', { returnObjects: true }) || []).filter(
     (i) => i.key !== 'corporate'
   );
 
-  // NEW: packages table data
+  // Packages
   const packages = t('packages', { returnObjects: true }) || {};
   const packItems = packages.items || [];
 
   const table = t('table', { returnObjects: true }) || {};
-  // const notes = t('notes', { returnObjects: true }) || {};
   const corporate = t('corporate', { returnObjects: true }) || {};
 
-  // NEW: pull promo + location strings from i18n
+  // Promo & Location
   const promo = t('promo', { returnObjects: true }) || {};
   const location = t('location', { returnObjects: true }) || {};
 
-  // NEW: policies & notes block
+  // Policies
   const policies = t('policies', { returnObjects: true }) || {};
 
   // Consistent mobile button width without full-width stretch
@@ -32,6 +32,14 @@ export default function Pricing() {
   const locale = (i18n.resolvedLanguage || i18n.language || 'en').toLowerCase();
   const promoSrc = locale.startsWith('ja') ? '/Promo_ja.jpg' : '/Promo_en.jpg';
   const promoAlt = promo.imageAlt || promo.ariaLabel || '20% off first private lesson';
+
+  // Helper for per-item button label (uses i18n keys you have)
+  const labelFor = (key) => {
+    if (key === 'freetrial') return t('buttons.bookFreeTrial', 'Book a Free Trial');
+    if (key === 'standard50') return t('buttons.bookStandard', 'Book Standard (50 min)');
+    if (key === 'compact30') return t('buttons.bookCompact', 'Book Compact (30 min Online)');
+    return t('buttons.book', 'Book');
+    };
 
   return (
     <section id="pricing" className="bg-white py-16 sm:py-20 font-body">
@@ -80,40 +88,20 @@ export default function Pricing() {
                 </div>
               </dl>
 
-              {i.key === 'group80' ? (
+              {i.url?.trim() && (
                 <div className="mt-3">
                   <CalendlyButton
-                    url="#"
-                    label={t('buttons.comingSoon', 'Coming soon')}
-                    disabled
-                    disabledClassName="bg-[#E2B985] hover:bg-[#E2B985] text-white"
+                    url={i.url}
+                    label={labelFor(i.key)}
+                    color={i.key === 'freetrial' ? 'lemon' : 'caramel'}
                     className={mobileBtn}
                   />
                 </div>
-              ) : (
-                i.url?.trim() && (
-                  <div className="mt-3">
-                    <CalendlyButton
-                      url={i.url}
-                      label={
-                        i.key === 'freetrial'
-                          ? t('buttons.bookFreeTrial', 'Book Free Trial')
-                          : i.key === 'online50'
-                          ? t('buttons.bookOnline', 'Book 1:1 Online')
-                          : i.key === 'inperson'
-                          ? t('buttons.bookInPerson', 'Book 1:1 In-Person')
-                          : t('buttons.book', 'Book')
-                      }
-                      color={i.key === 'freetrial' ? 'lemon' : 'caramel'}
-                      className={mobileBtn}
-                    />
-                  </div>
-                )
               )}
             </div>
           ))}
 
-          {/* NEW — Packages as mobile cards */}
+          {/* Packages as mobile cards */}
           {packages.heading && (
             <h3 className="mt-6 mb-2 font-display text-midnight-navy text-2xl font-extrabold">
               {packages.heading}
@@ -160,18 +148,24 @@ export default function Pricing() {
                 {packages.ctaPurchased.text}
               </p>
               <div className="mt-2 flex flex-col gap-2">
-                {packages.ctaPurchased.onlineUrl && (
+                {packages.ctaPurchased.standardUrl && (
                   <CalendlyButton
-                    url={packages.ctaPurchased.onlineUrl}
-                    label={packages.ctaPurchased.onlineLabel || 'Online (Package Holders)'}
+                    url={packages.ctaPurchased.standardUrl}
+                    label={
+                      packages.ctaPurchased.standardLabel ||
+                      'Schedule Standard (50) — Package'
+                    }
                     color="lemon"
                     className={mobileBtn}
                   />
                 )}
-                {packages.ctaPurchased.inpersonUrl && (
+                {packages.ctaPurchased.compactUrl && (
                   <CalendlyButton
-                    url={packages.ctaPurchased.inpersonUrl}
-                    label={packages.ctaPurchased.inpersonLabel || 'In-Person (Package Holders)'}
+                    url={packages.ctaPurchased.compactUrl}
+                    label={
+                      packages.ctaPurchased.compactLabel ||
+                      'Schedule Compact (30) — Package'
+                    }
                     color="lemon"
                     className={mobileBtn}
                   />
@@ -216,31 +210,13 @@ export default function Pricing() {
                     {i.price?.trim() || '—'}
                   </td>
                   <td className="py-4">
-                    {i.key === 'group80' ? (
+                    {i.url?.trim() && (
                       <CalendlyButton
-                        url="#"
-                        label={t('buttons.comingSoon', 'Coming soon')}
-                        disabled
-                        disabledClassName="bg-[#E2B985] hover:bg-[#E2B985] text-white"
+                        url={i.url}
+                        label={labelFor(i.key)}
+                        color={i.key === 'freetrial' ? 'lemon' : 'caramel'}
                         className="w-full justify-center whitespace-nowrap"
                       />
-                    ) : (
-                      i.url?.trim() && (
-                        <CalendlyButton
-                          url={i.url}
-                          label={
-                            i.key === 'freetrial'
-                              ? t('buttons.bookFreeTrial', 'Book Free Trial')
-                              : i.key === 'online50'
-                              ? t('buttons.bookOnline', 'Book 1:1 Online')
-                              : i.key === 'inperson'
-                              ? t('buttons.bookInPerson', 'Book 1:1 In-Person')
-                              : t('buttons.book', 'Book')
-                          }
-                          color={i.key === 'freetrial' ? 'lemon' : 'caramel'}
-                          className="w-full justify-center whitespace-nowrap"
-                        />
-                      )
                     )}
                   </td>
                 </tr>
@@ -285,7 +261,6 @@ export default function Pricing() {
                   <td className="py-4 text-sm sm:text-base text-graphite">
                     {p.duration?.trim() || '—'}
                   </td>
-                  {/* UPDATED PRICE CELL */}
                   <td className="py-4 text-sm sm:text-base font-medium text-midnight-navy align-middle">
                     <div className="flex flex-col leading-tight">
                       <span>{p.price?.trim() || '—'}</span>
@@ -318,18 +293,24 @@ export default function Pricing() {
                   {packages.ctaPurchased.text}
                 </p>
                 <div className="flex gap-2">
-                  {packages.ctaPurchased.onlineUrl && (
+                  {packages.ctaPurchased.standardUrl && (
                     <CalendlyButton
-                      url={packages.ctaPurchased.onlineUrl}
-                      label={packages.ctaPurchased.onlineLabel || 'Book 1:1 Online'}
+                      url={packages.ctaPurchased.standardUrl}
+                      label={
+                        packages.ctaPurchased.standardLabel ||
+                        'Schedule Standard (50) — Package'
+                      }
                       color="caramel"
                       className="whitespace-nowrap"
                     />
                   )}
-                  {packages.ctaPurchased.inpersonUrl && (
+                  {packages.ctaPurchased.compactUrl && (
                     <CalendlyButton
-                      url={packages.ctaPurchased.inpersonUrl}
-                      label={packages.ctaPurchased.inpersonLabel || 'Book 1:1 In-Person'}
+                      url={packages.ctaPurchased.compactUrl}
+                      label={
+                        packages.ctaPurchased.compactLabel ||
+                        'Schedule Compact (30) — Package'
+                      }
                       color="caramel"
                       className="whitespace-nowrap"
                     />
@@ -344,7 +325,6 @@ export default function Pricing() {
         {(policies.heading || (policies.sections && policies.sections.length)) && (
           <PoliciesAccordion policies={policies} />
         )}
-
 
         {/* —— Location Info —— */}
         <div className="mt-6 rounded-xl bg-white text-midnight-navy shadow-sm border border-gray-200">
