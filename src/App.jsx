@@ -73,10 +73,10 @@ export default function App() {
     <>
       <ScrollToTop />
 <Routes>
-  <Route path="/" element={<Navigate to="/ja" replace />} />
+  <Route path="/" element={<Navigate to="/en" replace />} />
 
-  <Route path="/commerce-disclosure" element={<Navigate to="/ja/commerce-disclosure" replace />} />
-  <Route path="/privacy" element={<Navigate to="/ja/privacy" replace />} />
+  <Route path="/commerce-disclosure" element={<Navigate to="/en/commerce-disclosure" replace />} />
+  <Route path="/privacy" element={<Navigate to="/en/privacy" replace />} />
 
   <Route path=":lng" element={<LangLayout />}>
     <Route index element={<Home />} />
@@ -84,7 +84,7 @@ export default function App() {
     <Route path="privacy" element={<Privacy />} />
   </Route>
 
-  <Route path="*" element={<Navigate to="/ja" replace />} />
+  <Route path="*" element={<Navigate to="/en" replace />} />
 </Routes>
 
 

@@ -13,7 +13,7 @@ export default function LanguageDetector() {
     if (!lng) return;
 
     if (!ALLOWED.includes(lng)) {
-      navigate("/ja", { replace: true });
+      navigate("/en", { replace: true });
       return;
     }
 

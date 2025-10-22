@@ -6,7 +6,7 @@ i18n
   .use(HttpBackend)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'ja',
+    fallbackLng: 'en',
     supportedLngs: ['en', 'ja'],
     backend: { loadPath: '/locales/{{lng}}/{{ns}}.json' },
     ns: ['navbar', 'footer', 'contact'],
@@ -19,7 +19,7 @@ i18n
   });
 
 i18n.on('languageChanged', (lng) => {
-  if (typeof document !== 'undefined') document.documentElement.lang = lng || 'ja';
+  if (typeof document !== 'undefined') document.documentElement.lang = lng || 'en';
 });
 
 export default i18n;
