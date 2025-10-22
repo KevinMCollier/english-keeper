@@ -1,4 +1,3 @@
-// src/components/SessionFlow.jsx
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
@@ -6,8 +5,10 @@ import PropTypes from 'prop-types';
 function SessionFlow({ stages }) {
   const [active, setActive] = useState(0);
 
-  // NEW: refs for each step button
+  // refs for each step and the horizontal scroll rail
   const stepRefs = useRef([]);
+  const railRef = useRef(null);
+  const didMountRef = useRef(false);
 
   const goPrev = useCallback(() => setActive((i) => Math.max(0, i - 1)), []);
   const goNext = useCallback(
@@ -25,12 +26,25 @@ function SessionFlow({ stages }) {
     return () => window.removeEventListener('keydown', onKey);
   }, [goPrev, goNext]);
 
-  // NEW: keep active step scrolled into view on mobile
+  // Keep active step centered by scrolling only the horizontal rail (not the page)
   useEffect(() => {
+    const rail = railRef.current;
     const el = stepRefs.current[active];
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    if (!rail || !el) return;
+
+    // Skip on first render to prevent initial page jump
+    if (!didMountRef.current) {
+      didMountRef.current = true;
+      return;
     }
+
+    const railRect = rail.getBoundingClientRect();
+    const elRect = el.getBoundingClientRect();
+    const current = rail.scrollLeft;
+    const elCenter = elRect.left - railRect.left + current + elRect.width / 2;
+    const targetLeft = Math.max(0, elCenter - rail.clientWidth / 2);
+
+    rail.scrollTo({ left: targetLeft, behavior: 'smooth' });
   }, [active]);
 
   const fadeUp = {
@@ -40,8 +54,11 @@ function SessionFlow({ stages }) {
 
   return (
     <div className="p-0">
-      {/* Stepper: horizontal scroll on mobile; auto-scrolls to active */}
-      <div className="-mx-2 mb-4 overflow-x-auto overflow-y-visible py-1">
+      {/* Stepper: horizontal scroll on mobile; auto-scrolls within rail */}
+      <div
+        ref={railRef}
+        className="-mx-2 mb-4 overflow-x-auto overflow-y-hidden py-1"
+      >
         <ol
           className="px-2 flex items-center gap-4 whitespace-nowrap text-sm sm:text-lg"
           aria-label="Lesson flow steps"
@@ -51,7 +68,6 @@ function SessionFlow({ stages }) {
             return (
               <li key={s.key || s.title} className="flex items-center">
                 <button
-                  // NEW: capture each button element
                   ref={(el) => (stepRefs.current[i] = el)}
                   type="button"
                   onClick={() => setActive(i)}
@@ -69,7 +85,9 @@ function SessionFlow({ stages }) {
                   <span
                     className={[
                       'font-semibold transition underline-offset-4',
-                      isActive ? 'underline text-caramel' : 'text-gray-700 group-hover:text-gray-900',
+                      isActive
+                        ? 'underline text-caramel'
+                        : 'text-gray-700 group-hover:text-gray-900',
                     ].join(' ')}
                   >
                     {s.title}
@@ -94,8 +112,20 @@ function SessionFlow({ stages }) {
               aria-label="Previous step"
               className="rounded-full bg-white ring-1 ring-black/10 shadow hover:bg-gray-50 p-2"
             >
-              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden>
-                <path d="M12.5 4.5L7 10l5.5 5.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden
+              >
+                <path
+                  d="M12.5 4.5L7 10l5.5 5.5"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
           ) : (
@@ -117,7 +147,9 @@ function SessionFlow({ stages }) {
               </h3>
               <div className="space-y-3 text-[15.5px] sm:text-[17px] leading-7">
                 {(stages[active].body || []).map((line, i) => (
-                  <p key={i} className="text-graphite">{line}</p>
+                  <p key={i} className="text-graphite">
+                    {line}
+                  </p>
                 ))}
               </div>
             </motion.div>
@@ -132,8 +164,20 @@ function SessionFlow({ stages }) {
               aria-label="Next step"
               className="rounded-full bg-white ring-1 ring-black/10 shadow hover:bg-gray-50 p-2"
             >
-              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden>
-                <path d="M7.5 4.5L13 10l-5.5 5.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden
+              >
+                <path
+                  d="M7.5 4.5L13 10l-5.5 5.5"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
           ) : (

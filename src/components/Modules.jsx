@@ -55,8 +55,6 @@ export default function Modules({ modules }) {
   const { t } = useTranslation('sessions');
   const prefersReduced = useReducedMotion();
 
-  const cleanTitle = (title) => title?.replace(/<0\s*\/>/g, '') ?? '';
-
   const normalized = useMemo(() => {
     if (!Array.isArray(modules)) return [];
     const withKeys = modules.map((g) => ({
@@ -150,7 +148,10 @@ export default function Modules({ modules }) {
                     </div>
                     <div className={`flex-[2] ${bottom} ${txt} px-5 py-4 relative`}>
                       <div className="font-semibold text-base lg:text-lg leading-snug">
-                        <Trans>{m.title}</Trans>
+                        {/* Render <0/> as <br/> when present (JP); EN strings render normally */}
+                        <Trans t={t} components={[<br key="br" />]}>
+                          {m.title}
+                        </Trans>
                       </div>
                       <div className="absolute left-5 bottom-3 text-xs opacity-0 group-hover:opacity-90 transition-opacity">
                         <span className="underline decoration-dotted">
@@ -187,18 +188,24 @@ export default function Modules({ modules }) {
                   <motion.div
                     layoutId={`module-card-${openIdx}`}
                     onClick={(e) => e.stopPropagation()}
-                    className={`w-full max-w-3xl rounded-lg ring-1 ring-black/10 shadow-xl relative overflow-hidden flex flex-col
-                               min-h-[60vh] max-h-[86vh]
-                               ${TOP_BY_KEY[normalized[openIdx].key] ?? 'bg-gray-100'} ${TEXT_BY_KEY[normalized[openIdx].key] ?? 'text-midnight-navy'}`}
+                    // CLEAN two-tone: solid white body; track-colored header only
+                    className="w-full max-w-3xl rounded-lg ring-1 ring-black/10 shadow-xl relative overflow-hidden flex flex-col
+                               min-h-[60vh] max-h-[86vh] bg-white text-midnight-navy"
                     initial={prefersReduced ? { opacity: 0 } : { opacity: 0, scale: 0.9 }}
                     animate={prefersReduced ? { opacity: 1 } : { opacity: 1, scale: 1, transition: { duration: 0.25 } }}
                     exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.15 } }}
                   >
-                    <div className="flex items-center justify-between px-6 py-4 bg-white/60 backdrop-blur-sm">
+                    {/* Colored header */}
+                    <div
+                      className={`flex items-center justify-between px-6 py-4 ${TOP_BY_KEY[normalized[openIdx].key] ?? 'bg-gray-100'} bg-opacity-70 backdrop-blur-sm`}
+                    >
                       <div className="flex items-center gap-3">
                         <TrackIcon k={normalized[openIdx].key} className="w-6 h-6" />
                         <h4 id={`module-modal-title-${openIdx}`} className="font-semibold text-xl">
-                          {cleanTitle(normalized[openIdx].title)}
+                          {/* JP titles break on <0/>, EN titles unchanged */}
+                          <Trans t={t} components={[<br key="br" />]}>
+                            {normalized[openIdx].title}
+                          </Trans>
                         </h4>
                       </div>
                       <button
@@ -209,7 +216,9 @@ export default function Modules({ modules }) {
                         <X className="w-5 h-5" />
                       </button>
                     </div>
-                    <div className="px-6 py-5 overflow-auto bg-white/80">
+
+                    {/* Solid white content (no transparency) */}
+                    <div className="px-6 py-5 overflow-auto bg-white">
                       <ul className="grid sm:grid-cols-2 gap-y-2 gap-x-4 text-[15px] md:text-base leading-6">
                         {(normalized[openIdx].items ?? []).map((it) => (
                           <li key={it} className="flex items-start gap-2">
