@@ -14,17 +14,17 @@
   },
   "items": [
     {
-      "key": "standard50",
+      "key": "standard60",
       "title": "スタンダード・セッション",
-      "duration": "50分",
-      "price": "¥6,500",
+      "duration": "60分",
+      "price": "¥6,000",
       "url": "https://calendly.com/collier-consulting/standard-session"
     },
     {
       "key": "compact30",
       "title": "コンパクト・セッション",
       "duration": "30分",
-      "price": "¥4,200",
+      "price": "¥3,500",
       "url": "https://calendly.com/collier-consulting/compact-session"
     }
   ],
@@ -36,29 +36,29 @@
       {
         "key": "standard4",
         "title": "スタンダード 4回パック",
-        "duration": "各50分",
-        "price": "¥23,400",
-        "unitPrice": "1回あたり ¥5,850",
-        "buttonLabel": "スタンダード 4回パックを購入",
+        "duration": "各60分",
+        "price": "¥22,000",
+        "unitPrice": "1回あたり ¥5,500",
+        "buttonLabel": "スタンダード 4回パック",
         "url": "https://buy.stripe.com/bJe7sK8dOfWKbdobmeeUU09"
       },
       {
         "key": "standard8",
         "title": "スタンダード 8回パック",
         "popular": true,
-        "duration": "各50分",
-        "price": "¥44,200",
-        "unitPrice": "1回あたり ¥5,525",
-        "buttonLabel": "スタンダード 8回パックを購入",
+        "duration": "各60分",
+        "price": "¥40,000",
+        "unitPrice": "1回あたり ¥5,000",
+        "buttonLabel": "スタンダード 8回パック",
         "url": "https://buy.stripe.com/00w8wO65G8ui4P0cqieUU08"
       },
       {
         "key": "compact4",
         "title": "コンパクト 4回パック",
         "duration": "各30分",
-        "price": "¥15,100",
-        "unitPrice": "1回あたり ¥3,775",
-        "buttonLabel": "コンパクト 4回パックを購入",
+        "price": "¥13,000",
+        "unitPrice": "1回あたり ¥3,250",
+        "buttonLabel": "コンパクト 4回パック",
         "url": "https://buy.stripe.com/9B628qfGg25U95ggGyeUU0a"
       },
       {
@@ -66,9 +66,9 @@
         "title": "コンパクト 8回パック",
         "popular": true,
         "duration": "各30分",
-        "price": "¥28,600",
-        "unitPrice": "1回あたり ¥3,575",
-        "buttonLabel": "コンパクト 8回パックを購入",
+        "price": "¥24,000",
+        "unitPrice": "1回あたり ¥3,000",
+        "buttonLabel": "コンパクト 8回パック",
         "url": "https://buy.stripe.com/fZu8wO9hS25U95gdumeUU0b"
       }
     ],

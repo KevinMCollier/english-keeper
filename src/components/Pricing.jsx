@@ -6,7 +6,7 @@ import PoliciesAccordion from './Policies';
 export default function Pricing() {
   const { t, i18n } = useTranslation('pricing');
 
-  // ITEMS: Standard (50) + Compact (30) + optional freetrial
+  // ITEMS: Standard (60) + Compact (30) + optional freetrial
   const items = (t('items', { returnObjects: true }) || []).filter(
     (i) => i.key !== 'corporate'
   );
@@ -36,10 +36,10 @@ export default function Pricing() {
   // Helper for per-item button label (uses i18n keys you have)
   const labelFor = (key) => {
     if (key === 'freetrial') return t('buttons.bookFreeTrial', 'Book a Free Trial');
-    if (key === 'standard50') return t('buttons.bookStandard', 'Book Standard (50 min)');
-    if (key === 'compact30') return t('buttons.bookCompact', 'Book Compact (30 min Online)');
+    if (key === 'standard60') return t('buttons.bookStandard', 'Book Standard (60 min)');
+    if (key === 'compact30') return t('buttons.bookCompact', 'Book Compact (30 min)');
     return t('buttons.book', 'Book');
-    };
+  };
 
   return (
     <section id="pricing" className="bg-white py-16 sm:py-20 font-body">
@@ -153,7 +153,7 @@ export default function Pricing() {
                     url={packages.ctaPurchased.standardUrl}
                     label={
                       packages.ctaPurchased.standardLabel ||
-                      'Schedule Standard (50) — Package'
+                      'Schedule Standard (60) — Package'
                     }
                     color="lemon"
                     className={mobileBtn}
@@ -298,7 +298,7 @@ export default function Pricing() {
                       url={packages.ctaPurchased.standardUrl}
                       label={
                         packages.ctaPurchased.standardLabel ||
-                        'Schedule Standard (50) — Package'
+                        'Schedule Standard (60) — Package'
                       }
                       color="caramel"
                       className="whitespace-nowrap"
