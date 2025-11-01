@@ -40,7 +40,7 @@
         "price": "¥22,000",
         "unitPrice": "¥5,500 / session",
         "buttonLabel": "Buy Standard 4-Pack",
-        "url": "https://buy.stripe.com/bJe7sK8dOfWKbdobmeeUU09"
+        "url": "https://buy.stripe.com/fZueVc1Pq5i6bdo0HAeUU0f"
       },
       {
         "key": "standard8",
@@ -50,7 +50,7 @@
         "price": "¥40,000",
         "unitPrice": "¥5,000 / session",
         "buttonLabel": "Buy Standard 8-Pack",
-        "url": "https://buy.stripe.com/00w8wO65G8ui4P0cqieUU08"
+        "url": "https://buy.stripe.com/dRmeVc9hS7qe3KW0HAeUU0e"
       },
       {
         "key": "compact4",
@@ -59,7 +59,7 @@
         "price": "¥13,000",
         "unitPrice": "¥3,250 / session",
         "buttonLabel": "Buy Compact 4-Pack",
-        "url": "https://buy.stripe.com/9B628qfGg25U95ggGyeUU0a"
+        "url": "https://buy.stripe.com/3cI9ASbq0bGuepAfCueUU0h"
       },
       {
         "key": "compact8",
@@ -69,7 +69,7 @@
         "price": "¥24,000",
         "unitPrice": "¥3,000 / session",
         "buttonLabel": "Buy Compact 8-Pack",
-        "url": "https://buy.stripe.com/fZu8wO9hS25U95gdumeUU0b"
+        "url": "https://buy.stripe.com/bJeaEW79Kh0O2GScqieUU0g"
       }
     ],
     "ctaPurchased": {

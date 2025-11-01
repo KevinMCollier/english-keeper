@@ -11,8 +11,8 @@ export default function Sessions() {
   const arr = Array.isArray(items) ? items : [];
   const byKey = Object.fromEntries(arr.map((i) => [i.key, i.url]));
 
-  const urlStandard50 =
-    byKey['standard50'] || '';
+  const urlStandard60 =
+    byKey['standard60'] || '';
   const urlCompact30 = byKey['compact30'] || '';
 
   // Lesson flow and modules
@@ -59,12 +59,12 @@ export default function Sessions() {
                 {t('format.standard.blurb', { ns: 'sessions' })}
               </p>
               <div className="flex flex-wrap gap-3 pt-1">
-                {urlStandard50 && (
+                {urlStandard60 && (
                   <CalendlyButton
-                    url={urlStandard50}
+                    url={urlStandard60}
                     label={t('buttons.bookStandard', {
                       ns: 'pricing',
-                      defaultValue: 'Book Standard (50 min)',
+                      defaultValue: 'Book Standard (60 min)',
                     })}
                     color="caramel"
                     className="whitespace-nowrap text-sm py-2"
