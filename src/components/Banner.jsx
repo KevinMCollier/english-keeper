@@ -1,4 +1,5 @@
 import { useTranslation, Trans } from 'react-i18next';
+import CalendlyButton from './CalendlyButton';
 
 export default function Banner() {
   const { t } = useTranslation('banner');
@@ -13,29 +14,21 @@ export default function Banner() {
 
   return (
     <section id="banner" className="relative bg-creme font-body overflow-hidden pt-14">
-      {/* Image pinned to top-right WITH its own relative container */}
-      <div
-        className="absolute top-0 right-0 z-0 hidden md:block pointer-events-none select-none"
-        aria-hidden="true"
-      >
+      {/* Image */}
+      <div className="absolute top-0 right-0 z-0 hidden md:block pointer-events-none select-none" aria-hidden="true">
         <div className="relative w-[70vw] max-w-[496px]">
-          <img
-            src="/handshake.jpg"
-            alt=""
-            className="block w-full h-auto object-contain"
-            loading="eager"
-          />
+          <img src="/handshake.jpg" alt="" className="block w-full h-auto object-contain" loading="eager" />
           <div className="absolute inset-y-0 left-0 w-[0%] bg-gradient-to-r from-creme via-creme/40 to-transparent" />
         </div>
       </div>
 
-      {/* Text container aligned EXACTLY like the navbar */}
+      {/* Text */}
       <div className="relative z-10 mx-auto w-full max-w-screen-xl px-4 sm:px-5">
         <div className="max-w-3xl text-left">
           <h1
             className="font-display font-extrabold text-caramel
-                      text-3xl sm:text-5xl md:text-7xl
-                      tracking-tight leading-tight md:leading-snug mb-4 break-words"
+                       text-3xl sm:text-5xl md:text-7xl
+                       tracking-tight leading-tight md:leading-snug mb-4 break-words"
           >
             <Trans t={t} i18nKey="headline" components={[<br key="br" />]} />
           </h1>
@@ -46,17 +39,17 @@ export default function Banner() {
             </p>
           )}
 
-          {/* Primary + Secondary CTAs */}
+          {/* CTAs */}
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
-            <button
-              onClick={() => scrollTo('pricing')}
-              className={btn('bg-orange text-off-white', 'hover:bg-copper-rust/90', 'self-start w-auto')}
-            >
-              {t('cta.services')}
-            </button>
+            <CalendlyButton
+              url="https://calendly.com/collier-consulting/free-consultation"
+              label={t('cta.consultation')}
+              color="orange"
+              className={btn('hover:bg-copper-rust/90', 'self-start w-auto')}
+            />
 
             <button
-              onClick={() => scrollTo('made-for')} // change if your section id differs
+              onClick={() => scrollTo('made-for')}
               className={btn(
                 'bg-white text-midnight-navy border border-gray-300',
                 'hover:bg-gray-50',
@@ -69,7 +62,6 @@ export default function Banner() {
         </div>
       </div>
 
-      {/* Spacer before next section */}
       <div className="h-[26rem] md:h-[32rem]" aria-hidden="true" />
     </section>
   );
