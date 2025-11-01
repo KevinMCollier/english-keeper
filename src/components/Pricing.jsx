@@ -35,7 +35,7 @@ export default function Pricing() {
 
   // Helper for per-item button label (uses i18n keys you have)
   const labelFor = (key) => {
-    if (key === 'freetrial') return t('buttons.bookFreeTrial', 'Book a Free Trial');
+    if (key === 'freeconsult15') return t('buttons.bookFreeConsult15', 'Book Free Consultation');
     if (key === 'standard60') return t('buttons.bookStandard', 'Book Standard (60 min)');
     if (key === 'compact30') return t('buttons.bookCompact', 'Book Compact (30 min)');
     return t('buttons.book', 'Book');
@@ -93,7 +93,7 @@ export default function Pricing() {
                   <CalendlyButton
                     url={i.url}
                     label={labelFor(i.key)}
-                    color={i.key === 'freetrial' ? 'lemon' : 'caramel'}
+                    color={i.key === 'freeconsult15' ? 'caramel' : 'caramel'}
                     className={mobileBtn}
                   />
                 </div>
@@ -214,7 +214,7 @@ export default function Pricing() {
                       <CalendlyButton
                         url={i.url}
                         label={labelFor(i.key)}
-                        color={i.key === 'freetrial' ? 'lemon' : 'caramel'}
+                        color={i.key === 'freeconsult15' ? 'caramel' : 'caramel'}
                         className="w-full justify-center whitespace-nowrap"
                       />
                     )}

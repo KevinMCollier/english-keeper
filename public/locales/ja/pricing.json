@@ -5,7 +5,7 @@
     "book": "予約する",
     "bookStandard": "スタンダードを予約",
     "bookCompact": "コンパクトを予約",
-    "bookFreeTrial": "無料体験を予約",
+    "bookFreeConsult15": "無料カウンセリング",
     "buy": "購入する"
   },
   "promo": {
@@ -13,6 +13,13 @@
     "imageAlt": "初回1対1レッスン20％OFF（対面・オンライン）"
   },
   "items": [
+    {
+      "key": "freeconsult15",
+      "title": "無料カウンセリング",
+      "duration": "15分",
+      "price": "無料",
+      "url": "https://calendly.com/collier-consulting/free-consultation"
+    },
     {
       "key": "standard60",
       "title": "スタンダード・セッション",

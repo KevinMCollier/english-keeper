@@ -47,12 +47,11 @@ export default function Banner() {
               color="orange"
               className={btn('hover:bg-copper-rust/90', 'self-start w-auto')}
             />
-
             <button
               onClick={() => scrollTo('made-for')}
               className={btn(
-                'bg-white text-midnight-navy border border-gray-300',
-                'hover:bg-gray-50',
+                'rounded-lg px-3 py-1.5 text-sm font-medium',
+                'bg-white text-midnight-navy border border-gray-300 hover:bg-gray-50',
                 'self-start w-auto'
               )}
             >
