@@ -1,147 +1,147 @@
 {
-  "heading": "セッションと料金",
-  "table": { "session": "セッション", "time": "時間", "price": "料金", "book": "予約" },
+  "heading": "Sessions & Pricing",
+  "table": { "session": "Session", "time": "Time", "price": "Price", "book": "Book" },
   "buttons": {
-    "book": "予約する",
-    "bookStandard": "スタンダードを予約",
-    "bookCompact": "コンパクトを予約",
-    "bookFreeTrial": "無料体験を予約",
-    "buy": "購入する"
+    "book": "Book",
+    "bookStandard": "Book Standard Session",
+    "bookCompact": "Book Compact Session",
+    "bookFreeTrial": "Book a Free Trial",
+    "buy": "Buy"
   },
   "promo": {
-    "ariaLabel": "初回セッション20%オフ",
-    "imageAlt": "初回1対1レッスン20％OFF（対面・オンライン）"
+    "ariaLabel": "20% off first session",
+    "imageAlt": "20% OFF your first 1:1 lesson—online or in-person"
   },
   "items": [
     {
       "key": "standard60",
-      "title": "スタンダード・セッション",
-      "duration": "60分",
+      "title": "Standard Session",
+      "duration": "60 min",
       "price": "¥6,000",
       "url": "https://calendly.com/collier-consulting/standard-session"
     },
     {
       "key": "compact30",
-      "title": "コンパクト・セッション",
-      "duration": "30分",
+      "title": "Compact Session",
+      "duration": "30 min",
       "price": "¥3,500",
       "url": "https://calendly.com/collier-consulting/compact-session"
     }
   ],
   "packages": {
-    "heading": "パッケージ",
-    "badgePopular": "人気",
-    "buy": "購入",
+    "heading": "Packages",
+    "badgePopular": "Most popular",
+    "buy": "Buy",
     "items": [
       {
         "key": "standard4",
-        "title": "スタンダード 4回パック",
-        "duration": "各60分",
+        "title": "Standard 4-Pack",
+        "duration": "60 min each",
         "price": "¥22,000",
-        "unitPrice": "1回あたり ¥5,500",
-        "buttonLabel": "スタンダード 4回パックを購入",
+        "unitPrice": "¥5,500 / session",
+        "buttonLabel": "Buy Standard 4-Pack",
         "url": "https://buy.stripe.com/bJe7sK8dOfWKbdobmeeUU09"
       },
       {
         "key": "standard8",
-        "title": "スタンダード 8回パック",
+        "title": "Standard 8-Pack",
         "popular": true,
-        "duration": "各60分",
+        "duration": "60 min each",
         "price": "¥40,000",
-        "unitPrice": "1回あたり ¥5,000",
-        "buttonLabel": "スタンダード 8回パックを購入",
+        "unitPrice": "¥5,000 / session",
+        "buttonLabel": "Buy Standard 8-Pack",
         "url": "https://buy.stripe.com/00w8wO65G8ui4P0cqieUU08"
       },
       {
         "key": "compact4",
-        "title": "コンパクト 4回パック",
-        "duration": "各30分",
+        "title": "Compact 4-Pack",
+        "duration": "30 min each",
         "price": "¥13,000",
-        "unitPrice": "1回あたり ¥3,250",
-        "buttonLabel": "コンパクト 4回パックを購入",
+        "unitPrice": "¥3,250 / session",
+        "buttonLabel": "Buy Compact 4-Pack",
         "url": "https://buy.stripe.com/9B628qfGg25U95ggGyeUU0a"
       },
       {
         "key": "compact8",
-        "title": "コンパクト 8回パック",
+        "title": "Compact 8-Pack",
         "popular": true,
-        "duration": "各30分",
+        "duration": "30 min each",
         "price": "¥24,000",
-        "unitPrice": "1回あたり ¥3,000",
-        "buttonLabel": "コンパクト 8回パックを購入",
+        "unitPrice": "¥3,000 / session",
+        "buttonLabel": "Buy Compact 8-Pack",
         "url": "https://buy.stripe.com/fZu8wO9hS25U95gdumeUU0b"
       }
     ],
     "ctaPurchased": {
-      "text": "すでにパッケージを購入済みの方：こちらから予約してください。",
-      "standardLabel": "スタンダード・セッションを予約",
+      "text": "Already purchased a package? Schedule your sessions here:",
+      "standardLabel": "Schedule Standard Session",
       "standardUrl": "https://calendly.com/collier-consulting/standard-session-package",
-      "compactLabel": "コンパクト・セッションを予約",
+      "compactLabel": "Schedule Compact Session",
       "compactUrl": "https://calendly.com/collier-consulting/compact-session-package"
     }
   },
   "policies": {
-    "heading": "ご利用規約・注意事項",
+    "heading": "Policies & Notes",
     "sections": [
       {
-        "title": "一般",
+        "title": "General",
         "items": [
-          "表示価格は税込み。セッション費用およびセッション後の学習サマリーを含みます。",
-          "対面レッスンの対応エリアは限定されています。詳細はお問い合わせください。"
+          "Prices are in JPY and include the session fee and a post-session learning summary.",
+          "In-person sessions are available within limited locations—contact me for details."
         ]
       },
       {
-        "title": "割引",
+        "title": "Discounts",
         "items": [
-          "<strong>FIRST20</strong>：初回マンツーマン（スタンダード／コンパクト）20%オフ。",
-          "FIRST20はパッケージ購入には<strong>適用されません</strong>。"
+          "<strong>FIRST20</strong>: 20% off your first private 1:1 lesson (Standard or Compact).",
+          "FIRST20 is <strong>not valid</strong> for package purchases."
         ]
       },
       {
-        "title": "パッケージ（クレジット）",
+        "title": "Packages (credits)",
         "items": [
-          "1クレジット＝購入した種類・時間のセッション1回。",
-          "有効期間内であれば自由に予約可能。",
-          "<strong>4回パック：</strong>購入日から<strong>120日</strong>有効 ／ <strong>8回パック：</strong>購入日から<strong>240日</strong>有効。",
-          "<strong>消化ルール：</strong>実施したセッション1回につき1クレジット、開始<strong>24時間以内</strong>のキャンセルも1クレジット消化。",
-          "日程変更は開始<strong>24時間前</strong>まで可能。",
-          "クレジットの共有・譲渡はできません。"
+          "Each credit equals one session of the purchased type and duration.",
+          "Schedule within the validity window.",
+          "<strong>4-Pack:</strong> valid <strong>120 days</strong> from purchase; <strong>8-Pack:</strong> valid <strong>240 days</strong> from purchase.",
+          "<strong>Credit usage:</strong> 1 credit per session held, or if you cancel within 24 hours of the start time.",
+          "Rescheduling allowed up to <strong>24 hours</strong> before start.",
+          "Credits are for the purchaser only and are not transferable."
         ]
       },
       {
-        "title": "返金（単発）",
+        "title": "Refunds — Single Lessons",
         "items": [
-          "48時間以前のキャンセル：<strong>¥500の手数料</strong>を差し引いて返金（または無料で日程変更）。",
-          "24〜48時間前のキャンセル：<strong>50%</strong>返金。",
-          "24時間以内／実施後のキャンセル：<strong>返金不可</strong>（当方の事情による不具合を除く）。"
+          "Cancel >48h before: refund minus a <strong>¥500 cancellation/admin fee</strong> (free reschedule also available).",
+          "Cancel 24–48h before: <strong>50%</strong> refund.",
+          "Cancel within 24h or after the session occurs: <strong>no refund</strong> (except in case of service issues on my side)."
         ]
       },
       {
-        "title": "返金（パッケージ）",
+        "title": "Refunds — Packages",
         "items": [
-          "購入後<strong>48時間以内</strong>かつ未使用の場合のみ返金可。手数料は<strong>4回：¥1,000／8回：¥1,500</strong>。",
-          "48時間経過後、または一部でも使用済みの場合は<strong>返金不可</strong>。",
-          "有効期限経過後の返金はできません。"
+          "Refundable <strong>within 48 hours</strong> of purchase if unused; refund minus a cancellation/admin fee of <strong>¥1,000 (4-Pack)</strong> or <strong>¥1,500 (8-Pack)</strong>.",
+          "After 48 hours or once any credit is used: <strong>non-refundable</strong>.",
+          "No refunds after the validity period ends."
         ]
       },
       {
-        "title": "支払い",
+        "title": "Payment",
         "items": [
-          "オンライン：予約後<strong>24時間以内</strong>にお支払いをお願いします（メールにてリンクをご案内）。",
-          "対面：事前オンライン決済または当日現金にてお支払い可能です。"
+          "Online lessons: please pay within <strong>24 hours</strong> of booking to keep your spot (payment link provided by email).",
+          "In-person lessons: pay online in advance or in cash on the day."
         ]
       }
     ]
   },
   "location": {
-    "title": "対応エリア",
-    "body": "対面レッスンは <strong>渋谷</strong>、<strong>田町</strong>、<strong>品川</strong>　で実施可能です。エリア外は追加料金となる場合があります。"
+    "title": "Location Info",
+    "body": "In-person sessions currently available in <strong>Shibuya</strong>, <strong>Tamachi</strong>, and <strong>Shinagawa</strong> upon request. Locations outside these areas are subject to additional charges."
   },
   "corporate": {
-    "title": "法人向けトレーニング",
-    "body": "チームや企業向けにカスタマイズしたプログラムをご提供しています。",
-    "linkLabel": "Collier Consulting へ",
+    "title": "Corporate Training",
+    "body": "Tailored programs for teams and companies.",
+    "linkLabel": "visit Collier Consulting",
     "linkUrl": "https://collierconsulting.tokyo/",
-    "trailingPunct": "。"
+    "trailingPunct": "."
   }
 }
