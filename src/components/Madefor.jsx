@@ -1,55 +1,42 @@
+// src/components/MadeForGrid.jsx
 import { Trans, useTranslation } from 'react-i18next';
 import { motion, useInView } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
-// Image imports (place these files under src/assets)
+// Current JPGs
 import meeting_jpg from '../assets/meeting.jpg';
 import everyday_jpg from '../assets/everyday.jpg';
 import student_jpg from '../assets/student.jpg';
 import friends_jpg from '../assets/friends.jpg';
-
-// --- Utilities: Preload helpers ---
-function usePreloadImages(urls = []) {
-  // <link rel="preload" as="image"> so the browser fetches early
-  useEffect(() => {
-    const links = urls.map((href) => {
-      const l = document.createElement('link');
-      l.rel = 'preload';
-      l.as = 'image';
-      l.href = href;
-      document.head.appendChild(l);
-      return l;
-    });
-    return () => links.forEach((l) => l.remove());
-  }, [urls]);
-
-  // JS prefetch (warms the cache even if preload was skipped)
-  useEffect(() => {
-    urls.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-  }, [urls]);
-}
 
 export default function MadeForGrid() {
   const { t } = useTranslation('madefor');
 
   const IMAGES = [meeting_jpg, everyday_jpg, student_jpg, friends_jpg];
 
-  // Preload as soon as this component mounts (ensures parallel requests)
-  usePreloadImages(IMAGES);
-
-  // Light, single container animation
+  // Light container animation only
   const fadeUp = {
     hidden: { opacity: 0, y: 8 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.28, ease: 'easeOut' } },
   };
 
-  // When grid is close to view, switch all images to eager
+  // Detect proximity; only then hint the first image
   const gridRef = useRef(null);
-  const gridInView = useInView(gridRef, { once: true, amount: 0.3 });
+  const nearView = useInView(gridRef, { once: true, margin: '200px', amount: 0.01 });
+
+  // Preload ONLY the first tile WHEN near viewport (prevents stealing bandwidth on page load)
+  useEffect(() => {
+    if (!nearView) return;
+    const href = IMAGES[0];
+    const l = document.createElement('link');
+    l.rel = 'preload';
+    l.as = 'image';
+    l.href = href;
+    document.head.appendChild(l);
+    return () => document.head.removeChild(l);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nearView]);
 
   const SOURCES = {
     meeting: { jpg: meeting_jpg },
@@ -81,7 +68,7 @@ export default function MadeForGrid() {
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
+            viewport={{ once: true, amount: 0.2 }}
             className="self-center"
           >
             <div className="grid grid-cols-2 gap-3">
@@ -90,8 +77,10 @@ export default function MadeForGrid() {
                   key={i}
                   sources={SOURCES[item.key]}
                   objectPosition={item.pos}
-                  eager={gridInView || i === 0}
-                  // no fetchPriority to avoid React <19 warnings
+                  // First tile: eager once near view; others lazy
+                  eager={nearView && i === 0}
+                  // Delay decode/paint a bit per tile to avoid a single big spike
+                  delayMs={i * 60}
                 />
               ))}
             </div>
@@ -130,22 +119,41 @@ export default function MadeForGrid() {
   );
 }
 
-function ImageTile({ sources, objectPosition = '50% 50%', eager = false }) {
+function ImageTile({ sources, objectPosition = '50% 50%', eager = false, delayMs = 0 }) {
   const [loaded, setLoaded] = useState(false);
+
+  // Slight decode defer to stagger work (no layout shift due to fixed aspect)
+  const [shouldLoad, setShouldLoad] = useState(eager);
+  useEffect(() => {
+    if (eager && !shouldLoad) setShouldLoad(true);
+    if (!eager && !shouldLoad) {
+      const id = setTimeout(() => setShouldLoad(true), delayMs);
+      return () => clearTimeout(id);
+    }
+  }, [eager, delayMs, shouldLoad]);
+
   return (
-    <div className="relative aspect-[4/3] overflow-hidden ring-1 ring-black/5 shadow-sm">
-      <img
-        src={sources.jpg}
-        alt=""
-        loading={eager ? 'eager' : 'lazy'}
-        decoding="async"
-        width={1200}
-        height={900}
-        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 24vw"
-        style={{ objectPosition }}
-        className={`h-full w-full object-cover transform-gpu transition-opacity duration-200 ${loaded ? 'opacity-100' : 'opacity-0'}`}
-        onLoad={() => setLoaded(true)}
-      />
+    <div
+      className="relative aspect-[4/3] overflow-hidden ring-1 ring-black/5 shadow-sm"
+      style={{ contentVisibility: 'auto', containIntrinsicSize: '300px 225px' }}
+    >
+      {shouldLoad && (
+        <img
+          src={sources.jpg}
+          alt=""
+          loading={eager ? 'eager' : 'lazy'}
+          decoding="async"
+          width={1200}
+          height={900}
+          // conservative sizes; adjust if your grid grows larger
+          sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 22vw"
+          style={{ objectPosition }}
+          className={`h-full w-full object-cover transform-gpu transition-opacity duration-250 ${
+            loaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onLoad={() => setLoaded(true)}
+        />
+      )}
     </div>
   );
 }
@@ -158,8 +166,5 @@ ImageTile.propTypes = {
   }).isRequired,
   objectPosition: PropTypes.string,
   eager: PropTypes.bool,
+  delayMs: PropTypes.number,
 };
-
-/* Optional CSS helper if the section is far down the page for even faster paint:
-.madefor-tile { content-visibility: auto; contain-intrinsic-size: 300px 225px; }
-*/
