@@ -71,17 +71,30 @@ export default function Modules({ modules }) {
   const isOpen = openIdx !== null;
   const close = () => setOpenIdx(null);
 
+  // Compute and apply scrollbar compensation when locking body scroll.
   useEffect(() => {
     if (!isOpen) return;
     const onKey = (e) => e.key === 'Escape' && close();
     document.addEventListener('keydown', onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+
+    const body = document.body;
+    const prevOverflow = body.style.overflow;
+    const prevPaddingRight = body.style.paddingRight;
+
+    // Width of removed scrollbar (prevents first-time reflow/jump)
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    if (scrollbarWidth > 0) body.style.paddingRight = `${scrollbarWidth}px`;
+    body.style.overflow = 'hidden';
+
     return () => {
       document.removeEventListener('keydown', onKey);
-      document.body.style.overflow = prev;
+      body.style.overflow = prevOverflow;
+      body.style.paddingRight = prevPaddingRight;
     };
   }, [isOpen]);
+
+  // Snappy shared-layout spring (fast, low wobble)
+  const sharedSpring = { type: 'spring', stiffness: 1000, damping: 65, mass: 0.34 };
 
   return (
     <section aria-labelledby="modules-title" className="px-0 sm:px-0 py-6 sm:py-8">
@@ -136,8 +149,10 @@ export default function Modules({ modules }) {
                   onClick={() => setOpenIdx(i)}
                   className="group w-full rounded-xl overflow-hidden ring-1 ring-black/5 shadow-sm text-left
                             focus:outline-none focus-visible:ring-2 focus-visible:ring-caramel/70
-                            transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                            transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md
+                            transform-gpu will-change-transform"
                   layoutId={`module-card-${i}`}
+                  transition={{ layout: sharedSpring }}
                 >
                   <div className="h-48 lg:h-80 flex flex-col">
                     <div className={`flex-1 ${top} ${txt} grid place-items-center`}>
@@ -148,7 +163,6 @@ export default function Modules({ modules }) {
                     </div>
                     <div className={`flex-[2] ${bottom} ${txt} px-5 py-4 relative`}>
                       <div className="font-semibold text-base lg:text-lg leading-snug">
-                        {/* Render <0/> as <br/> when present (JP); EN strings render normally */}
                         <Trans t={t} components={[<br key="br" />]}>
                           {m.title}
                         </Trans>
@@ -165,7 +179,7 @@ export default function Modules({ modules }) {
             })}
           </div>
 
-          {/* -------- Modal -------- */}
+          {/* -------- Modal (shared layout kept) -------- */}
           <AnimatePresence>
             {isOpen && openIdx !== null && (
               <>
@@ -174,8 +188,8 @@ export default function Modules({ modules }) {
                   className="fixed inset-0 z-40 bg-black/40"
                   onClick={close}
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
+                  animate={{ opacity: 1, transition: { duration: 0.14 } }}
+                  exit={{ opacity: 0, transition: { duration: 0.1 } }}
                 />
                 <motion.div
                   key="modal"
@@ -187,22 +201,27 @@ export default function Modules({ modules }) {
                 >
                   <motion.div
                     layoutId={`module-card-${openIdx}`}
+                    transition={{ layout: sharedSpring }}
                     onClick={(e) => e.stopPropagation()}
-                    // CLEAN two-tone: solid white body; track-colored header only
                     className="w-full max-w-3xl rounded-lg ring-1 ring-black/10 shadow-xl relative overflow-hidden flex flex-col
-                               min-h-[60vh] max-h-[86vh] bg-white text-midnight-navy"
+                               min-h-[60vh] max-h-[86vh] bg-white text-midnight-navy
+                               transform-gpu will-change-transform"
+                    style={{ contain: 'layout paint size' }} // isolates layout work
                     initial={prefersReduced ? { opacity: 0 } : { opacity: 0, scale: 0.9 }}
-                    animate={prefersReduced ? { opacity: 1 } : { opacity: 1, scale: 1, transition: { duration: 0.25 } }}
-                    exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.15 } }}
+                    animate={
+                      prefersReduced
+                        ? { opacity: 1 }
+                        : { opacity: 1, scale: 1, transition: { duration: 0.2, ease: 'easeOut' } }
+                    }
+                    exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.12, ease: 'easeIn' } }}
                   >
-                    {/* Colored header */}
+                    {/* Colored header (no blur during morph) */}
                     <div
-                      className={`flex items-center justify-between px-6 py-4 ${TOP_BY_KEY[normalized[openIdx].key] ?? 'bg-gray-100'} bg-opacity-70 backdrop-blur-sm`}
+                      className={`flex items-center justify-between px-6 py-4 ${TOP_BY_KEY[normalized[openIdx].key] ?? 'bg-gray-100'}`}
                     >
                       <div className="flex items-center gap-3">
                         <TrackIcon k={normalized[openIdx].key} className="w-6 h-6" />
                         <h4 id={`module-modal-title-${openIdx}`} className="font-semibold text-xl">
-                          {/* JP titles break on <0/>, EN titles unchanged */}
                           <Trans t={t} components={[<br key="br" />]}>
                             {normalized[openIdx].title}
                           </Trans>
@@ -217,7 +236,7 @@ export default function Modules({ modules }) {
                       </button>
                     </div>
 
-                    {/* Solid white content (no transparency) */}
+                    {/* Content */}
                     <div className="px-6 py-5 overflow-auto bg-white">
                       <ul className="grid sm:grid-cols-2 gap-y-2 gap-x-4 text-[15px] md:text-base leading-6">
                         {(normalized[openIdx].items ?? []).map((it) => (
