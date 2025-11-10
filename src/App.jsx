@@ -14,6 +14,7 @@ import WhyMe from "./components/WhyMe";
 import CommerceDisclosure from "./CommerceDisclosure";
 import Privacy from "./Privacy";
 import LanguageDetector from './TheLanguageDetector';
+import ThankYou from './components/ThankYou';
 // import NotFound from "./NotFound"; // (optional)
 
 function useScrollToHash() {
@@ -82,6 +83,7 @@ export default function App() {
     <Route index element={<Home />} />
     <Route path="commerce-disclosure" element={<CommerceDisclosure />} />
     <Route path="privacy" element={<Privacy />} />
+     <Route path="thank-you" element={<ThankYou />} />
   </Route>
 
   <Route path="*" element={<Navigate to="/en" replace />} />

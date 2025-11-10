@@ -1,11 +1,14 @@
 /* src/components/ContactSplit.jsx */
 import { useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
+import useLangLink from '../hooks/useLangLink';
+
 
 export default function ContactSplit() {
   const { t } = useTranslation('contact');
   const [openInquiry, setOpenInquiry] = useState(false);
   const [openSignup, setOpenSignup] = useState(false);
+  const ln = useLangLink();
 
   /* unified button helper */
   const btn = (...c) =>
@@ -154,6 +157,7 @@ export default function ContactSplit() {
               name="inquiry"
               method="POST"
               data-netlify="true"
+              action={ln("thank-you")}
               data-netlify-honeypot="bot-field"
               className="space-y-4"
             >
