@@ -191,8 +191,8 @@ export default function ContactSplit() {
                 <button
                   type="submit"
                   className={btn(
-                    'flex-1 bg-copper-rust text-off-white',
-                    'hover:bg-copper-rust/90'
+                    'flex-1 border border-graphite text-graphite',
+                    'hover:bg-orange hover:text-off-white'
                   )}
                 >
                   {t('modalInquiry.send')}
@@ -202,7 +202,7 @@ export default function ContactSplit() {
                   onClick={() => setOpenInquiry(false)}
                   className={btn(
                     'flex-1 border border-graphite text-graphite',
-                    'hover:bg-graphite hover:text-off-white'
+                    'hover:bg-orange hover:text-off-white'
                   )}
                 >
                   {t('modalInquiry.cancel')}
