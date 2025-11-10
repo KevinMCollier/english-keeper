@@ -46,6 +46,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
 
+  <!-- Form -->
+   <form name="inquiry" data-netlify="true" netlify hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
+    <!-- include the honeypot field name so Netlify sees it -->
+    <input type="text" name="bot-field" />
+  </form>
+
   <!-- Optional: Structured Data for Local Business -->
   <script type="application/ld+json">
   {
