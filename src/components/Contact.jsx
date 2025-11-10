@@ -1,33 +1,68 @@
 /* src/components/ContactSplit.jsx */
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Trans, useTranslation } from 'react-i18next';
 import useLangLink from '../hooks/useLangLink';
 
-
 export default function ContactSplit() {
   const { t } = useTranslation('contact');
+  const navigate = useNavigate();
   const [openInquiry, setOpenInquiry] = useState(false);
   const [openSignup, setOpenSignup] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
   const ln = useLangLink();
 
-  /* unified button helper */
   const btn = (...c) =>
-    `block w-full text-center text-base font-semibold px-6 py-2 rounded-lg transition ${c.join(
-      ' '
-    )}`;
+    `block w-full text-center text-base font-semibold px-6 py-2 rounded-lg transition ${c.join(' ')}`;
 
   const openCalendly = () => {
-    window.Calendly.initPopupWidget({
-      url: 'https://calendly.com/collier-consulting/',
-    });
+    if (window?.Calendly?.initPopupWidget) {
+      window.Calendly.initPopupWidget({
+        url: 'https://calendly.com/collier-consulting/',
+      });
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'inquiry',
+          ...formData,
+        }).toString(),
+      });
+
+      if (response.ok) {
+        navigate(ln('thank-you'));
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section id="contact" className="bg-off-white">
-      {/* =============== MAIN FLEX ROW =============== */}
       <div className="mx-auto max-w-7xl px-6 lg:px-12 py-20 lg:py-24 flex flex-col md:flex-row md:items-start md:justify-center gap-10 md:gap-14">
-
-        {/* ---------- LEFT : headline ---------- */}
         <h2 className="text-midnight-navy font-display font-extrabold flex-none max-w-md text-2xl sm:text-3xl leading-tight break-words">
           <Trans
             i18nKey="heading"
@@ -36,33 +71,23 @@ export default function ContactSplit() {
           />
         </h2>
 
-        {/* ---------- RIGHT : CTA stack ---------- */}
         <div className="flex-none w-full max-w-sm space-y-4">
-          {/* Book Call */}
           <button
             onClick={openCalendly}
-            className={btn(
-              'bg-lemon',
-              'hover:bg-lemon/90'
-            )}
+            className={btn('bg-lemon', 'hover:bg-lemon/90')}
           >
             {t('cta.call')}
           </button>
 
-          {/* Inquiry */}
           <button
             onClick={() => setOpenInquiry(true)}
-            className={btn(
-              'bg-caramel',
-              'hover:bg-caramel/90'
-            )}
+            className={btn('bg-caramel', 'hover:bg-caramel/90')}
           >
             {t('cta.inquiry')}
           </button>
         </div>
       </div>
 
-      {/* =============== MODAL: JOIN LIST =============== */}
       {openSignup && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4"
@@ -96,7 +121,7 @@ export default function ContactSplit() {
                 <input
                   type="text"
                   name="b_3223839310f18f06bdb1456c2_7987856aee"
-                  tabIndex="-1"
+                  tabIndex={-1}
                   defaultValue=""
                 />
               </div>
@@ -111,13 +136,13 @@ export default function ContactSplit() {
                 {t('modalJoin.subscribe')}
               </button>
 
-              {/* Mailchimp badge (unchanged) */}
               <p className="text-center opacity-70">
                 <a
                   href="http://eepurl.com/jhC0UY"
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Mailchimp – email marketing made easy and fun"
+                  className="inline-block"
                 >
                   <img
                     src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg"
@@ -133,13 +158,12 @@ export default function ContactSplit() {
               aria-label="Close modal"
               className="absolute top-4 right-4 text-graphite hover:text-midnight-navy"
             >
-              ✕
+              &times;
             </button>
           </div>
         </div>
       )}
 
-      {/* =============== MODAL: INQUIRY =============== */}
       {openInquiry && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4"
@@ -155,24 +179,26 @@ export default function ContactSplit() {
 
             <form
               name="inquiry"
-              method="POST"
+              onSubmit={handleSubmit}
               data-netlify="true"
-              action={ln("thank-you")}
               data-netlify-honeypot="bot-field"
               className="space-y-4"
             >
               <input type="hidden" name="form-name" value="inquiry" />
-              <input type="hidden" name="redirect" value="/thank-you.html" />
 
               <p className="hidden">
                 <label>
-                  Don’t fill this out: <input name="bot-field" />
+                  Don&apos;t fill this out:{' '}
+                  <input name="bot-field" onChange={handleChange} />
                 </label>
               </p>
 
               <input
+                type="text"
                 required
                 name="name"
+                value={formData.name}
+                onChange={handleChange}
                 placeholder={t('modalInquiry.namePlaceholder')}
                 className="w-full border border-stone-grey rounded px-4 py-2 focus:ring-2 focus:ring-copper-rust focus:outline-none"
               />
@@ -180,6 +206,8 @@ export default function ContactSplit() {
                 required
                 type="email"
                 name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder={t('modalInquiry.emailPlaceholder')}
                 className="w-full border border-stone-grey rounded px-4 py-2 focus:ring-2 focus:ring-copper-rust focus:outline-none"
               />
@@ -187,6 +215,8 @@ export default function ContactSplit() {
                 required
                 name="message"
                 rows={4}
+                value={formData.message}
+                onChange={handleChange}
                 placeholder={t('modalInquiry.messagePlaceholder')}
                 className="w-full border border-stone-grey rounded px-4 py-2 focus:ring-2 focus:ring-copper-rust focus:outline-none"
               />
@@ -194,12 +224,14 @@ export default function ContactSplit() {
               <div className="flex gap-4">
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   className={btn(
                     'flex-1 border border-graphite text-graphite',
-                    'hover:bg-orange hover:text-off-white'
+                    'hover:bg-orange hover:text-off-white',
+                    isSubmitting && 'opacity-50 cursor-not-allowed'
                   )}
                 >
-                  {t('modalInquiry.send')}
+                  {isSubmitting ? 'Sending...' : t('modalInquiry.send')}
                 </button>
                 <button
                   type="button"
@@ -219,7 +251,7 @@ export default function ContactSplit() {
               aria-label="Close modal"
               className="absolute top-4 right-4 text-graphite hover:text-midnight-navy"
             >
-              ✕
+              &times;
             </button>
           </div>
         </div>
