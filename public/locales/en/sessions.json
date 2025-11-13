@@ -149,10 +149,10 @@
   },
   "format": {
     "title": "Lesson Format",
-    "badge": "1:1 Private · Standard 50 min / Compact 30 min",
+    "badge": "1:1 Private · Standard 60 min / Compact 30 min",
     "standard": {
-      "title": "Standard Session (50 min)",
-      "blurb": "One comprehensive 50-minute coaching session tailored to your goals. Available in-person or online. Post-session summary included."
+      "title": "Standard Session (60 min)",
+      "blurb": "One comprehensive 60-minute coaching session tailored to your goals. Available in-person or online. Post-session summary included."
     },
     "compact": {
       "title": "Compact Session (30 min Online)",

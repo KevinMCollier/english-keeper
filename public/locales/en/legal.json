@@ -52,7 +52,7 @@
   },
   "delivery": {
     "label": "Delivery / service provision timing",
-    "value": "Standard sessions (50 minutes) are provided online or in-person at the reserved date and time. Compact sessions (30 minutes) are only provided online at the reserved date and time."
+    "value": "Standard sessions (60 minutes) are provided online or in-person at the reserved date and time. Compact sessions (30 minutes) are only provided online at the reserved date and time."
   },
 
   "returns": {
@@ -79,7 +79,7 @@
   },
 "packages": {
   "label": "Packages (credits)",
-  "value": "Each credit equals one session of the purchased type and duration (Standard: 50 minutes / Compact: 30 minutes). Schedule sessions anytime within the validity window. 4-Pack: valid 120 days; 8-Pack: valid 240 days. Credits are for the purchaser only and are not transferable."
+  "value": "Each credit equals one session of the purchased type and duration (Standard: 60 minutes / Compact: 30 minutes). Schedule sessions anytime within the validity window. 4-Pack: valid 120 days; 8-Pack: valid 240 days. Credits are for the purchaser only and are not transferable."
 },
   "privacy": { "label": "Privacy policy", "value": "View Privacy Policy" }
 }
