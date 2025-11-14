@@ -2,22 +2,38 @@ import { useTranslation, Trans } from 'react-i18next';
 import CalendlyButton from './CalendlyButton';
 
 export default function Banner() {
-  const { t } = useTranslation('banner');
+  const { t, i18n } = useTranslation('banner');
 
   const btn = (...c) =>
-    `inline-flex items-center justify-center text-base font-semibold px-6 py-2 rounded-full transition whitespace-nowrap ${c.join(' ')}`;
+    `inline-flex items-center justify-center text-base font-semibold px-6 py-2 rounded-full transition whitespace-nowrap ${c.join(
+      ' ',
+    )}`;
 
   const scrollTo = (id) =>
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
   const sub = t('sub', { defaultValue: '' });
 
+  // choose LINE button image based on current language
+  const lineButtonImg =
+    i18n.language === 'ja' || i18n.language.startsWith('ja')
+      ? 'https://scdn.line-apps.com/n/line_add_friends/btn/ja.png'
+      : 'https://scdn.line-apps.com/n/line_add_friends/btn/en.png';
+
   return (
     <section id="banner" className="relative bg-creme font-body overflow-hidden pt-14">
       {/* Image */}
-      <div className="absolute top-0 right-0 z-0 hidden md:block pointer-events-none select-none" aria-hidden="true">
+      <div
+        className="absolute top-0 right-0 z-0 hidden md:block pointer-events-none select-none"
+        aria-hidden="true"
+      >
         <div className="relative w-[70vw] max-w-[496px]">
-          <img src="/handshake.jpg" alt="" className="block w-full h-auto object-contain" loading="eager" />
+          <img
+            src="/handshake.jpg"
+            alt=""
+            className="block w-full h-auto object-contain"
+            loading="eager"
+          />
           <div className="absolute inset-y-0 left-0 w-[0%] bg-gradient-to-r from-creme via-creme/40 to-transparent" />
         </div>
       </div>
@@ -47,16 +63,32 @@ export default function Banner() {
               color="orange"
               className={btn('hover:bg-copper-rust/90', 'self-start w-auto')}
             />
+
             <button
               onClick={() => scrollTo('made-for')}
               className={btn(
                 'rounded-lg px-3 py-1.5 text-sm font-medium',
                 'bg-white text-midnight-navy border border-gray-300 hover:bg-gray-50',
-                'self-start w-auto'
+                'self-start w-auto',
               )}
             >
               {t('cta.isThisForMe')}
             </button>
+
+            {/* LINE add-friend button */}
+            <a
+              href="https://lin.ee/agUELPO"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center self-start"
+            >
+              <img
+                src={lineButtonImg}
+                alt={t('cta.lineAlt')}
+                className="h-9"
+                loading="lazy"
+              />
+            </a>
           </div>
         </div>
       </div>
