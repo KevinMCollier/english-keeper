@@ -85,7 +85,7 @@
         "price": "¥20,000 / 月",
         "unitPrice": "実質 1時間あたり ¥5,000",
         "buttonLabel": "マンスリーメンバー登録",
-        "url": "https://buy.stripe.com/your-membership-link"
+        "url": "https://buy.stripe.com/4gMdR80LmcKy3KWcqieUU0i"
       }
     ],
     "membershipDetails": {
@@ -98,6 +98,8 @@
         "1時間あたりの料金はスタンダード8回パックと同じ ¥5,000。",
         "毎月自動更新。次回更新前までならいつでも解約可能。",
         "使いきれなかった時間は翌月に繰り越しOK（最大4時間まで）。",
+        "メンバーの方は、追加レッスンをメンバー割引価格（¥4,800）でご利用いただけます。",
+        "週1回ペースでご利用予定の場合、月によっては「週が5回ある」ことがあります。その際の5回目のレッスンは、繰越クレジットの利用、または追加レッスン（メンバー価格 ¥4,800）をご利用いただけます。",
         "1か月で最大8時間までレッスン受講が可能です。"
       ]
     }
@@ -157,7 +159,7 @@
   },
   "location": {
     "title": "対応エリア",
-    "body": "対面レッスンは <strong>渋谷</strong>、<strong>田町</strong>、<strong>品川</strong>　で実施可能です。エリア外は追加料金となる場合があります。"
+    "body": "対面レッスンは <strong>渋谷</strong>、<strong>田町</strong>、<strong>品川</strong> で実施可能です。エリア外は追加料金となる場合があります。"
   },
   "corporate": {
     "title": "People Strategy Consulting",

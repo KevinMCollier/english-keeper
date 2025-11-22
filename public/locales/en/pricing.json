@@ -85,7 +85,7 @@
         "price": "¥20,000 / month",
         "unitPrice": "Same as ¥5,000 / hour",
         "buttonLabel": "Join Monthly Member Plan",
-        "url": "https://buy.stripe.com/your-membership-link"
+        "url": "https://buy.stripe.com/4gMdR80LmcKy3KWcqieUU0i"
       }
     ],
     "membershipDetails": {
@@ -98,6 +98,8 @@
         "Same ¥5,000/hour rate as the Standard 8-Pack.",
         "Auto-renews monthly; cancel anytime before the next billing date.",
         "Unused hours roll over to the next month (up to 4 hours can be carried).",
+        "Members can book additional lessons anytime at the discounted member rate (¥4,800).",
+        "If you plan to take one lesson per week, please note that some months include five weeks. When this happens, the 5th session can be taken using rollover credit or booked as an additional member lesson (¥4,800).",
         "Maximum possible usage: 8 hours in one month."
       ]
     }
