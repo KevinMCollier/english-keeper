@@ -9,6 +9,7 @@ import Intro from "./components/Intro";
 import Sessions from "./components/Sessions";
 import Approach from "./components/Approach";
 import Pricing from "./components/Pricing";
+import Scheduling from './components/Scheduling';
 import MadeFor from "./components/Madefor";
 import WhyMe from "./components/WhyMe";
 import CommerceDisclosure from "./CommerceDisclosure";
@@ -51,6 +52,7 @@ function Home() {
       <MadeFor />
       <WhyMe />
       <Pricing />
+      <Scheduling />
       <Approach />
       <About />
       <Contact />
@@ -83,7 +85,7 @@ export default function App() {
     <Route index element={<Home />} />
     <Route path="commerce-disclosure" element={<CommerceDisclosure />} />
     <Route path="privacy" element={<Privacy />} />
-     <Route path="thank-you" element={<ThankYou />} />
+    <Route path="thank-you" element={<ThankYou />} />
   </Route>
 
   <Route path="*" element={<Navigate to="/en" replace />} />

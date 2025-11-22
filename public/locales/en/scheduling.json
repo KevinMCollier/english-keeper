@@ -1,0 +1,50 @@
+{
+  "heading": "Schedule a Session",
+  "intro": "Book a time that works for you. Free consultations and single sessions can be booked directly here.",
+  "table": {
+    "session": "Session",
+    "time": "Time",
+    "price": "Price",
+    "book": "Book"
+  },
+  "buttons": {
+    "book": "Book",
+    "bookStandard": "Book Standard Session",
+    "bookCompact": "Book Compact Session",
+    "bookFreeConsult15": "Book Free Consultation"
+  },
+  "single": {
+    "heading": "Free Consultation & Single Sessions",
+    "items": [
+      {
+        "key": "freeconsult15",
+        "title": "Free Consultation",
+        "duration": "15 min",
+        "price": "Free",
+        "url": "https://calendly.com/collier-consulting/free-consultation"
+      },
+      {
+        "key": "standard60",
+        "title": "Standard Session",
+        "duration": "60 min",
+        "price": "¥6,000",
+        "url": "https://calendly.com/collier-consulting/standard-session"
+      },
+      {
+        "key": "compact30",
+        "title": "Compact Session",
+        "duration": "30 min",
+        "price": "¥3,500",
+        "url": "https://calendly.com/collier-consulting/compact-session"
+      }
+    ]
+  },
+  "packages": {
+    "heading": "For Packages & Monthly Members",
+    "text": "Already purchased a package or joined the Monthly Member Plan? Schedule your sessions here:",
+    "standardLabel": "Schedule Standard\n(Package / Member)",
+    "standardUrl": "https://calendly.com/collier-consulting/standard-session-package",
+    "compactLabel": "Schedule Compact\n(Package / Member)",
+    "compactUrl": "https://calendly.com/collier-consulting/compact-session-package"
+  }
+}

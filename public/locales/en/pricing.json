@@ -36,7 +36,7 @@
     }
   ],
   "packages": {
-    "heading": "Packages",
+    "heading": "Packages & Monthly Plan",
     "badgePopular": "Most popular",
     "buy": "Buy",
     "items": [
@@ -77,14 +77,29 @@
         "unitPrice": "¥3,000 / session",
         "buttonLabel": "Buy Compact 8-Pack",
         "url": "https://buy.stripe.com/bJeaEW79Kh0O2GScqieUU0g"
+      },
+      {
+        "key": "monthlyMember",
+        "title": "Monthly Member Plan",
+        "duration": "4 hours / month",
+        "price": "¥20,000 / month",
+        "unitPrice": "Same as ¥5,000 / hour",
+        "buttonLabel": "Join Monthly Member Plan",
+        "url": "https://buy.stripe.com/your-membership-link"
       }
     ],
-    "ctaPurchased": {
-      "text": "Already purchased a package? Schedule your sessions here:",
-      "standardLabel": "Schedule Standard Session",
-      "standardUrl": "https://calendly.com/collier-consulting/standard-session-package",
-      "compactLabel": "Schedule Compact Session",
-      "compactUrl": "https://calendly.com/collier-consulting/compact-session-package"
+    "membershipDetails": {
+      "heading": "Monthly Member Plan",
+      "bubble": "Recommended",
+      "tagline": "For busy professionals who want steady progress every month.",
+      "items": [
+        "¥20,000 per month includes 4 hours of lessons.",
+        "Mix 60-minute and 30-minute sessions however you like.",
+        "Same ¥5,000/hour rate as the Standard 8-Pack.",
+        "Auto-renews monthly; cancel anytime before the next billing date.",
+        "Unused hours roll over to the next month (up to 4 hours can be carried).",
+        "Maximum possible usage: 8 hours in one month."
+      ]
     }
   },
   "policies": {

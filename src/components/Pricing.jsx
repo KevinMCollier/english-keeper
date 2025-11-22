@@ -1,19 +1,19 @@
 import { useTranslation, Trans } from 'react-i18next';
-import CalendlyButton from './CalendlyButton';
 import LinkButton from './LinkButton';
 import PoliciesAccordion from './Policies';
 
 export default function Pricing() {
   const { t, i18n } = useTranslation('pricing');
 
-  // ITEMS: Standard (60) + Compact (30) + optional freetrial
+  // Single-session items (no booking buttons here, just pricing)
   const items = (t('items', { returnObjects: true }) || []).filter(
     (i) => i.key !== 'corporate'
   );
 
-  // Packages
+  // Packages (including Monthly Member)
   const packages = t('packages', { returnObjects: true }) || {};
   const packItems = packages.items || [];
+  const membershipDetails = packages.membershipDetails || {};
 
   const table = t('table', { returnObjects: true }) || {};
   const corporate = t('corporate', { returnObjects: true }) || {};
@@ -25,25 +25,18 @@ export default function Pricing() {
   // Policies
   const policies = t('policies', { returnObjects: true }) || {};
 
-  // Consistent mobile button width without full-width stretch
   const mobileBtn =
     'inline-flex self-start w-auto min-w-[13rem] justify-center whitespace-nowrap text-sm py-2';
 
   const locale = (i18n.resolvedLanguage || i18n.language || 'en').toLowerCase();
   const promoSrc = locale.startsWith('ja') ? '/Promo_ja.jpg' : '/Promo_en.jpg';
-  const promoAlt = promo.imageAlt || promo.ariaLabel || '20% off first private lesson';
-
-  // Helper for per-item button label (uses i18n keys you have)
-  const labelFor = (key) => {
-    if (key === 'freeconsult15') return t('buttons.bookFreeConsult15', 'Book Free Consultation');
-    if (key === 'standard60') return t('buttons.bookStandard', 'Book Standard (60 min)');
-    if (key === 'compact30') return t('buttons.bookCompact', 'Book Compact (30 min)');
-    return t('buttons.book', 'Book');
-  };
+  const promoAlt =
+    promo.imageAlt || promo.ariaLabel || '20% off first private lesson';
 
   return (
     <section id="pricing" className="bg-white py-16 sm:py-20 font-body">
       <div className="mx-auto w-full max-w-3xl px-5">
+        {/* Heading + promo */}
         <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
           <h2 className="text-midnight-navy font-display font-extrabold text-3xl sm:text-4xl leading-tight">
             {t('heading')}
@@ -64,7 +57,7 @@ export default function Pricing() {
           </aside>
         </div>
 
-        {/* —— MOBILE CARDS (<= md) —— */}
+        {/* —— MOBILE: Single sessions as cards (pricing only) —— */}
         <div className="md:hidden space-y-3">
           {items.map((i) => (
             <div
@@ -77,31 +70,26 @@ export default function Pricing() {
 
               <dl className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
                 <div>
-                  <dt className="text-graphite/60">{table.time || 'Time'}</dt>
-                  <dd className="text-graphite">{i.duration?.trim() || '—'}</dd>
+                  <dt className="text-graphite/60">
+                    {table.time || 'Time'}
+                  </dt>
+                  <dd className="text-graphite">
+                    {i.duration?.trim() || '—'}
+                  </dd>
                 </div>
                 <div className="text-right">
-                  <dt className="text-graphite/60">{table.price || 'Price'}</dt>
+                  <dt className="text-graphite/60">
+                    {table.price || 'Price'}
+                  </dt>
                   <dd className="text-midnight-navy font-medium">
                     {i.price?.trim() || '—'}
                   </dd>
                 </div>
               </dl>
-
-              {i.url?.trim() && (
-                <div className="mt-3">
-                  <CalendlyButton
-                    url={i.url}
-                    label={labelFor(i.key)}
-                    color={i.key === 'freeconsult15' ? 'caramel' : 'caramel'}
-                    className={mobileBtn}
-                  />
-                </div>
-              )}
             </div>
           ))}
 
-          {/* Packages as mobile cards */}
+          {/* MOBILE: Packages as cards */}
           {packages.heading && (
             <h3 className="mt-6 mb-2 font-display text-midnight-navy text-2xl font-extrabold">
               {packages.heading}
@@ -112,22 +100,36 @@ export default function Pricing() {
               key={p.key}
               className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100"
             >
-              <div className="font-display text-midnight-navy text-lg font-semibold break-words">
-                {p.title}
+              <div className="flex items-center justify-between gap-2">
+                <div className="font-display text-midnight-navy text-lg font-semibold break-words">
+                  {p.title}
+                </div>
               </div>
 
               <dl className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
                 <div>
-                  <dt className="text-graphite/60">{table.time || 'Time'}</dt>
-                  <dd className="text-graphite">{p.duration?.trim() || '—'}</dd>
+                  <dt className="text-graphite/60">
+                    {table.time || 'Time'}
+                  </dt>
+                  <dd className="text-graphite">
+                    {p.duration?.trim() || '—'}
+                  </dd>
                 </div>
                 <div className="text-right">
-                  <dt className="text-graphite/60">{table.price || 'Price'}</dt>
+                  <dt className="text-graphite/60">
+                    {table.price || 'Price'}
+                  </dt>
                   <dd className="text-midnight-navy font-medium">
                     {p.price?.trim() || '—'}
                   </dd>
                 </div>
               </dl>
+
+              {p.unitPrice && (
+                <p className="mt-1 text-xs text-graphite/70">
+                  {p.unitPrice}
+                </p>
+              )}
 
               {p.url?.trim() && (
                 <div className="mt-3">
@@ -142,54 +144,48 @@ export default function Pricing() {
             </div>
           ))}
 
-          {packages.ctaPurchased?.text && (
-            <div className="mt-4 rounded-xl bg-white p-4 shadow-sm border border-gray-200">
-              <p className="text-sm text-midnight-navy font-semibold">
-                {packages.ctaPurchased.text}
-              </p>
-              <div className="mt-2 flex flex-col gap-2">
-                {packages.ctaPurchased.standardUrl && (
-                  <CalendlyButton
-                    url={packages.ctaPurchased.standardUrl}
-                    label={
-                      packages.ctaPurchased.standardLabel ||
-                      'Schedule Standard (60) — Package'
-                    }
-                    color="lemon"
-                    className={mobileBtn}
-                  />
-                )}
-                {packages.ctaPurchased.compactUrl && (
-                  <CalendlyButton
-                    url={packages.ctaPurchased.compactUrl}
-                    label={
-                      packages.ctaPurchased.compactLabel ||
-                      'Schedule Compact (30) — Package'
-                    }
-                    color="lemon"
-                    className={mobileBtn}
-                  />
-                )}
+          {/* MOBILE: Monthly Member details card */}
+          {membershipDetails.heading && (
+            <div className="mt-4 rounded-2xl bg-white p-4 shadow-sm border border-caramel/30">
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="inline-flex items-center justify-center rounded-full bg-caramel/10 px-3 py-1 text-xs font-semibold text-caramel">
+                  {membershipDetails.bubble}
+                </span>
+                <h4 className="font-display text-midnight-navy text-lg font-semibold">
+                  {membershipDetails.heading}
+                </h4>
               </div>
+              {membershipDetails.tagline && (
+                <p className="text-sm text-graphite mb-2">
+                  {membershipDetails.tagline}
+                </p>
+              )}
+              {membershipDetails.items && membershipDetails.items.length > 0 && (
+                <ul className="mt-1 list-disc pl-5 text-sm text-graphite space-y-1">
+                  {membershipDetails.items.map((line, idx) => (
+                    <li key={idx}>{line}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           )}
         </div>
 
-        {/* —— DESKTOP TABLE (md+) —— */}
+        {/* —— DESKTOP: Single sessions table (pricing only) —— */}
         <div className="hidden md:block bg-white rounded-2xl p-5 sm:p-6 shadow-sm">
           <table className="w-full table-fixed">
             <colgroup>
-              <col className="w-[55%] sm:w-[58%]" />
-              <col className="w-[110px]" />
+              <col className="w-[58%]" />
+              <col className="w-[120px]" />
               <col className="w-[150px]" />
-              <col className="w-[170px]" />
             </colgroup>
             <thead>
               <tr className="text-xs uppercase tracking-wide text-graphite/60">
-                <th className="text-left pb-2">{table.session || 'Session'}</th>
+                <th className="text-left pb-2">
+                  {table.session || 'Session'}
+                </th>
                 <th className="text-left pb-2">{table.time || 'Time'}</th>
                 <th className="text-left pb-2">{table.price || 'Price'}</th>
-                <th className="text-left pb-2">{table.book || 'Book'}</th>
               </tr>
             </thead>
             <tbody>
@@ -209,23 +205,13 @@ export default function Pricing() {
                   <td className="py-4 text-sm sm:text-base font-medium text-midnight-navy">
                     {i.price?.trim() || '—'}
                   </td>
-                  <td className="py-4">
-                    {i.url?.trim() && (
-                      <CalendlyButton
-                        url={i.url}
-                        label={labelFor(i.key)}
-                        color={i.key === 'freeconsult15' ? 'caramel' : 'caramel'}
-                        className="w-full justify-center whitespace-nowrap"
-                      />
-                    )}
-                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        {/* —— PACKAGES TABLE (md+) —— */}
+        {/* —— DESKTOP: Packages table (with Monthly Member row) —— */}
         <div className="hidden md:block mt-6 bg-white rounded-2xl p-5 sm:p-6 shadow-sm">
           {packages.heading && (
             <h3 className="mb-2 font-display text-midnight-navy text-2xl font-extrabold">
@@ -234,17 +220,21 @@ export default function Pricing() {
           )}
           <table className="w-full table-fixed">
             <colgroup>
-              <col className="w-[55%] sm:w-[58%]" />
-              <col className="w-[110px]" />
+              <col className="w-[58%]" />
+              <col className="w-[120px]" />
               <col className="w-[150px]" />
               <col className="w-[170px]" />
             </colgroup>
             <thead>
               <tr className="text-xs uppercase tracking-wide text-graphite/60">
-                <th className="text-left pb-2">{table.session || 'Session'}</th>
+                <th className="text-left pb-2">
+                  {table.session || 'Session'}
+                </th>
                 <th className="text-left pb-2">{table.time || 'Time'}</th>
                 <th className="text-left pb-2">{table.price || 'Price'}</th>
-                <th className="text-left pb-2">{packages.buy || 'Buy'}</th>
+                <th className="text-left pb-2">
+                  {packages.buy || 'Buy'}
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -254,9 +244,11 @@ export default function Pricing() {
                   className="border-t first:border-t-0 border-gray-200/70 align-middle"
                 >
                   <td className="py-4">
-                    <span className="font-display text-midnight-navy text-base sm:text-lg font-semibold">
-                      {p.title}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="font-display text-midnight-navy text-base sm:text-lg font-semibold">
+                        {p.title}
+                      </span>
+                    </div>
                   </td>
                   <td className="py-4 text-sm sm:text-base text-graphite">
                     {p.duration?.trim() || '—'}
@@ -286,43 +278,40 @@ export default function Pricing() {
             </tbody>
           </table>
 
-          {packages.ctaPurchased?.text && (
-            <div className="mt-4 rounded-xl bg-white p-4 shadow-sm border border-gray-200">
+          {/* DESKTOP: Monthly Member details card */}
+          {membershipDetails.heading && (
+            <div className="mt-4 rounded-xl bg-white p-4 shadow-sm border border-caramel/30">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                <p className="text-sm text-midnight-navy font-semibold">
-                  {packages.ctaPurchased.text}
-                </p>
-                <div className="flex gap-2">
-                  {packages.ctaPurchased.standardUrl && (
-                    <CalendlyButton
-                      url={packages.ctaPurchased.standardUrl}
-                      label={
-                        packages.ctaPurchased.standardLabel ||
-                        'Schedule Standard (60) — Package'
-                      }
-                      color="caramel"
-                      className="whitespace-nowrap"
-                    />
-                  )}
-                  {packages.ctaPurchased.compactUrl && (
-                    <CalendlyButton
-                      url={packages.ctaPurchased.compactUrl}
-                      label={
-                        packages.ctaPurchased.compactLabel ||
-                        'Schedule Compact (30) — Package'
-                      }
-                      color="caramel"
-                      className="whitespace-nowrap"
-                    />
+                <div>
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="inline-flex items-center justify-center rounded-full bg-caramel/10 px-3 py-1 text-xs font-semibold text-caramel">
+                      {membershipDetails.bubble}
+                    </span>
+                    <h4 className="font-display text-midnight-navy text-lg font-semibold">
+                      {membershipDetails.heading}
+                    </h4>
+                  </div>
+                  {membershipDetails.tagline && (
+                    <p className="text-sm text-graphite">
+                      {membershipDetails.tagline}
+                    </p>
                   )}
                 </div>
               </div>
+              {membershipDetails.items && membershipDetails.items.length > 0 && (
+                <ul className="mt-2 list-disc pl-5 text-sm text-graphite space-y-1">
+                  {membershipDetails.items.map((line, idx) => (
+                    <li key={idx}>{line}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           )}
         </div>
 
         {/* —— POLICIES & NOTES (Accordion) —— */}
-        {(policies.heading || (policies.sections && policies.sections.length)) && (
+        {(policies.heading ||
+          (policies.sections && policies.sections.length)) && (
           <PoliciesAccordion policies={policies} />
         )}
 
@@ -355,7 +344,9 @@ export default function Pricing() {
                 <Trans
                   i18nKey="location.body"
                   ns="pricing"
-                  components={{ strong: <strong className="font-semibold" /> }}
+                  components={{
+                    strong: <strong className="font-semibold" />
+                  }}
                 />
               </p>
             </div>

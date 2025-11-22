@@ -99,7 +99,7 @@ export default function Navbar() {
 
           {/* Desktop CTA with fixed width so layout doesn't jump between EN/JA */}
           <a
-            href={langLink('#pricing')}
+            href={langLink('#schedule')}
             className="
               hidden md:inline-flex items-center justify-center
               rounded-full text-sm font-semibold transition

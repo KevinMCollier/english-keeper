@@ -1,0 +1,50 @@
+{
+  "heading": "セッションの予約",
+  "intro": "ご都合のよい時間帯で、カウンセリングや単発レッスンの予約ができます。",
+  "table": {
+    "session": "セッション",
+    "time": "時間",
+    "price": "料金",
+    "book": "予約"
+  },
+  "buttons": {
+    "book": "予約する",
+    "bookStandard": "スタンダードを予約",
+    "bookCompact": "コンパクトを予約",
+    "bookFreeConsult15": "無料カウンセリング"
+  },
+  "single": {
+    "heading": "無料カウンセリング・単発セッション",
+    "items": [
+      {
+        "key": "freeconsult15",
+        "title": "無料カウンセリング",
+        "duration": "15分",
+        "price": "無料",
+        "url": "https://calendly.com/collier-consulting/free-consultation"
+      },
+      {
+        "key": "standard60",
+        "title": "スタンダード・セッション",
+        "duration": "60分",
+        "price": "¥6,000",
+        "url": "https://calendly.com/collier-consulting/standard-session"
+      },
+      {
+        "key": "compact30",
+        "title": "コンパクト・セッション",
+        "duration": "30分",
+        "price": "¥3,500",
+        "url": "https://calendly.com/collier-consulting/compact-session"
+      }
+    ]
+  },
+  "packages": {
+    "heading": "パッケージ・<0/>マンスリーメンバーの方",
+    "text": "すでにパッケージを購入済み、またはマンスリー<0/>メンバープランにご加入の方はこちらから<0/>ご予約ください。",
+    "standardLabel": "スタンダードを予約\n(パッケージ／メンバー)",
+    "standardUrl": "https://calendly.com/collier-consulting/standard-session-package",
+    "compactLabel": "コンパクトを予約\n(パッケージ／メンバー)",
+    "compactUrl": "https://calendly.com/collier-consulting/compact-session-package"
+  }
+}

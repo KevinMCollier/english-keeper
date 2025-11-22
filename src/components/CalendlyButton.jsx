@@ -13,12 +13,15 @@ export default function CalendlyButton({
     if (window?.Calendly?.initPopupWidget && url) {
       window.Calendly.initPopupWidget({ url });
     } else {
-      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+      document
+        .getElementById('contact')
+        ?.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
+  // 👇 Added text-center + whitespace-pre-line + leading-tight
   const base =
-    'inline-flex items-center justify-center rounded-lg text-sm font-medium transition px-3 py-1.5';
+    'inline-flex items-center justify-center rounded-lg text-sm font-medium transition px-3 py-1.5 text-center whitespace-pre-line leading-tight';
 
   const styles =
     color === 'caramel'

@@ -36,7 +36,7 @@
     }
   ],
   "packages": {
-    "heading": "パッケージ",
+    "heading": "パッケージ・月額プラン",
     "badgePopular": "人気",
     "buy": "購入",
     "items": [
@@ -77,14 +77,29 @@
         "unitPrice": "1回あたり ¥3,000",
         "buttonLabel": "コンパクト 8回パック",
         "url": "https://buy.stripe.com/bJeaEW79Kh0O2GScqieUU0g"
+      },
+      {
+        "key": "monthlyMember",
+        "title": "マンスリーメンバープラン",
+        "duration": "月4時間分",
+        "price": "¥20,000 / 月",
+        "unitPrice": "実質 1時間あたり ¥5,000",
+        "buttonLabel": "マンスリーメンバー登録",
+        "url": "https://buy.stripe.com/your-membership-link"
       }
     ],
-    "ctaPurchased": {
-      "text": "すでにパッケージを購入済みの方：こちらから予約してください。",
-      "standardLabel": "スタンダード・セッションを予約",
-      "standardUrl": "https://calendly.com/collier-consulting/standard-session-package",
-      "compactLabel": "コンパクト・セッションを予約",
-      "compactUrl": "https://calendly.com/collier-consulting/compact-session-package"
+    "membershipDetails": {
+      "heading": "マンスリーメンバープラン",
+      "bubble": "おすすめ",
+      "tagline": "毎月コツコツ進めたい方向けの継続プランです。",
+      "items": [
+        "月額 ¥20,000 でレッスン4時間分が含まれます。",
+        "60分レッスンと30分レッスンを自由に組み合わせOK。",
+        "1時間あたりの料金はスタンダード8回パックと同じ ¥5,000。",
+        "毎月自動更新。次回更新前までならいつでも解約可能。",
+        "使いきれなかった時間は翌月に繰り越しOK（最大4時間まで）。",
+        "1か月で最大8時間までレッスン受講が可能です。"
+      ]
     }
   },
   "policies": {
