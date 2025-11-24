@@ -59,7 +59,7 @@
     "title": "Exchanges & returns (refunds)",
     "customer": {
       "title": "Customer requests (non-defective)",
-      "body": "Single lessons — Cancel >48h before: refund minus a ¥500 cancellation/admin fee (free reschedule also available). Cancel 24–48h before: 50% refund. Cancel within 24h or after the session occurs: no refund. Packages — Refundable within 48 hours of purchase if unused; refund minus a ¥1,000 (4-Pack) or ¥1,500 (8-Pack) cancellation/admin fee. After 48 hours or once any credit is used: non-refundable. No refunds after the validity period ends. Rescheduling is allowed up to 24 hours before start time. One credit is consumed per session held or if you cancel within 24 hours."
+      "body": "Single lessons — Cancel >48h before: refund minus a ¥500 cancellation/admin fee (free reschedule also available). Cancel 24–48h before: 50% refund. Cancel within 24h or after the session occurs: no refund. Packages — Refundable within 48 hours of purchase if unused; refund minus a ¥1,000 (4-Pack) or ¥1,500 (8-Pack) cancellation/admin fee. After 48 hours or once any credit is used: non-refundable. No refunds after the validity period ends. Rescheduling is allowed up to 24 hours before start time. One credit is consumed per session held or if you cancel within 24 hours. Monthly Member Plan — For the first month only, if you request a refund within 24 hours of purchase and no lessons have been taken, we will cancel the subscription and provide a full refund for that month. After 24 hours, or once any lesson has been taken in the billing month, that month is non-refundable. You may cancel at any time before the next billing date to stop future charges; remaining hours can be used until the end of the current paid month, subject to the rollover rules described on the pricing page."
     },
     "defective": {
       "title": "Defective service / operational issues",
@@ -77,9 +77,13 @@
     "label": "Discounts",
     "value": "FIRST20: 20% off your first lesson (available for either standard or compact sessions). Not valid for package purchases. Can only be used once (cannot be used for both standard and compact sessions)."
   },
-"packages": {
-  "label": "Packages (credits)",
-  "value": "Each credit equals one session of the purchased type and duration (Standard: 60 minutes / Compact: 30 minutes). Schedule sessions anytime within the validity window. 4-Pack: valid 120 days; 8-Pack: valid 240 days. Credits are for the purchaser only and are not transferable."
-},
+  "packages": {
+    "label": "Packages (credits)",
+    "value": "Each credit equals one session of the purchased type and duration (Standard: 60 minutes / Compact: 30 minutes). Schedule sessions anytime within the validity window. 4-Pack: valid 120 days; 8-Pack: valid 240 days. Credits are for the purchaser only and are not transferable."
+  },
+  "membership": {
+    "label": "Monthly Member Plan (subscription)",
+    "value": "The Monthly Member Plan is a subscription of ¥20,000 per month including 4 hours of lesson time. Hours can be used for any mix of 60-minute and 30-minute sessions (online or in-person, subject to the usual location conditions). The effective hourly rate is ¥5,000. Unused hours roll over to the following month, up to a maximum of 4 rollover hours. The subscription auto-renews each month until canceled via the Stripe customer portal or by contacting us. Members may book additional lessons at a discounted member rate of ¥4,800 per 60 minutes (or equivalent)."
+  },
   "privacy": { "label": "Privacy policy", "value": "View Privacy Policy" }
 }
