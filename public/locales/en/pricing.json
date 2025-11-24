@@ -96,10 +96,14 @@
         "¥20,000 per month includes 4 hours of lessons.",
         "Mix 60-minute and 30-minute sessions however you like.",
         "Same ¥5,000/hour rate as the Standard 8-Pack.",
+        "Online or in-person (subject to the usual location conditions).",
         "Auto-renews monthly; cancel anytime before the next billing date.",
         "Unused hours roll over to the next month (up to 4 hours can be carried).",
         "Members can book additional lessons anytime at the discounted member rate (¥4,800).",
-        "If you plan to take one lesson per week, please note that some months include five weeks. When this happens, the 5th session can be taken using rollover credit or booked as an additional member lesson (¥4,800)."      ]
+        "If you plan to take one lesson per week, please note that some months include five weeks. When this happens, the 5th session can be taken using rollover credit or booked as an additional member lesson (¥4,800)."
+      ],
+      "portalUrl": "https://billing.stripe.com/p/login/eVq5kC0Lmh0O2GSdumeUU00",
+      "portalLabel": "Already a Monthly Member? Manage your subscription here"
     }
   },
   "policies": {
@@ -131,6 +135,19 @@
         ]
       },
       {
+        "title": "Monthly Member Plan",
+        "items": [
+          "The Monthly Member Plan is a subscription of <strong>¥20,000 per month</strong> and includes <strong>4 hours of lesson time</strong>.",
+          "You can mix 60-minute and 30-minute sessions freely within your available hours (online or in person, subject to the usual location conditions).",
+          "The effective hourly rate is <strong>¥5,000</strong> (same as the Standard 8-Pack).",
+          "The plan auto-renews every month until you cancel via the Stripe customer portal or by contacting us.",
+          "You can cancel anytime before the next billing date; your plan remains active until the end of the current paid month.",
+          "Unused hours roll over to the next month, up to a maximum of <strong>4 rollover hours</strong>.",
+          "Members can book additional lessons at the discounted member rate of <strong>¥4,800</strong> per 60 minutes (or equivalent).",
+          "If you usually take one lesson per week, note that some months contain five weeks. The 5th lesson can be covered using rollover time or booked as an additional member lesson (¥4,800)."
+        ]
+      },
+      {
         "title": "Refunds — Single Lessons",
         "items": [
           "Cancel >48h before: refund minus a <strong>¥500 cancellation/admin fee</strong> (free reschedule also available).",
@@ -144,6 +161,14 @@
           "Refundable <strong>within 48 hours</strong> of purchase if unused; refund minus a cancellation/admin fee of <strong>¥1,000 (4-Pack)</strong> or <strong>¥1,500 (8-Pack)</strong>.",
           "After 48 hours or once any credit is used: <strong>non-refundable</strong>.",
           "No refunds after the validity period ends."
+        ]
+      },
+      {
+        "title": "Refunds — Monthly Member Plan",
+        "items": [
+          "First-time purchase only: if you request a refund within <strong>24 hours</strong> of purchase and no lessons have been taken, we will cancel the subscription and provide a full refund for that month.",
+          "After 24 hours, or once any lesson in the billing month has been taken, the current month is <strong>non-refundable</strong>.",
+          "You may cancel at any time before the next billing date to stop future charges; remaining hours can be used until the end of the current paid month, subject to the rollover rules above."
         ]
       },
       {

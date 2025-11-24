@@ -5,12 +5,10 @@ import PoliciesAccordion from './Policies';
 export default function Pricing() {
   const { t, i18n } = useTranslation('pricing');
 
-  // Single-session items (no booking buttons here, just pricing)
   const items = (t('items', { returnObjects: true }) || []).filter(
     (i) => i.key !== 'corporate'
   );
 
-  // Packages (including Monthly Member)
   const packages = t('packages', { returnObjects: true }) || {};
   const packItems = packages.items || [];
   const membershipDetails = packages.membershipDetails || {};
@@ -18,11 +16,9 @@ export default function Pricing() {
   const table = t('table', { returnObjects: true }) || {};
   const corporate = t('corporate', { returnObjects: true }) || {};
 
-  // Promo & Location
   const promo = t('promo', { returnObjects: true }) || {};
   const location = t('location', { returnObjects: true }) || {};
 
-  // Policies
   const policies = t('policies', { returnObjects: true }) || {};
 
   const mobileBtn =
@@ -57,7 +53,7 @@ export default function Pricing() {
           </aside>
         </div>
 
-        {/* —— MOBILE: Single sessions as cards (pricing only) —— */}
+        {/* —— MOBILE VIEW —— */}
         <div className="md:hidden space-y-3">
           {items.map((i) => (
             <div
@@ -70,17 +66,11 @@ export default function Pricing() {
 
               <dl className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
                 <div>
-                  <dt className="text-graphite/60">
-                    {table.time || 'Time'}
-                  </dt>
-                  <dd className="text-graphite">
-                    {i.duration?.trim() || '—'}
-                  </dd>
+                  <dt className="text-graphite/60">{table.time}</dt>
+                  <dd className="text-graphite">{i.duration?.trim() || '—'}</dd>
                 </div>
                 <div className="text-right">
-                  <dt className="text-graphite/60">
-                    {table.price || 'Price'}
-                  </dt>
+                  <dt className="text-graphite/60">{table.price}</dt>
                   <dd className="text-midnight-navy font-medium">
                     {i.price?.trim() || '—'}
                   </dd>
@@ -89,53 +79,44 @@ export default function Pricing() {
             </div>
           ))}
 
-          {/* MOBILE: Packages as cards */}
+          {/* MOBILE: packages */}
           {packages.heading && (
             <h3 className="mt-6 mb-2 font-display text-midnight-navy text-2xl font-extrabold">
               {packages.heading}
             </h3>
           )}
+
           {packItems.map((p) => (
             <div
               key={p.key}
               className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100"
             >
-              <div className="flex items-center justify-between gap-2">
-                <div className="font-display text-midnight-navy text-lg font-semibold break-words">
-                  {p.title}
-                </div>
+              <div className="font-display text-midnight-navy text-lg font-semibold break-words">
+                {p.title}
               </div>
 
               <dl className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
                 <div>
-                  <dt className="text-graphite/60">
-                    {table.time || 'Time'}
-                  </dt>
-                  <dd className="text-graphite">
-                    {p.duration?.trim() || '—'}
-                  </dd>
+                  <dt className="text-graphite/60">{table.time}</dt>
+                  <dd className="text-graphite">{p.duration?.trim()}</dd>
                 </div>
                 <div className="text-right">
-                  <dt className="text-graphite/60">
-                    {table.price || 'Price'}
-                  </dt>
+                  <dt className="text-graphite/60">{table.price}</dt>
                   <dd className="text-midnight-navy font-medium">
-                    {p.price?.trim() || '—'}
+                    {p.price?.trim()}
                   </dd>
                 </div>
               </dl>
 
               {p.unitPrice && (
-                <p className="mt-1 text-xs text-graphite/70">
-                  {p.unitPrice}
-                </p>
+                <p className="mt-1 text-xs text-graphite/70">{p.unitPrice}</p>
               )}
 
-              {p.url?.trim() && (
+              {p.url && (
                 <div className="mt-3">
                   <LinkButton
                     href={p.url}
-                    label={p.buttonLabel || t('buttons.buy', 'Buy')}
+                    label={p.buttonLabel || t('buttons.buy')}
                     color="caramel"
                     className={mobileBtn}
                   />
@@ -155,23 +136,52 @@ export default function Pricing() {
                   {membershipDetails.heading}
                 </h4>
               </div>
+
               {membershipDetails.tagline && (
                 <p className="text-sm text-graphite mb-2">
                   {membershipDetails.tagline}
                 </p>
               )}
-              {membershipDetails.items && membershipDetails.items.length > 0 && (
+
+              {membershipDetails.items?.length > 0 && (
                 <ul className="mt-1 list-disc pl-5 text-sm text-graphite space-y-1">
                   {membershipDetails.items.map((line, idx) => (
                     <li key={idx}>{line}</li>
                   ))}
                 </ul>
               )}
+
+              {/* ⭐ MOBILE: Subscription Management Pill */}
+              {membershipDetails.portalUrl && membershipDetails.portalLabel && (
+                <div className="mt-3">
+                  <a
+                    href={membershipDetails.portalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 rounded-full border border-caramel bg-caramel/5 px-3 py-1 text-xs font-semibold text-caramel hover:bg-caramel hover:text-white transition"
+                  >
+                    <span>{membershipDetails.portalLabel}</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-3 w-3"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              )}
             </div>
           )}
         </div>
 
-        {/* —— DESKTOP: Single sessions table (pricing only) —— */}
+        {/* —— DESKTOP VIEW —— */}
         <div className="hidden md:block bg-white rounded-2xl p-5 sm:p-6 shadow-sm">
           <table className="w-full table-fixed">
             <colgroup>
@@ -181,11 +191,9 @@ export default function Pricing() {
             </colgroup>
             <thead>
               <tr className="text-xs uppercase tracking-wide text-graphite/60">
-                <th className="text-left pb-2">
-                  {table.session || 'Session'}
-                </th>
-                <th className="text-left pb-2">{table.time || 'Time'}</th>
-                <th className="text-left pb-2">{table.price || 'Price'}</th>
+                <th className="text-left pb-2">{table.session}</th>
+                <th className="text-left pb-2">{table.time}</th>
+                <th className="text-left pb-2">{table.price}</th>
               </tr>
             </thead>
             <tbody>
@@ -200,10 +208,10 @@ export default function Pricing() {
                     </span>
                   </td>
                   <td className="py-4 text-sm sm:text-base text-graphite">
-                    {i.duration?.trim() || '—'}
+                    {i.duration}
                   </td>
-                  <td className="py-4 text-sm sm:text-base font-medium text-midnight-navy">
-                    {i.price?.trim() || '—'}
+                  <td className="py-4 text-sm sm:text-base text-midnight-navy font-medium">
+                    {i.price}
                   </td>
                 </tr>
               ))}
@@ -211,13 +219,14 @@ export default function Pricing() {
           </table>
         </div>
 
-        {/* —— DESKTOP: Packages table (with Monthly Member row) —— */}
+        {/* DESKTOP: Packages */}
         <div className="hidden md:block mt-6 bg-white rounded-2xl p-5 sm:p-6 shadow-sm">
           {packages.heading && (
             <h3 className="mb-2 font-display text-midnight-navy text-2xl font-extrabold">
               {packages.heading}
             </h3>
           )}
+
           <table className="w-full table-fixed">
             <colgroup>
               <col className="w-[58%]" />
@@ -225,18 +234,16 @@ export default function Pricing() {
               <col className="w-[150px]" />
               <col className="w-[170px]" />
             </colgroup>
+
             <thead>
               <tr className="text-xs uppercase tracking-wide text-graphite/60">
-                <th className="text-left pb-2">
-                  {table.session || 'Session'}
-                </th>
-                <th className="text-left pb-2">{table.time || 'Time'}</th>
-                <th className="text-left pb-2">{table.price || 'Price'}</th>
-                <th className="text-left pb-2">
-                  {packages.buy || 'Buy'}
-                </th>
+                <th className="text-left pb-2">{table.session}</th>
+                <th className="text-left pb-2">{table.time}</th>
+                <th className="text-left pb-2">{table.price}</th>
+                <th className="text-left pb-2">{packages.buy}</th>
               </tr>
             </thead>
+
             <tbody>
               {packItems.map((p) => (
                 <tr
@@ -244,18 +251,18 @@ export default function Pricing() {
                   className="border-t first:border-t-0 border-gray-200/70 align-middle"
                 >
                   <td className="py-4">
-                    <div className="flex items-center gap-2">
-                      <span className="font-display text-midnight-navy text-base sm:text-lg font-semibold">
-                        {p.title}
-                      </span>
-                    </div>
+                    <span className="font-display text-midnight-navy text-base sm:text-lg font-semibold">
+                      {p.title}
+                    </span>
                   </td>
+
                   <td className="py-4 text-sm sm:text-base text-graphite">
-                    {p.duration?.trim() || '—'}
+                    {p.duration}
                   </td>
-                  <td className="py-4 text-sm sm:text-base font-medium text-midnight-navy align-middle">
+
+                  <td className="py-4 text-sm sm:text-base text-midnight-navy font-medium">
                     <div className="flex flex-col leading-tight">
-                      <span>{p.price?.trim() || '—'}</span>
+                      <span>{p.price}</span>
                       {p.unitPrice && (
                         <span className="text-xs text-graphite/70 mt-0.5">
                           {p.unitPrice}
@@ -263,11 +270,12 @@ export default function Pricing() {
                       )}
                     </div>
                   </td>
+
                   <td className="py-4">
-                    {p.url?.trim() && (
+                    {p.url && (
                       <LinkButton
                         href={p.url}
-                        label={p.buttonLabel || t('buttons.buy', 'Buy')}
+                        label={p.buttonLabel || t('buttons.buy')}
                         color="lemon"
                         className="w-full justify-center whitespace-nowrap"
                       />
@@ -278,7 +286,7 @@ export default function Pricing() {
             </tbody>
           </table>
 
-          {/* DESKTOP: Monthly Member details card */}
+          {/* DESKTOP Monthly Member details */}
           {membershipDetails.heading && (
             <div className="mt-4 rounded-xl bg-white p-4 shadow-sm border border-caramel/30">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
@@ -291,6 +299,7 @@ export default function Pricing() {
                       {membershipDetails.heading}
                     </h4>
                   </div>
+
                   {membershipDetails.tagline && (
                     <p className="text-sm text-graphite">
                       {membershipDetails.tagline}
@@ -298,30 +307,55 @@ export default function Pricing() {
                   )}
                 </div>
               </div>
-              {membershipDetails.items && membershipDetails.items.length > 0 && (
+
+              {membershipDetails.items?.length > 0 && (
                 <ul className="mt-2 list-disc pl-5 text-sm text-graphite space-y-1">
                   {membershipDetails.items.map((line, idx) => (
                     <li key={idx}>{line}</li>
                   ))}
                 </ul>
               )}
+
+              {/* ⭐ DESKTOP: Subscription Management Pill */}
+              {membershipDetails.portalUrl && membershipDetails.portalLabel && (
+                <div className="mt-3">
+                  <a
+                    href={membershipDetails.portalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 rounded-full border border-caramel bg-caramel/5 px-3 py-1 text-xs font-semibold text-caramel hover:bg-caramel hover:text-white transition"
+                  >
+                    <span>{membershipDetails.portalLabel}</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-3 w-3"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              )}
             </div>
           )}
         </div>
 
-        {/* —— POLICIES & NOTES (Accordion) —— */}
+        {/* Policies */}
         {(policies.heading ||
           (policies.sections && policies.sections.length)) && (
           <PoliciesAccordion policies={policies} />
         )}
 
-        {/* —— Location Info —— */}
+        {/* Location */}
         <div className="mt-6 rounded-xl bg-white text-midnight-navy shadow-sm border border-gray-200">
           <div className="p-5 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <span
-              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-midnight-navy/10"
-              aria-hidden="true"
-            >
+            <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-midnight-navy/10">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 text-midnight-navy"
@@ -336,24 +370,23 @@ export default function Pricing() {
                 <circle cx="12" cy="10" r="3" />
               </svg>
             </span>
+
             <div className="flex-1">
               <div className="font-semibold text-base sm:text-lg">
-                {location.title || 'Location Info'}
+                {location.title}
               </div>
               <p className="mt-0.5 text-sm sm:text-base leading-relaxed text-graphite">
                 <Trans
                   i18nKey="location.body"
                   ns="pricing"
-                  components={{
-                    strong: <strong className="font-semibold" />
-                  }}
+                  components={{ strong: <strong className="font-semibold" /> }}
                 />
               </p>
             </div>
           </div>
         </div>
 
-        {/* —— Corporate callout —— */}
+        {/* Corporate block */}
         {(corporate.title || corporate.body) && (
           <div className="mt-6 rounded-xl bg-white text-midnight-navy shadow-sm border border-gray-200">
             <div className="p-5 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -373,6 +406,7 @@ export default function Pricing() {
                     <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
                   </svg>
                 </span>
+
                 <div>
                   <div className="font-semibold text-base sm:text-lg">
                     {corporate.title}
@@ -384,6 +418,7 @@ export default function Pricing() {
                   )}
                 </div>
               </div>
+
               {corporate.linkUrl && corporate.linkLabel && (
                 <div className="sm:ml-auto">
                   <a
