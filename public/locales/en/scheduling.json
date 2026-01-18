@@ -29,13 +29,6 @@
         "duration": "60 min",
         "price": "¥6,000",
         "url": "https://calendly.com/collier-consulting/standard-session"
-      },
-      {
-        "key": "compact30",
-        "title": "Compact Session",
-        "duration": "30 min",
-        "price": "¥3,500",
-        "url": "https://calendly.com/collier-consulting/compact-session"
       }
     ]
   },
@@ -43,8 +36,6 @@
     "heading": "For Packages & Monthly Members",
     "text": "Already purchased a package or joined the Monthly Member Plan? Schedule your sessions here:",
     "standardLabel": "Schedule Standard\n(Package / Member)",
-    "standardUrl": "https://calendly.com/collier-consulting/standard-session-package",
-    "compactLabel": "Schedule Compact\n(Package / Member)",
-    "compactUrl": "https://calendly.com/collier-consulting/compact-session-package"
+    "standardUrl": "https://calendly.com/collier-consulting/standard-session-package"
   }
 }

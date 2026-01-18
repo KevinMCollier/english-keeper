@@ -3,8 +3,7 @@
   "table": { "session": "Session", "time": "Time", "price": "Price", "book": "Book" },
   "buttons": {
     "book": "Book",
-    "bookStandard": "Book Standard Session",
-    "bookCompact": "Book Compact Session",
+    "bookSession": "Book Session",
     "bookFreeConsult15": "Book Free Consultation",
     "buy": "Buy"
   },
@@ -21,89 +20,69 @@
       "url": "https://calendly.com/collier-consulting/free-consultation"
     },
     {
-      "key": "standard60",
-      "title": "Standard Session",
+      "key": "single60",
+      "title": "Single Lesson",
       "duration": "60 min",
       "price": "¥6,000",
       "url": "https://calendly.com/collier-consulting/standard-session"
-    },
-    {
-      "key": "compact30",
-      "title": "Compact Session",
-      "duration": "30 min",
-      "price": "¥3,500",
-      "url": "https://calendly.com/collier-consulting/compact-session"
     }
   ],
   "packages": {
-    "heading": "Packages & Monthly Plan",
-    "badgePopular": "Most popular",
+    "heading": "Packages & Plans",
+    "badgePopular": "Best value",
+    "badgeRecurring": "Recurring",
     "buy": "Buy",
+    "join": "Join",
     "items": [
       {
-        "key": "standard4",
-        "title": "Standard 4-Pack",
-        "duration": "60 min each",
-        "price": "¥22,000",
-        "unitPrice": "¥5,500 / session",
-        "buttonLabel": "Buy Standard 4-Pack",
-        "url": "https://buy.stripe.com/fZueVc1Pq5i6bdo0HAeUU0f"
-      },
-      {
-        "key": "standard8",
-        "title": "Standard 8-Pack",
-        "popular": true,
-        "duration": "60 min each",
-        "price": "¥40,000",
-        "unitPrice": "¥5,000 / session",
-        "buttonLabel": "Buy Standard 8-Pack",
-        "url": "https://buy.stripe.com/dRmeVc9hS7qe3KW0HAeUU0e"
-      },
-      {
-        "key": "compact4",
-        "title": "Compact 4-Pack",
-        "duration": "30 min each",
-        "price": "¥13,000",
-        "unitPrice": "¥3,250 / session",
-        "buttonLabel": "Buy Compact 4-Pack",
-        "url": "https://buy.stripe.com/3cI9ASbq0bGuepAfCueUU0h"
-      },
-      {
-        "key": "compact8",
-        "title": "Compact 8-Pack",
-        "popular": true,
-        "duration": "30 min each",
-        "price": "¥24,000",
-        "unitPrice": "¥3,000 / session",
-        "buttonLabel": "Buy Compact 8-Pack",
-        "url": "https://buy.stripe.com/bJeaEW79Kh0O2GScqieUU0g"
-      },
-      {
-        "key": "monthlyMember",
+        "key": "monthly",
         "title": "Monthly Member Plan",
-        "duration": "4 hours / month",
+        "popular": true,
+        "recurring": true,
+        "duration": "60-min/week",
         "price": "¥20,000 / month",
-        "unitPrice": "Same as ¥5,000 / hour",
+        "unitPrice": "~¥4,600 per hour",
         "buttonLabel": "Join Monthly Member Plan",
         "url": "https://buy.stripe.com/4gMdR80LmcKy3KWcqieUU0i"
+      },
+      {
+        "key": "pack8",
+        "title": "8-Hour Package",
+        "duration": "60-min x 8",
+        "price": "¥44,000",
+        "unitPrice": "¥5,500 per hour",
+        "buttonLabel": "Buy 8-Hour Package",
+        "url": "https://buy.stripe.com/dRmeVc9hS7qe3KW0HAeUU0e"
       }
     ],
     "membershipDetails": {
       "heading": "Monthly Member Plan",
       "bubble": "Recommended",
-      "tagline": "For busy professionals who want steady progress every month.",
+      "tagline": "Build consistency and see real progress with weekly lessons.",
       "items": [
-        "¥20,000 per month includes 4 hours of lessons.",
-        "Mix 60-minute and 30-minute sessions however you like.",
-        "Same ¥5,000/hour rate as the Standard 8-Pack.",
-        "Online or in-person (subject to the usual location conditions).",
+        "¥20,000 per month, billed automatically each month.",
+        "One hour of lessons every week (1×60-min or 2×30-min).",
+        "Works out to approximately ¥4,600 per hour—the best value available.",
+        "Online or in-person (subject to usual location availability).",
         "Auto-renews monthly; cancel anytime before the next billing date.",
-        "Unused hours roll over to the next month (up to 4 hours can be carried).",
-        "Members can book additional lessons anytime at the discounted member rate (¥4,800).",
-        "If you plan to take one lesson per week, please note that some months include five weeks. When this happens, the 5th session can be taken using rollover credit or booked as an additional member lesson (¥4,800)."
+        "Unused hours roll over to the next month (up to 4 hours can be carried forward).",
+        "Members can book additional lessons anytime at the discounted rate of ¥4,500 per hour.",
+        "Weekly rhythm helps you stay consistent and improves learning outcomes."
       ],
       "portalUrl": "https://billing.stripe.com/p/login/eVq5kC0Lmh0O2GSdumeUU00",
       "portalLabel": "Already a Monthly Member? Manage your subscription here"
+    },
+    "packageDetails": {
+      "heading": "8-Lesson Package",
+      "tagline": "Prepay for flexibility without a monthly commitment.",
+      "items": [
+        "8 lessons for ¥44,000 (¥5,500 per lesson).",
+        "Valid for 240 days from purchase.",
+        "Schedule lessons at your own pace within the validity period.",
+        "Online or in-person (subject to usual location availability).",
+        "Reschedule up to 24 hours before the lesson start time.",
+        "One-time purchase, no recurring charges."
+      ]
     }
   },
   "policies": {
@@ -112,81 +91,65 @@
       {
         "title": "General",
         "items": [
-          "Prices are in JPY and include the session fee and a post-session learning summary.",
-          "In-person sessions are available within limited locations—contact me for details."
+          "All prices are in JPY and include the lesson and a post-lesson learning summary.",
+          "In-person lessons are available in Shibuya, Tamachi, and Shinagawa. Contact me for details or if you'd like to meet elsewhere."
         ]
       },
       {
         "title": "Discounts",
         "items": [
-          "<strong>FIRST20</strong>: 20% off your first private 1:1 lesson (Standard or Compact).",
-          "FIRST20 is <strong>not valid</strong> for package purchases."
+          "<strong>FIRST20</strong>: 20% off your first 1:1 lesson.",
+          "FIRST20 is <strong>not valid</strong> for package or plan purchases."
         ]
       },
       {
-        "title": "Packages (credits)",
+        "title": "8-Lesson Package",
         "items": [
-          "Each credit equals one session of the purchased type and duration.",
-          "Schedule within the validity window.",
-          "<strong>4-Pack:</strong> valid <strong>120 days</strong> from purchase; <strong>8-Pack:</strong> valid <strong>240 days</strong> from purchase.",
-          "<strong>Credit usage:</strong> 1 credit per session held, or if you cancel within 24 hours of the start time.",
-          "Rescheduling allowed up to <strong>24 hours</strong> before start.",
-          "Credits are for the purchaser only and are not transferable."
+          "Valid for <strong>240 days</strong> from purchase date.",
+          "One lesson credit is used per lesson attended, or if you cancel within 24 hours of the start time.",
+          "Rescheduling allowed up to <strong>24 hours</strong> before the lesson.",
+          "Package credits are non-transferable.",
+          "Refundable within <strong>48 hours</strong> of purchase if unused; refund minus ¥1,500 admin fee.",
+          "After 48 hours or once any lesson is used: <strong>non-refundable</strong>."
         ]
       },
       {
         "title": "Monthly Member Plan",
         "items": [
-          "The Monthly Member Plan is a subscription of <strong>¥20,000 per month</strong> and includes <strong>4 hours of lesson time</strong>.",
-          "You can mix 60-minute and 30-minute sessions freely within your available hours (online or in person, subject to the usual location conditions).",
-          "The effective hourly rate is <strong>¥5,000</strong> (same as the Standard 8-Pack).",
-          "The plan auto-renews every month until you cancel via the Stripe customer portal or by contacting us.",
-          "You can cancel anytime before the next billing date; your plan remains active until the end of the current paid month.",
+          "The Monthly Member Plan is a <strong>¥20,000 per month subscription</strong> that includes <strong>one 60-minute lesson every week</strong>.",
+          "This works out to approximately 4-5 lessons per month (depending on how many weeks are in the month), at roughly <strong>¥4,600 per hour</strong>.",
+          "The plan auto-renews every month until you cancel.",
+          "Cancel anytime before your next billing date via the Stripe customer portal or by contacting me. Your plan remains active until the end of the current paid month.",
           "Unused hours roll over to the next month, up to a maximum of <strong>4 rollover hours</strong>.",
-          "Members can book additional lessons at the discounted member rate of <strong>¥4,800</strong> per 60 minutes (or equivalent).",
-          "If you usually take one lesson per week, note that some months contain five weeks. The 5th lesson can be covered using rollover time or booked as an additional member lesson (¥4,800)."
+          "Members can book additional lessons at the discounted rate of <strong>¥4,500</strong> per hour.",
+          "First-time subscribers: if you request cancellation within <strong>24 hours</strong> of subscribing and no lessons have been taken, you'll receive a full refund for that month.",
+          "After 24 hours, or once any lesson has been taken, the current month is <strong>non-refundable</strong>."
         ]
       },
       {
-        "title": "Refunds — Single Lessons",
+        "title": "Cancellation — Single Lessons",
         "items": [
-          "Cancel >48h before: refund minus a <strong>¥500 cancellation/admin fee</strong> (free reschedule also available).",
-          "Cancel 24–48h before: <strong>50%</strong> refund.",
-          "Cancel within 24h or after the session occurs: <strong>no refund</strong> (except in case of service issues on my side)."
-        ]
-      },
-      {
-        "title": "Refunds — Packages",
-        "items": [
-          "Refundable <strong>within 48 hours</strong> of purchase if unused; refund minus a cancellation/admin fee of <strong>¥1,000 (4-Pack)</strong> or <strong>¥1,500 (8-Pack)</strong>.",
-          "After 48 hours or once any credit is used: <strong>non-refundable</strong>.",
-          "No refunds after the validity period ends."
-        ]
-      },
-      {
-        "title": "Refunds — Monthly Member Plan",
-        "items": [
-          "First-time purchase only: if you request a refund within <strong>24 hours</strong> of purchase and no lessons have been taken, we will cancel the subscription and provide a full refund for that month.",
-          "After 24 hours, or once any lesson in the billing month has been taken, the current month is <strong>non-refundable</strong>.",
-          "You may cancel at any time before the next billing date to stop future charges; remaining hours can be used until the end of the current paid month, subject to the rollover rules above."
+          "Cancel more than 48 hours before: refund minus a <strong>¥500 admin fee</strong> (or free reschedule).",
+          "Cancel 24–48 hours before: <strong>50%</strong> refund.",
+          "Cancel within 24 hours or after the lesson: <strong>no refund</strong> (except for service issues on my end)."
         ]
       },
       {
         "title": "Payment",
         "items": [
-          "Online lessons: please pay within <strong>24 hours</strong> of booking to keep your spot (payment link provided by email).",
+          "Online lessons: please pay within <strong>24 hours</strong> of booking to confirm your spot (payment link provided by email).",
           "In-person lessons: pay online in advance or in cash on the day."
         ]
       }
     ]
   },
   "location": {
-    "title": "Location Info",
-    "body": "In-person sessions currently available in <strong>Shibuya</strong>, <strong>Tamachi</strong>, and <strong>Shinagawa</strong> upon request. Locations outside these areas are subject to additional charges."
+    "title": "Location",
+    "body": "In-person lessons currently available in <strong>Shibuya-ku,</strong>, <strong>Setagaya-ku</strong>, <strong>Ota-ku</strong>, and <strong>Shinagawa-ku</strong> Other locations may be possible—just ask!"
   },
   "corporate": {
     "title": "People Strategy Consulting",
-    "body": "I don’t just coach individual skills — I build alignment across people, culture, and direction.",
+    "body": "I also work with teams and organizations on alignment, culture, and leadership development.",
     "linkLabel": "visit Collier Consulting",
     "linkUrl": "https://collierconsulting.tokyo/",
     "trailingPunct": "."
